@@ -174,6 +174,97 @@ CMakeFiles/viz4lem.dir/duplicate_values.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/duplicate_values.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/duplicate_values.c -o CMakeFiles/viz4lem.dir/duplicate_values.c.s
 
+CMakeFiles/viz4lem.dir/init_sdl.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/init_sdl.c.o: ../init_sdl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/viz4lem.dir/init_sdl.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/init_sdl.c.o   -c /Users/cyuriko/leminviztogit/init_sdl.c
+
+CMakeFiles/viz4lem.dir/init_sdl.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/init_sdl.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/init_sdl.c > CMakeFiles/viz4lem.dir/init_sdl.c.i
+
+CMakeFiles/viz4lem.dir/init_sdl.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/init_sdl.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/init_sdl.c -o CMakeFiles/viz4lem.dir/init_sdl.c.s
+
+CMakeFiles/viz4lem.dir/prepare_data.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/prepare_data.c.o: ../prepare_data.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/viz4lem.dir/prepare_data.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/prepare_data.c.o   -c /Users/cyuriko/leminviztogit/prepare_data.c
+
+CMakeFiles/viz4lem.dir/prepare_data.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/prepare_data.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/prepare_data.c > CMakeFiles/viz4lem.dir/prepare_data.c.i
+
+CMakeFiles/viz4lem.dir/prepare_data.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/prepare_data.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/prepare_data.c -o CMakeFiles/viz4lem.dir/prepare_data.c.s
+
+CMakeFiles/viz4lem.dir/draw_ants.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/draw_ants.c.o: ../draw_ants.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/viz4lem.dir/draw_ants.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/draw_ants.c.o   -c /Users/cyuriko/leminviztogit/draw_ants.c
+
+CMakeFiles/viz4lem.dir/draw_ants.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/draw_ants.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/draw_ants.c > CMakeFiles/viz4lem.dir/draw_ants.c.i
+
+CMakeFiles/viz4lem.dir/draw_ants.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/draw_ants.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/draw_ants.c -o CMakeFiles/viz4lem.dir/draw_ants.c.s
+
+CMakeFiles/viz4lem.dir/draw_map.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/draw_map.c.o: ../draw_map.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/viz4lem.dir/draw_map.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/draw_map.c.o   -c /Users/cyuriko/leminviztogit/draw_map.c
+
+CMakeFiles/viz4lem.dir/draw_map.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/draw_map.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/draw_map.c > CMakeFiles/viz4lem.dir/draw_map.c.i
+
+CMakeFiles/viz4lem.dir/draw_map.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/draw_map.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/draw_map.c -o CMakeFiles/viz4lem.dir/draw_map.c.s
+
+CMakeFiles/viz4lem.dir/music.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/music.c.o: ../music.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/viz4lem.dir/music.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/music.c.o   -c /Users/cyuriko/leminviztogit/music.c
+
+CMakeFiles/viz4lem.dir/music.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/music.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/music.c > CMakeFiles/viz4lem.dir/music.c.i
+
+CMakeFiles/viz4lem.dir/music.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/music.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/music.c -o CMakeFiles/viz4lem.dir/music.c.s
+
+CMakeFiles/viz4lem.dir/clear.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/clear.c.o: ../clear.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/viz4lem.dir/clear.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/clear.c.o   -c /Users/cyuriko/leminviztogit/clear.c
+
+CMakeFiles/viz4lem.dir/clear.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/clear.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/clear.c > CMakeFiles/viz4lem.dir/clear.c.i
+
+CMakeFiles/viz4lem.dir/clear.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/clear.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/clear.c -o CMakeFiles/viz4lem.dir/clear.c.s
+
+CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o: CMakeFiles/viz4lem.dir/flags.make
+CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o: ../drawing_tests_delete_me.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o   -c /Users/cyuriko/leminviztogit/drawing_tests_delete_me.c
+
+CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/cyuriko/leminviztogit/drawing_tests_delete_me.c > CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.i
+
+CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/cyuriko/leminviztogit/drawing_tests_delete_me.c -o CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.s
+
 # Object files for target viz4lem
 viz4lem_OBJECTS = \
 "CMakeFiles/viz4lem.dir/main.c.o" \
@@ -184,7 +275,14 @@ viz4lem_OBJECTS = \
 "CMakeFiles/viz4lem.dir/read_steps.c.o" \
 "CMakeFiles/viz4lem.dir/valid.c.o" \
 "CMakeFiles/viz4lem.dir/delete_me_im_a_debug.c.o" \
-"CMakeFiles/viz4lem.dir/duplicate_values.c.o"
+"CMakeFiles/viz4lem.dir/duplicate_values.c.o" \
+"CMakeFiles/viz4lem.dir/init_sdl.c.o" \
+"CMakeFiles/viz4lem.dir/prepare_data.c.o" \
+"CMakeFiles/viz4lem.dir/draw_ants.c.o" \
+"CMakeFiles/viz4lem.dir/draw_map.c.o" \
+"CMakeFiles/viz4lem.dir/music.c.o" \
+"CMakeFiles/viz4lem.dir/clear.c.o" \
+"CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o"
 
 # External object files for target viz4lem
 viz4lem_EXTERNAL_OBJECTS =
@@ -198,9 +296,16 @@ viz4lem: CMakeFiles/viz4lem.dir/read_steps.c.o
 viz4lem: CMakeFiles/viz4lem.dir/valid.c.o
 viz4lem: CMakeFiles/viz4lem.dir/delete_me_im_a_debug.c.o
 viz4lem: CMakeFiles/viz4lem.dir/duplicate_values.c.o
+viz4lem: CMakeFiles/viz4lem.dir/init_sdl.c.o
+viz4lem: CMakeFiles/viz4lem.dir/prepare_data.c.o
+viz4lem: CMakeFiles/viz4lem.dir/draw_ants.c.o
+viz4lem: CMakeFiles/viz4lem.dir/draw_map.c.o
+viz4lem: CMakeFiles/viz4lem.dir/music.c.o
+viz4lem: CMakeFiles/viz4lem.dir/clear.c.o
+viz4lem: CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o
 viz4lem: CMakeFiles/viz4lem.dir/build.make
 viz4lem: CMakeFiles/viz4lem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable viz4lem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/cyuriko/leminviztogit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable viz4lem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/viz4lem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

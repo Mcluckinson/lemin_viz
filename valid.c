@@ -6,7 +6,7 @@
 /*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:21:11 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/11 19:27:27 by cyuriko          ###   ########.fr       */
+/*   Updated: 2020/03/11 20:10:22 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int 	is_comment(char *line)
 		len = ft_strlen(line);
 		if (len > 1)
 		{
-			if (line[0] == '#' && line[1] != '#')
-				del_line_and_return(line, 1);
-			else if (len > 2)
+			if (line[0] == '#'/* && line[1] != '#'*/)
+				return (1);
+	/*		else if (len > 2)
 			{
 				if (line[0] == '#' && line[1] == '#' && !ft_strequ(line, "##start") && !ft_strequ(line, "##end"))
-					del_line_and_return(line, 1);
-			}
+					return (del_line_and_return(line, 1));
+			}*/
 		}
 	}
 	return (0);

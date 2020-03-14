@@ -123,6 +123,33 @@ viz4lem/fast:
 	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/build
 .PHONY : viz4lem/fast
 
+clear.o: clear.c.o
+
+.PHONY : clear.o
+
+# target to build an object file
+clear.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/clear.c.o
+.PHONY : clear.c.o
+
+clear.i: clear.c.i
+
+.PHONY : clear.i
+
+# target to preprocess a source file
+clear.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/clear.c.i
+.PHONY : clear.c.i
+
+clear.s: clear.c.s
+
+.PHONY : clear.s
+
+# target to generate assembly for a file
+clear.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/clear.c.s
+.PHONY : clear.c.s
+
 delete_me_im_a_debug.o: delete_me_im_a_debug.c.o
 
 .PHONY : delete_me_im_a_debug.o
@@ -149,6 +176,87 @@ delete_me_im_a_debug.s: delete_me_im_a_debug.c.s
 delete_me_im_a_debug.c.s:
 	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/delete_me_im_a_debug.c.s
 .PHONY : delete_me_im_a_debug.c.s
+
+draw_ants.o: draw_ants.c.o
+
+.PHONY : draw_ants.o
+
+# target to build an object file
+draw_ants.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_ants.c.o
+.PHONY : draw_ants.c.o
+
+draw_ants.i: draw_ants.c.i
+
+.PHONY : draw_ants.i
+
+# target to preprocess a source file
+draw_ants.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_ants.c.i
+.PHONY : draw_ants.c.i
+
+draw_ants.s: draw_ants.c.s
+
+.PHONY : draw_ants.s
+
+# target to generate assembly for a file
+draw_ants.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_ants.c.s
+.PHONY : draw_ants.c.s
+
+draw_map.o: draw_map.c.o
+
+.PHONY : draw_map.o
+
+# target to build an object file
+draw_map.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_map.c.o
+.PHONY : draw_map.c.o
+
+draw_map.i: draw_map.c.i
+
+.PHONY : draw_map.i
+
+# target to preprocess a source file
+draw_map.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_map.c.i
+.PHONY : draw_map.c.i
+
+draw_map.s: draw_map.c.s
+
+.PHONY : draw_map.s
+
+# target to generate assembly for a file
+draw_map.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/draw_map.c.s
+.PHONY : draw_map.c.s
+
+drawing_tests_delete_me.o: drawing_tests_delete_me.c.o
+
+.PHONY : drawing_tests_delete_me.o
+
+# target to build an object file
+drawing_tests_delete_me.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.o
+.PHONY : drawing_tests_delete_me.c.o
+
+drawing_tests_delete_me.i: drawing_tests_delete_me.c.i
+
+.PHONY : drawing_tests_delete_me.i
+
+# target to preprocess a source file
+drawing_tests_delete_me.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.i
+.PHONY : drawing_tests_delete_me.c.i
+
+drawing_tests_delete_me.s: drawing_tests_delete_me.c.s
+
+.PHONY : drawing_tests_delete_me.s
+
+# target to generate assembly for a file
+drawing_tests_delete_me.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/drawing_tests_delete_me.c.s
+.PHONY : drawing_tests_delete_me.c.s
 
 duplicate_values.o: duplicate_values.c.o
 
@@ -177,6 +285,33 @@ duplicate_values.c.s:
 	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/duplicate_values.c.s
 .PHONY : duplicate_values.c.s
 
+init_sdl.o: init_sdl.c.o
+
+.PHONY : init_sdl.o
+
+# target to build an object file
+init_sdl.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/init_sdl.c.o
+.PHONY : init_sdl.c.o
+
+init_sdl.i: init_sdl.c.i
+
+.PHONY : init_sdl.i
+
+# target to preprocess a source file
+init_sdl.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/init_sdl.c.i
+.PHONY : init_sdl.c.i
+
+init_sdl.s: init_sdl.c.s
+
+.PHONY : init_sdl.s
+
+# target to generate assembly for a file
+init_sdl.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/init_sdl.c.s
+.PHONY : init_sdl.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -203,6 +338,60 @@ main.s: main.c.s
 main.c.s:
 	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/main.c.s
 .PHONY : main.c.s
+
+music.o: music.c.o
+
+.PHONY : music.o
+
+# target to build an object file
+music.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/music.c.o
+.PHONY : music.c.o
+
+music.i: music.c.i
+
+.PHONY : music.i
+
+# target to preprocess a source file
+music.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/music.c.i
+.PHONY : music.c.i
+
+music.s: music.c.s
+
+.PHONY : music.s
+
+# target to generate assembly for a file
+music.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/music.c.s
+.PHONY : music.c.s
+
+prepare_data.o: prepare_data.c.o
+
+.PHONY : prepare_data.o
+
+# target to build an object file
+prepare_data.c.o:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/prepare_data.c.o
+.PHONY : prepare_data.c.o
+
+prepare_data.i: prepare_data.c.i
+
+.PHONY : prepare_data.i
+
+# target to preprocess a source file
+prepare_data.c.i:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/prepare_data.c.i
+.PHONY : prepare_data.c.i
+
+prepare_data.s: prepare_data.c.s
+
+.PHONY : prepare_data.s
+
+# target to generate assembly for a file
+prepare_data.c.s:
+	$(MAKE) -f CMakeFiles/viz4lem.dir/build.make CMakeFiles/viz4lem.dir/prepare_data.c.s
+.PHONY : prepare_data.c.s
 
 read_ants.o: read_ants.c.o
 
@@ -375,15 +564,36 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... viz4lem"
+	@echo "... clear.o"
+	@echo "... clear.i"
+	@echo "... clear.s"
 	@echo "... delete_me_im_a_debug.o"
 	@echo "... delete_me_im_a_debug.i"
 	@echo "... delete_me_im_a_debug.s"
+	@echo "... draw_ants.o"
+	@echo "... draw_ants.i"
+	@echo "... draw_ants.s"
+	@echo "... draw_map.o"
+	@echo "... draw_map.i"
+	@echo "... draw_map.s"
+	@echo "... drawing_tests_delete_me.o"
+	@echo "... drawing_tests_delete_me.i"
+	@echo "... drawing_tests_delete_me.s"
 	@echo "... duplicate_values.o"
 	@echo "... duplicate_values.i"
 	@echo "... duplicate_values.s"
+	@echo "... init_sdl.o"
+	@echo "... init_sdl.i"
+	@echo "... init_sdl.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... music.o"
+	@echo "... music.i"
+	@echo "... music.s"
+	@echo "... prepare_data.o"
+	@echo "... prepare_data.i"
+	@echo "... prepare_data.s"
 	@echo "... read_ants.o"
 	@echo "... read_ants.i"
 	@echo "... read_ants.s"

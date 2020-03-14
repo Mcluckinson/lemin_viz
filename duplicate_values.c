@@ -34,7 +34,7 @@ int 	duplicate_links(t_link *link, t_all_data *data)
 	t_link	*start;
 
 	start = data->all_links;
-	while (start)
+	while (start != link && start)
 	{
 		if ((start->room1 == link->room1 && start->room2 == link->room2) ||
 				(start->room1 == link->room2 && start->room2 == link->room1))

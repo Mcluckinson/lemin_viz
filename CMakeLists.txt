@@ -21,7 +21,14 @@ add_executable(viz4lem
         read_steps.c
         valid.c
         delete_me_im_a_debug.c
-        duplicate_values.c)
+        duplicate_values.c
+        init_sdl.c
+        prepare_data.c
+        draw_ants.c
+        draw_map.c
+        music.c
+        clear.c
+        drawing_tests_delete_me.c)
 
 
 target_link_libraries(viz4lem

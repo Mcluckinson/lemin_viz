@@ -6,13 +6,13 @@
 /*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:02:38 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/11 19:27:27 by cyuriko          ###   ########.fr       */
+/*   Updated: 2020/03/14 16:43:22 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_viz.h"
 
-int 	ft_errror(char *error)
+int 	ft_error(const char *error)
 {
 	ft_putendl_fd(error, 2);
 	exit(-1);

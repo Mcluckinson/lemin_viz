@@ -47,7 +47,7 @@ static t_link 	*make_link(char *line, t_link *link, t_all_data *data)
 	result->room2 = find_room(data, split[1]);
 	del_str_arr(split);
 	if (!result->room1 || !result->room2 || duplicate_links(result, data))
-		return (NULL);
+		return (NULL);////////////////will leak on duplicate links, add clearing
 	return (result);
 }
 
@@ -88,7 +88,7 @@ int 	read_links(t_all_data *data)
 		return (0);
 	while (1)
 	{
-		if (get_next_line(1, &line) != 1)
+		if (get_next_line(data->del_me_fd, &line) != 1)
 			del_line_and_return(line, 0);
 		if (is_comment(line))
 		{

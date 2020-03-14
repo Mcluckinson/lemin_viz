@@ -84,16 +84,37 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/cyuriko/leminviztogit/clear.c">
+			<Option target="viz4lem"/>
+		</Unit>
 		<Unit filename="/Users/cyuriko/leminviztogit/delete_me_im_a_debug.c">
 			<Option target="viz4lem"/>
 		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/draw_ants.c">
+			<Option target="viz4lem"/>
+		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/draw_map.c">
+			<Option target="viz4lem"/>
+		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/drawing_tests_delete_me.c">
+			<Option target="viz4lem"/>
+		</Unit>
 		<Unit filename="/Users/cyuriko/leminviztogit/duplicate_values.c">
+			<Option target="viz4lem"/>
+		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/init_sdl.c">
 			<Option target="viz4lem"/>
 		</Unit>
 		<Unit filename="/Users/cyuriko/leminviztogit/lem_viz.h">
 			<Option target="viz4lem"/>
 		</Unit>
 		<Unit filename="/Users/cyuriko/leminviztogit/main.c">
+			<Option target="viz4lem"/>
+		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/music.c">
+			<Option target="viz4lem"/>
+		</Unit>
+		<Unit filename="/Users/cyuriko/leminviztogit/prepare_data.c">
 			<Option target="viz4lem"/>
 		</Unit>
 		<Unit filename="/Users/cyuriko/leminviztogit/read_ants.c">

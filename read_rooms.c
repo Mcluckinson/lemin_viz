@@ -6,7 +6,7 @@
 /*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:39:52 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/09 14:31:06 by cyuriko          ###   ########.fr       */
+/*   Updated: 2020/03/14 15:03:47 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_room *make_room(t_room *room, char *line, t_all_data *data)
 	return (result);
 }
 
-static int		start_end_check(char *line, t_room *rooms, t_all_data *data)
+static int		start_end_check(char *line, t_room **rooms, t_all_data *data)
 {
 	int 	flag;
 
@@ -41,23 +41,23 @@ static int		start_end_check(char *line, t_room *rooms, t_all_data *data)
 	flag += (ft_strequ(line, "##start") ? 1 : 0);
 	flag += (ft_strequ(line, "##end") ? 2 : 0);
 	ft_strdel(&line);
-	if (!flag)
+	if (flag != 1 && flag != 2)
 		return (1);
-	if ((get_next_line(1, &line) < 1) || !(is_room(line)))
+	if ((get_next_line(data->del_me_fd, &line) < 1) || !(is_room(line)))
 		return (del_line_and_return(line, 1));
 	if (flag == 1 && !data->start)
 	{
-		if (!(make_room(rooms, line, data)))
+		if (!(*rooms = make_room(*rooms, line, data)))
 			return (del_line_and_return(line, 0));
-		data->start = rooms;
-		return (del_line_and_return(line, 1));
+		data->start = *rooms;
+		return (1);
 	}
 	else if (flag == 2 && !data->end)
 	{
-		if (!(make_room(rooms, line, data)))
+		if (!(*rooms = make_room(*rooms, line, data)))
 			return (del_line_and_return(line, 0));
-		data->end = rooms;
-		return (del_line_and_return(line, 1));
+		data->end = *rooms;
+		return (1);
 	}
 	return (del_line_and_return(line, 0));
 }
@@ -70,11 +70,11 @@ int 	read_rooms(t_all_data *data)
 	rooms = NULL;
 	while (1)
 	{
-		if (get_next_line(1, &line) != 1)
+		if (get_next_line(data->del_me_fd, &line) != 1)
 			del_line_and_return(line, 0);
 		if (is_comment(line))
 		{
-			if (!start_end_check(line, rooms, data))
+			if (!start_end_check(line, &rooms, data))
 				return (0);
 			continue ;
 		}
@@ -92,4 +92,4 @@ int 	read_rooms(t_all_data *data)
 		break;
 	}
 	return (0);
-}
+ }
