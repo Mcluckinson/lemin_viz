@@ -78,6 +78,7 @@ static t_step	*assign_step(char *step_line, t_all_data *data, t_step *curr_step)
 		if (ft_strequ(finder->name, buff[1]))
 		{
 			result->room = finder;
+			finder->is_part_of_path = 1;
 			return (result);
 		}
 		finder = finder->next;

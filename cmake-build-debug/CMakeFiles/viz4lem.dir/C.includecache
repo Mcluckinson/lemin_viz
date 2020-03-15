@@ -632,6 +632,10 @@ close_code.h
 
 ../SDL2/SDL2.framework/Headers/close_code.h
 
+/Users/cyuriko/leminviztogit/draw_map.c
+lem_viz.h
+/Users/cyuriko/leminviztogit/lem_viz.h
+
 /Users/cyuriko/leminviztogit/lem_viz.h
 SDL.h
 /Users/cyuriko/leminviztogit/SDL.h
@@ -651,8 +655,4 @@ stdio.h
 -
 unistd.h
 -
-
-/Users/cyuriko/leminviztogit/read_steps.c
-lem_viz.h
-/Users/cyuriko/leminviztogit/lem_viz.h
 

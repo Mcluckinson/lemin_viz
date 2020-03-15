@@ -48,7 +48,7 @@ int main(int ac, char **av)
 	if ((!init_sdl(sdl_things)))
 		return (0);
 	//	return (huevie_dela());
-	draw_test_window(sdl_things);
+	draw_test_window(sdl_things, data);
 
 	return (0);
 //		free_and_quit(data);

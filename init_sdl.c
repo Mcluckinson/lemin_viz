@@ -6,7 +6,7 @@
 /*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 15:43:40 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/14 19:54:20 by cyuriko          ###   ########.fr       */
+/*   Updated: 2020/03/15 15:53:30 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ int 		init_sdl(t_sdl_things *things)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		ft_error(SDL_GetError());
-	if (!(things->win = SDL_CreateWindow("ANTS ACTUALLY DIE IN THE END",
+/*	if (!(things->win = SDL_CreateWindow("ANTS ACTUALLY DIE IN THE END",
 									  SDL_WINDOWPOS_UNDEFINED,
 									  SDL_WINDOWPOS_UNDEFINED,
 									  things->width, things->height,
-										 SDL_WINDOW_RESIZABLE)))
+										 SDL_WINDOW_RESIZABLE)))*/
+	if (SDL_CreateWindowAndRenderer(640, 480, 0, &things->win, &things->renderer))
 	{
 		SDL_Quit();
 		ft_error(SDL_GetError());
 	}
-//	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, 0)) ||
-//		!(things->floor = SDL_CreateRGBSurface(0, things->width, things->height, 32, 0, 0, 0, 0)))
-//	{
-//		SDL_Quit();
-//		return (0);
-//	}
-	if (!(things->sur = SDL_GetWindowSurface(things->win)))
-		ft_error(SDL_GetError());
+/*	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, 0)))
+	{
+		SDL_Quit();
+		return (0);
+	}*/
+//	if (!(things->sur = SDL_GetWindowSurface(things->win)))
+//		ft_error(SDL_GetError());
 	return (1);
 }
 

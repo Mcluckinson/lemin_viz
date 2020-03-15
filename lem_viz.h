@@ -6,7 +6,7 @@
 /*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 21:26:12 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/14 19:23:36 by cyuriko          ###   ########.fr       */
+/*   Updated: 2020/03/15 13:55:00 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct			s_room
 	int					x;
 	int					y;
 	char				*name;
+	int					is_part_of_path;
 	struct s_room		*next;
 }						t_room;
 
@@ -47,8 +48,8 @@ typedef struct			s_step
 typedef struct 			s_step_line
 {
 	char 				*line;
-	struct s_step_line	*next;
 	t_step 				*stepz;
+	struct s_step_line	*next;
 }						t_step_line;
 
 typedef struct			s_all_data
@@ -125,6 +126,7 @@ void 	find_win_size(t_all_data *data, t_sdl_things *things);
 /*
  * testing delete me
  */
-void draw_test_window(t_sdl_things *things);
+void draw_test_window(t_sdl_things *things, t_all_data *data);
+int 	draw_all_paths(t_sdl_things *things, t_all_data *data);
 
 #endif
