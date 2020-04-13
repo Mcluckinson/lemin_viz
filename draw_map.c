@@ -33,7 +33,7 @@ int 	draw_all_paths(t_sdl_things *things, t_all_data *data)
 		ft_error(SDL_GetError());
 	if (SDL_RenderClear(things->renderer))
 		ft_error(SDL_GetError());
-	if (SDL_GetRenderDrawColor(things->renderer, (Uint8*)255, (Uint8*)0, (Uint8*)255, (Uint8*)SDL_ALPHA_OPAQUE))
+	if (SDL_SetRenderDrawColor(things->renderer, (Uint8*)255, (Uint8*)0, (Uint8*)255, (Uint8*)SDL_ALPHA_OPAQUE))
 		ft_error(SDL_GetError());
 	while (start)
 	{
