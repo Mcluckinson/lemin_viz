@@ -95,6 +95,6 @@ add_executable(visualizer
         read_rooms.c
         read_steps.c
         utils.c
-        valid.c)
+        valid.c draw_circle.c draw_filled_circle.c SDL2/brezenham.c SDL2/blur_v4.c draw_buff.c)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${SDL2_LIBRARY} -lmingw32  -lSDL2main -lSDL2 -mwindows)

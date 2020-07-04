@@ -1218,6 +1218,76 @@ CMakeFiles/visualizer.dir/valid.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/valid.c.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\valid.c -o CMakeFiles\visualizer.dir\valid.c.s
 
+CMakeFiles/visualizer.dir/draw_circle.c.obj: CMakeFiles/visualizer.dir/flags.make
+CMakeFiles/visualizer.dir/draw_circle.c.obj: CMakeFiles/visualizer.dir/includes_C.rsp
+CMakeFiles/visualizer.dir/draw_circle.c.obj: ../draw_circle.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/visualizer.dir/draw_circle.c.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualizer.dir\draw_circle.c.obj   -c C:\Users\scump\Desktop\visualizer\draw_circle.c
+
+CMakeFiles/visualizer.dir/draw_circle.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualizer.dir/draw_circle.c.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\scump\Desktop\visualizer\draw_circle.c > CMakeFiles\visualizer.dir\draw_circle.c.i
+
+CMakeFiles/visualizer.dir/draw_circle.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/draw_circle.c.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\draw_circle.c -o CMakeFiles\visualizer.dir\draw_circle.c.s
+
+CMakeFiles/visualizer.dir/draw_filled_circle.c.obj: CMakeFiles/visualizer.dir/flags.make
+CMakeFiles/visualizer.dir/draw_filled_circle.c.obj: CMakeFiles/visualizer.dir/includes_C.rsp
+CMakeFiles/visualizer.dir/draw_filled_circle.c.obj: ../draw_filled_circle.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/visualizer.dir/draw_filled_circle.c.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualizer.dir\draw_filled_circle.c.obj   -c C:\Users\scump\Desktop\visualizer\draw_filled_circle.c
+
+CMakeFiles/visualizer.dir/draw_filled_circle.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualizer.dir/draw_filled_circle.c.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\scump\Desktop\visualizer\draw_filled_circle.c > CMakeFiles\visualizer.dir\draw_filled_circle.c.i
+
+CMakeFiles/visualizer.dir/draw_filled_circle.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/draw_filled_circle.c.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\draw_filled_circle.c -o CMakeFiles\visualizer.dir\draw_filled_circle.c.s
+
+CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj: CMakeFiles/visualizer.dir/flags.make
+CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj: CMakeFiles/visualizer.dir/includes_C.rsp
+CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj: ../SDL2/brezenham.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualizer.dir\SDL2\brezenham.c.obj   -c C:\Users\scump\Desktop\visualizer\SDL2\brezenham.c
+
+CMakeFiles/visualizer.dir/SDL2/brezenham.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualizer.dir/SDL2/brezenham.c.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\scump\Desktop\visualizer\SDL2\brezenham.c > CMakeFiles\visualizer.dir\SDL2\brezenham.c.i
+
+CMakeFiles/visualizer.dir/SDL2/brezenham.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/SDL2/brezenham.c.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\SDL2\brezenham.c -o CMakeFiles\visualizer.dir\SDL2\brezenham.c.s
+
+CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj: CMakeFiles/visualizer.dir/flags.make
+CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj: CMakeFiles/visualizer.dir/includes_C.rsp
+CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj: ../SDL2/blur_v4.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualizer.dir\SDL2\blur_v4.c.obj   -c C:\Users\scump\Desktop\visualizer\SDL2\blur_v4.c
+
+CMakeFiles/visualizer.dir/SDL2/blur_v4.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualizer.dir/SDL2/blur_v4.c.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\scump\Desktop\visualizer\SDL2\blur_v4.c > CMakeFiles\visualizer.dir\SDL2\blur_v4.c.i
+
+CMakeFiles/visualizer.dir/SDL2/blur_v4.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/SDL2/blur_v4.c.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\SDL2\blur_v4.c -o CMakeFiles\visualizer.dir\SDL2\blur_v4.c.s
+
+CMakeFiles/visualizer.dir/draw_buff.c.obj: CMakeFiles/visualizer.dir/flags.make
+CMakeFiles/visualizer.dir/draw_buff.c.obj: CMakeFiles/visualizer.dir/includes_C.rsp
+CMakeFiles/visualizer.dir/draw_buff.c.obj: ../draw_buff.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/visualizer.dir/draw_buff.c.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualizer.dir\draw_buff.c.obj   -c C:\Users\scump\Desktop\visualizer\draw_buff.c
+
+CMakeFiles/visualizer.dir/draw_buff.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualizer.dir/draw_buff.c.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\scump\Desktop\visualizer\draw_buff.c > CMakeFiles\visualizer.dir\draw_buff.c.i
+
+CMakeFiles/visualizer.dir/draw_buff.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualizer.dir/draw_buff.c.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\scump\Desktop\visualizer\draw_buff.c -o CMakeFiles\visualizer.dir\draw_buff.c.s
+
 # Object files for target visualizer
 visualizer_OBJECTS = \
 "CMakeFiles/visualizer.dir/libft/srcs/ft_abs.c.obj" \
@@ -1302,7 +1372,12 @@ visualizer_OBJECTS = \
 "CMakeFiles/visualizer.dir/read_rooms.c.obj" \
 "CMakeFiles/visualizer.dir/read_steps.c.obj" \
 "CMakeFiles/visualizer.dir/utils.c.obj" \
-"CMakeFiles/visualizer.dir/valid.c.obj"
+"CMakeFiles/visualizer.dir/valid.c.obj" \
+"CMakeFiles/visualizer.dir/draw_circle.c.obj" \
+"CMakeFiles/visualizer.dir/draw_filled_circle.c.obj" \
+"CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj" \
+"CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj" \
+"CMakeFiles/visualizer.dir/draw_buff.c.obj"
 
 # External object files for target visualizer
 visualizer_EXTERNAL_OBJECTS =
@@ -1390,13 +1465,18 @@ visualizer.exe: CMakeFiles/visualizer.dir/read_rooms.c.obj
 visualizer.exe: CMakeFiles/visualizer.dir/read_steps.c.obj
 visualizer.exe: CMakeFiles/visualizer.dir/utils.c.obj
 visualizer.exe: CMakeFiles/visualizer.dir/valid.c.obj
+visualizer.exe: CMakeFiles/visualizer.dir/draw_circle.c.obj
+visualizer.exe: CMakeFiles/visualizer.dir/draw_filled_circle.c.obj
+visualizer.exe: CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj
+visualizer.exe: CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj
+visualizer.exe: CMakeFiles/visualizer.dir/draw_buff.c.obj
 visualizer.exe: CMakeFiles/visualizer.dir/build.make
 visualizer.exe: C:/Program\ Files\ (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/libSDL2main.a
 visualizer.exe: C:/Program\ Files\ (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/libSDL2.dll.a
 visualizer.exe: CMakeFiles/visualizer.dir/linklibs.rsp
 visualizer.exe: CMakeFiles/visualizer.dir/objects1.rsp
 visualizer.exe: CMakeFiles/visualizer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Linking C executable visualizer.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\scump\Desktop\visualizer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Linking C executable visualizer.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\visualizer.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

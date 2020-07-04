@@ -122,6 +122,60 @@ visualizer/fast:
 	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/build
 .PHONY : visualizer/fast
 
+SDL2/blur_v4.obj: SDL2/blur_v4.c.obj
+
+.PHONY : SDL2/blur_v4.obj
+
+# target to build an object file
+SDL2/blur_v4.c.obj:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj
+.PHONY : SDL2/blur_v4.c.obj
+
+SDL2/blur_v4.i: SDL2/blur_v4.c.i
+
+.PHONY : SDL2/blur_v4.i
+
+# target to preprocess a source file
+SDL2/blur_v4.c.i:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/blur_v4.c.i
+.PHONY : SDL2/blur_v4.c.i
+
+SDL2/blur_v4.s: SDL2/blur_v4.c.s
+
+.PHONY : SDL2/blur_v4.s
+
+# target to generate assembly for a file
+SDL2/blur_v4.c.s:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/blur_v4.c.s
+.PHONY : SDL2/blur_v4.c.s
+
+SDL2/brezenham.obj: SDL2/brezenham.c.obj
+
+.PHONY : SDL2/brezenham.obj
+
+# target to build an object file
+SDL2/brezenham.c.obj:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj
+.PHONY : SDL2/brezenham.c.obj
+
+SDL2/brezenham.i: SDL2/brezenham.c.i
+
+.PHONY : SDL2/brezenham.i
+
+# target to preprocess a source file
+SDL2/brezenham.c.i:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/brezenham.c.i
+.PHONY : SDL2/brezenham.c.i
+
+SDL2/brezenham.s: SDL2/brezenham.c.s
+
+.PHONY : SDL2/brezenham.s
+
+# target to generate assembly for a file
+SDL2/brezenham.c.s:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/SDL2/brezenham.c.s
+.PHONY : SDL2/brezenham.c.s
+
 clear.obj: clear.c.obj
 
 .PHONY : clear.obj
@@ -202,6 +256,87 @@ draw_ants.s: draw_ants.c.s
 draw_ants.c.s:
 	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_ants.c.s
 .PHONY : draw_ants.c.s
+
+draw_buff.obj: draw_buff.c.obj
+
+.PHONY : draw_buff.obj
+
+# target to build an object file
+draw_buff.c.obj:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_buff.c.obj
+.PHONY : draw_buff.c.obj
+
+draw_buff.i: draw_buff.c.i
+
+.PHONY : draw_buff.i
+
+# target to preprocess a source file
+draw_buff.c.i:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_buff.c.i
+.PHONY : draw_buff.c.i
+
+draw_buff.s: draw_buff.c.s
+
+.PHONY : draw_buff.s
+
+# target to generate assembly for a file
+draw_buff.c.s:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_buff.c.s
+.PHONY : draw_buff.c.s
+
+draw_circle.obj: draw_circle.c.obj
+
+.PHONY : draw_circle.obj
+
+# target to build an object file
+draw_circle.c.obj:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_circle.c.obj
+.PHONY : draw_circle.c.obj
+
+draw_circle.i: draw_circle.c.i
+
+.PHONY : draw_circle.i
+
+# target to preprocess a source file
+draw_circle.c.i:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_circle.c.i
+.PHONY : draw_circle.c.i
+
+draw_circle.s: draw_circle.c.s
+
+.PHONY : draw_circle.s
+
+# target to generate assembly for a file
+draw_circle.c.s:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_circle.c.s
+.PHONY : draw_circle.c.s
+
+draw_filled_circle.obj: draw_filled_circle.c.obj
+
+.PHONY : draw_filled_circle.obj
+
+# target to build an object file
+draw_filled_circle.c.obj:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_filled_circle.c.obj
+.PHONY : draw_filled_circle.c.obj
+
+draw_filled_circle.i: draw_filled_circle.c.i
+
+.PHONY : draw_filled_circle.i
+
+# target to preprocess a source file
+draw_filled_circle.c.i:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_filled_circle.c.i
+.PHONY : draw_filled_circle.c.i
+
+draw_filled_circle.s: draw_filled_circle.c.s
+
+.PHONY : draw_filled_circle.s
+
+# target to generate assembly for a file
+draw_filled_circle.c.s:
+	$(MAKE) -f CMakeFiles\visualizer.dir\build.make CMakeFiles/visualizer.dir/draw_filled_circle.c.s
+.PHONY : draw_filled_circle.c.s
 
 draw_map.obj: draw_map.c.obj
 
@@ -2372,6 +2507,12 @@ help:
 	@echo ... visualizer
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... SDL2/blur_v4.obj
+	@echo ... SDL2/blur_v4.i
+	@echo ... SDL2/blur_v4.s
+	@echo ... SDL2/brezenham.obj
+	@echo ... SDL2/brezenham.i
+	@echo ... SDL2/brezenham.s
 	@echo ... clear.obj
 	@echo ... clear.i
 	@echo ... clear.s
@@ -2381,6 +2522,15 @@ help:
 	@echo ... draw_ants.obj
 	@echo ... draw_ants.i
 	@echo ... draw_ants.s
+	@echo ... draw_buff.obj
+	@echo ... draw_buff.i
+	@echo ... draw_buff.s
+	@echo ... draw_circle.obj
+	@echo ... draw_circle.i
+	@echo ... draw_circle.s
+	@echo ... draw_filled_circle.obj
+	@echo ... draw_filled_circle.i
+	@echo ... draw_filled_circle.s
 	@echo ... draw_map.obj
 	@echo ... draw_map.i
 	@echo ... draw_map.s

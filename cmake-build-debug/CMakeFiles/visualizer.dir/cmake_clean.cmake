@@ -1,7 +1,12 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj"
+  "CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj"
   "CMakeFiles/visualizer.dir/clear.c.obj"
   "CMakeFiles/visualizer.dir/delete_me_im_a_debug.c.obj"
   "CMakeFiles/visualizer.dir/draw_ants.c.obj"
+  "CMakeFiles/visualizer.dir/draw_buff.c.obj"
+  "CMakeFiles/visualizer.dir/draw_circle.c.obj"
+  "CMakeFiles/visualizer.dir/draw_filled_circle.c.obj"
   "CMakeFiles/visualizer.dir/draw_map.c.obj"
   "CMakeFiles/visualizer.dir/drawing_tests_delete_me.c.obj"
   "CMakeFiles/visualizer.dir/duplicate_values.c.obj"

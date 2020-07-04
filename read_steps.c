@@ -121,6 +121,7 @@ int read_steps(t_all_data *data)
 		ft_memdel((void*)step_lines);
 		return (0);
 	}
+	ft_strdel(&data->courier);
 	if (!split_steps(step_lines, data))
 	{
 		ft_memdel((void*)step_lines);
@@ -129,6 +130,7 @@ int read_steps(t_all_data *data)
 	data->all_steps = step_lines;
 	while (get_next_line(data->del_me_fd, &line) > 0)
 	{
+		ft_putendl(line);
 		if (!(step_lines->next = next_step_line(line)))
 			return (0);
 		if (!split_steps(step_lines->next, data))

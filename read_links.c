@@ -90,6 +90,7 @@ int 	read_links(t_all_data *data)
 	{
 		if (get_next_line(data->del_me_fd, &line) != 1)
 			del_line_and_return(line, 0);
+//		ft_putstr(line); ft_putchar('\n');
 		if (is_comment(line))
 		{
 			check = is_command(line);

@@ -40,6 +40,7 @@ int main(int ac, char **av)
 	data->del_me_fd = open(av[1], O_RDONLY);
 	if (!(read_data(data)))
 		return (0);
+
 	//	return (huevie_dela());
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))
 		return (0);

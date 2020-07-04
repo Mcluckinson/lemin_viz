@@ -4,9 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "C:/Users/scump/Desktop/visualizer/SDL2/blur_v4.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/SDL2/blur_v4.c.obj"
+  "C:/Users/scump/Desktop/visualizer/SDL2/brezenham.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/SDL2/brezenham.c.obj"
   "C:/Users/scump/Desktop/visualizer/clear.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/clear.c.obj"
   "C:/Users/scump/Desktop/visualizer/delete_me_im_a_debug.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/delete_me_im_a_debug.c.obj"
   "C:/Users/scump/Desktop/visualizer/draw_ants.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/draw_ants.c.obj"
+  "C:/Users/scump/Desktop/visualizer/draw_buff.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/draw_buff.c.obj"
+  "C:/Users/scump/Desktop/visualizer/draw_circle.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/draw_circle.c.obj"
+  "C:/Users/scump/Desktop/visualizer/draw_filled_circle.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/draw_filled_circle.c.obj"
   "C:/Users/scump/Desktop/visualizer/draw_map.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/draw_map.c.obj"
   "C:/Users/scump/Desktop/visualizer/drawing_tests_delete_me.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/drawing_tests_delete_me.c.obj"
   "C:/Users/scump/Desktop/visualizer/duplicate_values.c" "C:/Users/scump/Desktop/visualizer/cmake-build-debug/CMakeFiles/visualizer.dir/duplicate_values.c.obj"

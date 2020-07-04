@@ -12,27 +12,35 @@
 
 #include "lem_viz.h"
 
+void 		sdl_error(t_sdl_things *things)
+{
+	if (things->win)
+		SDL_DestroyWindow(things->win);
+	if (things->background)
+		SDL_DestroyTexture(things->background);
+	SDL_Quit();
+	ft_error(SDL_GetError());
+}
+
 int 		init_sdl(t_sdl_things *things)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		ft_error(SDL_GetError());
-/*	if (!(things->win = SDL_CreateWindow("ANTS ACTUALLY DIE IN THE END",
-									  SDL_WINDOWPOS_UNDEFINED,
-									  SDL_WINDOWPOS_UNDEFINED,
-									  things->width, things->height,
-										 SDL_WINDOW_RESIZABLE)))*/
-	if (SDL_CreateWindowAndRenderer(640, 480, 0, &things->win, &things->renderer))
-	{
-		SDL_Quit();
-		ft_error(SDL_GetError());
-	}
-/*	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, 0)))
-	{
-		SDL_Quit();
-		return (0);
-	}*/
-//	if (!(things->sur = SDL_GetWindowSurface(things->win)))
-//		ft_error(SDL_GetError());
+	if (!(things->win = SDL_CreateWindow("lem-in vizuals", 100, 100, things->width, things->height, SDL_WINDOW_SHOWN)))
+		sdl_error(things);
+	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
+		sdl_error(things);
+	if (!(things->background = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_TARGET, things->width, things->height)))
+		sdl_error(things);
+	things->surf = SDL_GetWindowSurface(things->win);
+/*
+ * CAREFUL WITH THIS THO
+ *
+ */
+	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
+	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
+	!things->zoom ? (things->radius = 10) : (things->radius = 10 * things->zoom);
+	//things->radius = 10 * things->zoom;
 	return (1);
 }
 

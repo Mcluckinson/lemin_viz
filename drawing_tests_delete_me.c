@@ -1,6 +1,18 @@
 #include "lem_viz.h"
 
+void 	update(t_sdl_things *things)
+{
+	//SDL_UpdateTexture(things->background, NULL, pixels, int pitch);
+	SDL_RenderClear(things->renderer);
+	SDL_RenderCopy(things->renderer, things->background, NULL, NULL);
+	SDL_RenderPresent(things->renderer);
+}
 
+void 	set_pixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue, t_sdl_things *things)
+{
+
+
+}
 
 static void			render_background(t_sdl_things *sdl)
 {
@@ -10,8 +22,8 @@ static void			render_background(t_sdl_things *sdl)
 	rect.w = sdl->width;
 	rect.y = 0;
 	rect.x = 0;
-	SDL_FillRect(sdl->sur, &rect,
-				 SDL_MapRGB(sdl->sur->format, 0, 0, 0));
+	SDL_FillRect(sdl->surf, &rect,
+				 SDL_MapRGB(sdl->surf->format, 0, 0, 0));
 }
 
 
@@ -19,25 +31,28 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 {
 	SDL_Event		event;
 
+	render_background(env);
+	draw_all_paths2(env, data);
+	SDL_RenderPresent(env->renderer);
+
 	while (1)
 	{
-	//	render_background(env);
-		draw_all_paths(env, data);
 		SDL_WaitEvent(&event);
 		if (SDL_QUIT == event.type || SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
-		SDL_UpdateWindowSurface(env->win);
-		SDL_Delay(1000 / 60);
+
+//		SDL_Delay(1000 / 60);
 	}
 	if (env->renderer)
 		SDL_DestroyRenderer(env->renderer);
+	free(env->m_buffer1);
+	free(env->m_buffer2);
 	SDL_DestroyWindow(env->win);
 	SDL_Quit();
+	exit(0);
 }
 
 void draw_test_window(t_sdl_things *things, t_all_data *data)
 {
 	main_loop(things, data);
-
-
 }

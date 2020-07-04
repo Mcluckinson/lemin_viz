@@ -19,8 +19,9 @@
 #include "math.h"
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
-#define DEFAULT_WIDTH 1000
-#define DEFAULT_HEIGHT 1000
+#define DEFAULT_WIDTH 1920
+#define DEFAULT_HEIGHT 1080
+
 
 typedef struct			s_room
 {
@@ -65,24 +66,27 @@ typedef struct			s_all_data
 	char 				*courier;
 	int 				del_me_fd;
 
+
 }						t_all_data;
 
 typedef struct 			s_sdl_things
 {
+	int 				radius;
 	t_all_data			*map_data;
 	SDL_Window			*win;
-	SDL_Surface			*sur;
+	SDL_Surface			*surf;
 	SDL_Event			event;
-	SDL_Surface			*ant;
-	SDL_Surface			*floor;
-	SDL_Surface			*check_surf;
 	int 				width;
 	int 				height;
 	SDL_Renderer 		*renderer;
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
 	SDL_Event 			*ev;
-
+	SDL_Texture			*background;
+	//SDL_Texture			*texture_buff;
+	Uint32				*m_buffer1;
+	Uint32				*m_buffer2;
+	float 				zoom;
 }						t_sdl_things;
 
 
@@ -95,6 +99,7 @@ int 	del_line_and_return(char *line, int ret);
 int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
 void		clear_sdl(t_all_data *data, t_sdl_things *thing);
+void 		sdl_error(t_sdl_things *things);
 
 /*
  *
@@ -121,12 +126,31 @@ int 	duplicate_links(t_link *link, t_all_data *data);
  */
 int 		init_sdl(t_sdl_things *things);
 void 	find_win_size(t_all_data *data, t_sdl_things *things);
+int 	draw_circle(int x, int y, int rad, t_sdl_things *things);
+int 	draw_neon_circle(int x, int y, int radius, t_sdl_things *things);
+int 	draw_line_of_circles(t_sdl_things *things);
+int 	should_i_draw(t_sdl_things *things, int x, int y);
+void 	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
+void 	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
+void 	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
+void 	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
+void 	blur_v2(t_sdl_things *things);
 
 
+/* BUFF DRAWING
+ *
+ */
+void 	draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
+void	draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl_things *things);
+void 	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
+void	blur_v4(t_sdl_things *things);int
+draw_all_paths2(t_sdl_things *things, t_all_data *data);
+void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
 /*
  * testing delete me
  */
 void draw_test_window(t_sdl_things *things, t_all_data *data);
 int 	draw_all_paths(t_sdl_things *things, t_all_data *data);
+void 	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 
 #endif
