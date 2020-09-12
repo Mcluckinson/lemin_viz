@@ -14,7 +14,7 @@
 	imageSurface = IMG_Load(input_image_name.c_str());
 }*/
 
-void blur_v(t_sdl_things *things) //This manipulates with SDL_Surface and gives it box blur effect
+/*void blur_v(t_sdl_things *things) //This manipulates with SDL_Surface and gives it box blur effect
 {
 	SDL_Texture	*source = things->background;
 	SDL_Texture *dest = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGBA8888,
@@ -72,7 +72,7 @@ void blur_v(t_sdl_things *things) //This manipulates with SDL_Surface and gives 
 	Uint32 aa_mask = 0xff000000;
 */
 
-	for (int y = 0; y < things->height; y++)
+/*	for (int y = 0; y < things->height; y++)
 	{
 		for (int x = 0; x < (things->width); x++)
 		{

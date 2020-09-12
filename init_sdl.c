@@ -28,11 +28,13 @@ int 		init_sdl(t_sdl_things *things)
 		ft_error(SDL_GetError());
 	if (!(things->win = SDL_CreateWindow("lem-in vizuals", 100, 100, things->width, things->height, SDL_WINDOW_SHOWN)))
 		sdl_error(things);
-	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
+//	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
+	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_SOFTWARE)))
 		sdl_error(things);
 	if (!(things->background = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_TARGET, things->width, things->height)))
 		sdl_error(things);
-	things->surf = SDL_GetWindowSurface(things->win);
+	if (!(things->surf = SDL_GetWindowSurface(things->win)))
+		sdl_error(things);
 /*
  * CAREFUL WITH THIS THO
  *

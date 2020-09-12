@@ -14,8 +14,9 @@
 #ifndef LEM_VIZ_H
 # define LEM_VIZ_H
 
-#include "SDL.h"
-#include "libft/includes/libft.h"
+//#include "SDL.h"
+#include "SDL2/SDL2.framework/Headers/SDL.h"
+#include "libft/libft.h"
 #include "math.h"
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
