@@ -28,7 +28,7 @@ typedef struct			s_room
 {
 	int					x;
 	int					y;
-	int 				lvl;
+	int 				level;
 	char				*name;
 	int					is_part_of_path;
 	struct s_room		*next;
@@ -112,6 +112,7 @@ int 	read_ants(t_all_data *data);
 int 	read_rooms(t_all_data *data);
 int 	read_links(t_all_data *data);
 int 	read_steps(t_all_data *data);
+int 	read_output(t_all_data *data);
 /*
  * validation
  */
