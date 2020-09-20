@@ -40,10 +40,14 @@ char	*ant_name_for_index(int index)
 {
 	char *ant_name;
 	char *str_index;
+	char *ref;
 
 	str_index = ft_itoa(index);
-	ant_name = ft_strjoin("L", str_index);
+	ref = ft_strjoin("L", str_index);
+	ant_name = ft_strjoin(ref, "-");
 	free(str_index);
+	free(ref);
+
 	return ant_name;
 }
 
@@ -71,11 +75,6 @@ int		path_count(char *ants)
 	return number_of_paths;
 }
 
-char **remove_ant_from_array(char **ants)
-{
-
-}
-
 char	**get_ants_array(int ants_count)
 {
 	char **result;
@@ -93,56 +92,104 @@ char	**get_ants_array(int ants_count)
 	return result;
 }
 
-char	*get_room_name(char *line, char *ant)
+char	*get_room_name(char *line)
 {
 	char *name;
-	char **lines;
-	int i;
-	int is_contain;
 
-	lines = ft_strsplit(line, ' ');
-	i = 0;
-	is_contain = 0;
-	while (*lines)
+	while (*line != '-')
 	{
-		is_contain = str_contains(lines[i], ant);
-		if (is_contain)
-		{
-			name = ft_strchr(lines[i], '-');
-			name++;
-			return name;
-		}
-		i++;
-		lines++;
+		line++;
+	}
+	if (*line == '-')
+	{
+		line++;
 	}
 
-	return NULL;
+	name = ft_strdup(line);
+
+	return name;
 }
 
-void	set_levels(t_all_data *data, int number_of_paths)
+void	set_level_for_map(char *name, int level, t_room *rooms)
 {
-	int is_contain;
-	char **ants_array;
-	int i;
+	t_room *room;
 
-	ants_array = get_ants_array(number_of_paths);
-	is_contain = 0;
-	i = 0;
-	while (*ants_array)
+	room = rooms;
+	while (room)
 	{
-		t_step_line *step = data->all_steps;
-		char *room_name = get_room_name(step->line, ants_array[i]);
+		if (ft_strequ(name, room->name))
+		{
+			break;
+		}
+		room = room->next;
 	}
-	while (is_contain)
-	{
+	room->level = level;
+}
 
+int 	has_path(char **ants, char *line)
+{
+	while (*ants)
+	{
+		if (str_contains(line, *ants))
+		{
+			return 1;
+		}
+		ants++;
 	}
+	return 0;
+}
+
+int		set_levels(t_all_data *data, t_step_line *steps, char **ants, int level)
+{
+	char **link;
+	char **ref;
+	char *room_name;
+
+	if (!has_path(ants, steps->line))
+	{
+		return 1;
+	}
+
+	link = ft_strsplit(steps->line, ' ');
+	ref = link;
+	while (*link)
+	{
+		if (has_path(ants, *link))
+		{
+			room_name = get_room_name(*link);
+			set_level_for_map(room_name, level, data->all_rooms);
+			free(room_name);
+		}
+		link++;
+	}
+
+	ft_memdel((void **) ref);
+	return 0;
 }
 
 int 	read_output(t_all_data *data)
 {
-	int p_count = path_count(data->all_steps->line);
-	char **link = ft_strsplit(data->all_steps->next->line, ' ');
-	set_levels(data, p_count);
-}
+	t_step_line *steps;
+	char **ants;
+	int p_count;
+	int level;
+	int is_end;
 
+	steps = data->all_steps;
+	p_count = path_count(steps->line);
+	ants = get_ants_array(p_count);
+	level = 1;
+	is_end = 0;
+	while (steps && !is_end)
+	{
+		is_end = set_levels(data, steps, ants, level);
+		level++;
+		steps = steps->next;
+	}
+
+	ft_memdel((void **) ants);
+	// End тоже переопределяется
+	// Здесь возможно нужно переопределить end->level = END_LEVEL; или как там..
+
+	return 1;
+}
