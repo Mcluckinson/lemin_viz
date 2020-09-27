@@ -25,8 +25,6 @@ static int 		read_data(t_all_data *data)
 		return (0);
 	if (!read_steps(data))
 		return (0);
-    if (data->is_generated_map)
-		set_levels_from_data(data);
 	return (1);
 }
 ///////////dont forget to delete em args he he
@@ -42,6 +40,7 @@ int main(int ac, char **av)
 	data->del_me_fd = open(av[1], O_RDONLY);
 	if (!(read_data(data)))
 		return (0);
+	set_levels_from_data(data);
 
 	//	return (huevie_dela());
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))

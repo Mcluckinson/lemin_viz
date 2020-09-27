@@ -110,7 +110,7 @@ char	*get_room_name(char *line)
 	return name;
 }
 
-void	set_level_for_map(char *name, int level, t_room *rooms)
+void	set_level_for_map(char *name, int level, t_room *rooms, int is_generated_map)
 {
 	t_room *room;
 
@@ -123,7 +123,9 @@ void	set_level_for_map(char *name, int level, t_room *rooms)
 		}
 		room = room->next;
 	}
-	room->level = level;
+	if (is_generated_map)
+		room->level = level;
+	room->is_part_of_path = 1;
 }
 
 int 	has_path(char **ants, char *line)
@@ -157,7 +159,7 @@ int		set_levels(t_all_data *data, t_step_line *steps, char **ants, int level)
 		if (has_path(ants, *link))
 		{
 			room_name = get_room_name(*link);
-			set_level_for_map(room_name, level, data->all_rooms);
+			set_level_for_map(room_name, level, data->all_rooms, data->is_generated_map);
 			free(room_name);
 		}
 		link++;
@@ -165,6 +167,23 @@ int		set_levels(t_all_data *data, t_step_line *steps, char **ants, int level)
 
 	ft_memdel((void **) ref);
 	return 0;
+}
+
+void	modify_levels(t_all_data *data)
+{
+	if (!data->is_generated_map)
+		return;
+
+	t_room *ret = data->all_rooms;
+	while (ret)
+	{
+		int level = ret->level;
+		if (!level)
+			level = 1;
+		ret->x = ret->x * level * MODIFIER_X;
+		ret->y = ret->y * MODIFIER_Y;
+		ret = ret->next;
+	}
 }
 
 int 	set_levels_from_data(t_all_data *data)
@@ -186,10 +205,10 @@ int 	set_levels_from_data(t_all_data *data)
 		level++;
 		steps = steps->next;
 	}
+	modify_levels(data);
 
 	ft_memdel((void **) ants);
 	// End тоже переопределяется
 	// Здесь возможно нужно переопределить end->level = END_LEVEL; или как там..
-
 	return 1;
 }

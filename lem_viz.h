@@ -23,6 +23,8 @@
 #define DEFAULT_WIDTH 1920
 #define DEFAULT_HEIGHT 1080
 
+#define MODIFIER_X 2
+#define MODIFIER_Y 2
 
 typedef struct			s_room
 {
