@@ -25,8 +25,8 @@ static int 		read_data(t_all_data *data)
 		return (0);
 	if (!read_steps(data))
 		return (0);
-    if (!read_output(data))
-        return (0);
+    if (data->is_generated_map)
+		set_levels_from_data(data);
 	return (1);
 }
 ///////////dont forget to delete em args he he

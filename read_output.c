@@ -167,7 +167,7 @@ int		set_levels(t_all_data *data, t_step_line *steps, char **ants, int level)
 	return 0;
 }
 
-int 	read_output(t_all_data *data)
+int 	set_levels_from_data(t_all_data *data)
 {
 	t_step_line *steps;
 	char **ants;

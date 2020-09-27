@@ -41,5 +41,5 @@ int 	read_ants(t_all_data *data)
 			}
 		}
 	}
-	del_line_and_return(line, 1);
+	return (del_line_and_return(line, 1));
 }

@@ -67,6 +67,7 @@ typedef struct			s_all_data
 	t_room 				*end;
 	char 				*courier;
 	int 				del_me_fd;
+	int					is_generated_map;
 
 
 }						t_all_data;
@@ -102,6 +103,7 @@ int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
 void		clear_sdl(t_all_data *data, t_sdl_things *thing);
 void 		sdl_error(t_sdl_things *things);
+int		str_contains(char *str, char *contains);
 
 /*
  *
@@ -112,7 +114,7 @@ int 	read_ants(t_all_data *data);
 int 	read_rooms(t_all_data *data);
 int 	read_links(t_all_data *data);
 int 	read_steps(t_all_data *data);
-int 	read_output(t_all_data *data);
+int 	set_levels_from_data(t_all_data *data);
 /*
  * validation
  */

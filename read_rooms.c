@@ -76,6 +76,8 @@ int 	read_rooms(t_all_data *data)
 		{
 			if (!start_end_check(line, &rooms, data))
 				return (0);
+			if (str_contains(line, "number of lines"))
+				data->is_generated_map = 1;
 			continue ;
 		}
 		if (is_room(line))
