@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef LEM_VIZ_H
 # define LEM_VIZ_H
 
@@ -94,70 +93,70 @@ typedef struct 			s_sdl_things
 	float 				zoom;
 }						t_sdl_things;
 
-
 /*
  * util functions
  */
-
-int 	ft_error(const char *error);
-int 	del_line_and_return(char *line, int ret);
+int		ft_error(const char *error);
+int		del_line_and_return(char *line, int ret);
 int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
-void		clear_sdl(t_all_data *data, t_sdl_things *thing);
-void 		sdl_error(t_sdl_things *things);
+void	clear_sdl(t_all_data *data, t_sdl_things *thing);
+void	sdl_error(t_sdl_things *things);
 int		str_contains(char *str, char *contains);
+void	modify_levels(t_all_data *data);
+char	**get_ants_array(int ants_count);
+int		path_count(char *ants);
 
 /*
  *
  * read functions
  */
-
-int 	read_ants(t_all_data *data);
-int 	read_rooms(t_all_data *data);
-int 	read_links(t_all_data *data);
-int 	read_steps(t_all_data *data);
-int 	set_levels_from_data(t_all_data *data);
+int		read_ants(t_all_data *data);
+int		read_rooms(t_all_data *data);
+int		read_links(t_all_data *data);
+int		read_steps(t_all_data *data);
+int		set_levels_from_data(t_all_data *data);
 /*
  * validation
  */
-int 	is_comment(char *line);
-int 	split_bits(char *line, char c);
-int 	is_link(char *line);
-int 	is_step(char *step);
-int 	is_room(char *line);
-int 	valid_coords(t_room *room, t_room *list);
-int 	duplicate_links(t_link *link, t_all_data *data);
+int		is_comment(char *line);
+int		split_bits(char *line, char c);
+int		is_link(char *line);
+int		is_step(char *step);
+int		is_room(char *line);
+int		valid_coords(t_room *room, t_room *list);
+int		duplicate_links(t_link *link, t_all_data *data);
 
 /*
  * drawing
  */
-int 		init_sdl(t_sdl_things *things);
-void 	find_win_size(t_all_data *data, t_sdl_things *things);
-int 	draw_circle(int x, int y, int rad, t_sdl_things *things);
-int 	draw_neon_circle(int x, int y, int radius, t_sdl_things *things);
-int 	draw_line_of_circles(t_sdl_things *things);
-int 	should_i_draw(t_sdl_things *things, int x, int y);
-void 	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
-void 	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
-void 	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
-void 	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
-void 	blur_v2(t_sdl_things *things);
+int		init_sdl(t_sdl_things *things);
+void	find_win_size(t_all_data *data, t_sdl_things *things);
+int		draw_circle(int x, int y, int rad, t_sdl_things *things);
+int		draw_neon_circle(int x, int y, int radius, t_sdl_things *things);
+int		draw_line_of_circles(t_sdl_things *things);
+int		should_i_draw(t_sdl_things *things, int x, int y);
+void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
+void	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
+void	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
+void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
+void	blur_v2(t_sdl_things *things);
 
 
 /* BUFF DRAWING
  *
  */
-void 	draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
+void	draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
 void	draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl_things *things);
-void 	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
-void	blur_v4(t_sdl_things *things);int
-draw_all_paths2(t_sdl_things *things, t_all_data *data);
+void	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
+void	blur_v4(t_sdl_things *things);
+int		draw_all_paths2(t_sdl_things *things, t_all_data *data);
 void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
 /*
  * testing delete me
  */
-void draw_test_window(t_sdl_things *things, t_all_data *data);
-int 	draw_all_paths(t_sdl_things *things, t_all_data *data);
-void 	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
+void	draw_test_window(t_sdl_things *things, t_all_data *data);
+int		draw_all_paths(t_sdl_things *things, t_all_data *data);
+void	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 
 #endif

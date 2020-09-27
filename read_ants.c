@@ -12,17 +12,17 @@
 
 #include "lem_viz.h"
 
-static int		is_ants(char *line)
+static int	is_ants(char *line)
 {
 	if (is_all_digits(line))
 		return (ft_atoi(line));
 	return (0);
 }
 
-int 	read_ants(t_all_data *data)
+int			read_ants(t_all_data *data)
 {
-	char *line;
-	int ants;
+	char	*line;
+	int		ants;
 
 	ants = 0;
 	while (get_next_line(data->del_me_fd, &line) > 0)
@@ -37,7 +37,7 @@ int 	read_ants(t_all_data *data)
 				if (!ants)
 					del_line_and_return(line, 0);
 				data->bukashechki = ants;
-				break;
+				break ;
 			}
 		}
 	}

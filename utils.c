@@ -12,22 +12,22 @@
 
 #include "lem_viz.h"
 
-int 	ft_error(const char *error)
+int			ft_error(const char *error)
 {
 	ft_putendl_fd(error, 2);
 	exit(-1);
 }
 
-int 	del_line_and_return(char *line, int ret)
+int			del_line_and_return(char *line, int ret)
 {
 	free(line);
 	line = NULL;
 	return (ret);
 }
 
-int		is_all_digits(char *line)
+int			is_all_digits(char *line)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	if (!line)
@@ -42,16 +42,16 @@ int		is_all_digits(char *line)
 	return (1);
 }
 
-int 	split_bits(char *line, char e)
+int			split_bits(char *line, char e)
 {
-	char **split;
-	int i;
-	int c;
+	char	**split;
+	int		i;
+	int		c;
 
 	c = -1;
 	i = -1;
 	split = NULL;
-	if (!(split = ft_strsplit(line,  e)))
+	if (!(split = ft_strsplit(line, e)))
 		return (0);
 	while (split[++i])
 		continue ;
@@ -64,12 +64,12 @@ int 	split_bits(char *line, char e)
 
 void		del_str_arr(char **to_delete)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	if (to_delete)
 	{
-		while(to_delete[++i])
+		while (to_delete[++i])
 			ft_strdel(&to_delete[i]);
 		free(to_delete);
 	}

@@ -12,7 +12,7 @@
 
 #include "lem_viz.h"
 
-int 	is_comment(char *line)
+int		is_comment(char *line)
 {
 	int	len;
 
@@ -24,7 +24,7 @@ int 	is_comment(char *line)
 		{
 			if (line[0] == '#'/* && line[1] != '#'*/)
 				return (1);
-	/*		else if (len > 2)
+			/*		else if (len > 2)
 			{
 				if (line[0] == '#' && line[1] == '#' && !ft_strequ(line, "##start") && !ft_strequ(line, "##end"))
 					return (del_line_and_return(line, 1));
@@ -34,7 +34,7 @@ int 	is_comment(char *line)
 	return (0);
 }
 
-int 	is_room(char *line)
+int		is_room(char *line)
 {
 	if (!line)
 		return (0);
@@ -45,7 +45,7 @@ int 	is_room(char *line)
 	return (1);
 }
 
-int 	is_link(char *line)
+int		is_link(char *line)
 {
 	if (!line)
 		return (0);
@@ -56,7 +56,7 @@ int 	is_link(char *line)
 	return (1);
 }
 
-int 	is_step(char *step)
+int		is_step(char *step)
 {
 	if (!step)
 		return (0);

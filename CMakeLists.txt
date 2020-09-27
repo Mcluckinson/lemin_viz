@@ -81,7 +81,6 @@ add_executable(lemin_viz
         libft/get_next_line.c
         libft/get_next_line.h
         libft/libft.h
-        blur_v2.c
         blur_v4.c
         brezenham.c
         clear.c
@@ -103,7 +102,7 @@ add_executable(lemin_viz
         read_rooms.c
         read_steps.c
         utils.c
-        valid.c read_output.c)
+        valid.c set_levels_for_view.c modify_levels.c)
 
 target_link_libraries(lemin_viz
         "ft"

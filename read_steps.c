@@ -12,9 +12,9 @@
 
 #include "lem_viz.h"
 
-static t_step_line *next_step_line(char *line)
+static t_step_line	*next_step_line(char *line)
 {
-	t_step_line	*result;
+	t_step_line		*result;
 
 	result = NULL;
 	if (!line)
@@ -34,9 +34,11 @@ static t_step_line *next_step_line(char *line)
 	return (result);
 }
 
-static int 		check_correct_steps(char **line)
+static int			check_correct_steps(char **line)
 {
-	int i = -1;
+	int				i;
+
+	i = -1;
 	while (line[++i])
 	{
 		if (is_step(line[i]))
@@ -50,11 +52,11 @@ static int 		check_correct_steps(char **line)
 	return (1);
 }
 
-static t_step	*assign_step(char *step_line, t_all_data *data, t_step *curr_step)
+static t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step)
 {
-	t_step *result;
-	char **buff;
-	t_room	*finder;
+	t_step			*result;
+	char			**buff;
+	t_room			*finder;
 
 	if (!(buff = ft_strsplit(step_line, '-')))
 		return (NULL);
@@ -88,13 +90,14 @@ static t_step	*assign_step(char *step_line, t_all_data *data, t_step *curr_step)
 	return (NULL);
 }
 
-static int 		split_steps(t_step_line *step_line, t_all_data *data)
+static int			split_steps(t_step_line *step_line, t_all_data *data)
 {
-	char **split_step_line;
-	int i = -1;
-	t_step	*step;
+	char			**split_step_line;
+	int				i;
+	t_step			*step;
 
 	step = NULL;
+	i = -1;
 	if (!(split_step_line = ft_strsplit(step_line->line, ' ')))
 		return (0);
 	if (!check_correct_steps(split_step_line))
@@ -109,10 +112,10 @@ static int 		split_steps(t_step_line *step_line, t_all_data *data)
 	return (1);
 }
 
-int read_steps(t_all_data *data)
+int					read_steps(t_all_data *data)
 {
-	char *line;
-	t_step_line	*step_lines;
+	char			*line;
+	t_step_line		*step_lines;
 
 	if (!(step_lines = (t_step_line*)ft_memalloc(sizeof(t_step_line))))
 		return (0);

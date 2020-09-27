@@ -12,10 +12,10 @@
 
 #include "lem_viz.h"
 
-static t_room *make_room(t_room *room, char *line, t_all_data *data)
+static t_room	*make_room(t_room *room, char *line, t_all_data *data)
 {
-	t_room	*result;
-	char **room_data;
+	t_room		*result;
+	char		**room_data;
 
 	if (!(result = (t_room*)ft_memalloc(sizeof(t_room))))
 		return (NULL);
@@ -35,7 +35,7 @@ static t_room *make_room(t_room *room, char *line, t_all_data *data)
 
 static int		start_end_check(char *line, t_room **rooms, t_all_data *data)
 {
-	int 	flag;
+	int			flag;
 
 	flag = 0;
 	flag += (ft_strequ(line, "##start") ? 1 : 0);
@@ -62,10 +62,10 @@ static int		start_end_check(char *line, t_room **rooms, t_all_data *data)
 	return (del_line_and_return(line, 0));
 }
 
-int 	read_rooms(t_all_data *data)
+int				read_rooms(t_all_data *data)
 {
-	char *line;
-	t_room	*rooms;
+	char		*line;
+	t_room		*rooms;
 
 	rooms = NULL;
 	while (1)
@@ -83,7 +83,7 @@ int 	read_rooms(t_all_data *data)
 		if (is_room(line))
 		{
 			rooms = make_room(rooms, line, data);
-			if (valid_coords(rooms, data->all_rooms));
+			if (valid_coords(rooms, data->all_rooms)); /// HERE ";" delete
 				continue ;
 		}
 		if (is_link(line))
@@ -91,7 +91,7 @@ int 	read_rooms(t_all_data *data)
 			data->courier = line;
 			return (1);
 		}
-		break;
+		break ;
 	}
 	return (0);
- }
+}

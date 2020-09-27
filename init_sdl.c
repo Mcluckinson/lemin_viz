@@ -12,7 +12,7 @@
 
 #include "lem_viz.h"
 
-void 		sdl_error(t_sdl_things *things)
+void		sdl_error(t_sdl_things *things)
 {
 	if (things->win)
 		SDL_DestroyWindow(things->win);
@@ -22,7 +22,7 @@ void 		sdl_error(t_sdl_things *things)
 	ft_error(SDL_GetError());
 }
 
-int 		init_sdl(t_sdl_things *things)
+int			init_sdl(t_sdl_things *things)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		ft_error(SDL_GetError());

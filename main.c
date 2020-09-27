@@ -12,8 +12,7 @@
 
 #include "lem_viz.h"
 
-
-static int 		read_data(t_all_data *data)
+static int			read_data(t_all_data *data)
 {
 	if (!read_ants(data))
 		return (0);
@@ -27,11 +26,12 @@ static int 		read_data(t_all_data *data)
 		return (0);
 	return (1);
 }
+
 ///////////dont forget to delete em args he he
-int main(int ac, char **av)
+int					main(int ac, char **av)
 {
 	t_sdl_things	*sdl_things;
-	t_all_data *data;
+	t_all_data		*data;
 
 	data = NULL;
 	if (!(data = (t_all_data*)ft_memalloc(sizeof(t_all_data))))
@@ -41,7 +41,6 @@ int main(int ac, char **av)
 	if (!(read_data(data)))
 		return (0);
 	set_levels_from_data(data);
-
 	//	return (huevie_dela());
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))
 		return (0);
@@ -51,8 +50,6 @@ int main(int ac, char **av)
 		return (0);
 	//	return (huevie_dela());
 	draw_test_window(sdl_things, data);
-
 	return (0);
 //		free_and_quit(data);
-
 }

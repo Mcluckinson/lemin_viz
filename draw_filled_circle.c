@@ -4,17 +4,16 @@
 
 #include "lem_viz.h"
 
-
-void 	draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
+void		draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
 {
-	int xoff = 0;
-	int yoff = radius;
-	int balance = -radius;
+	int		xoff = 0;
+	int		yoff = radius;
+	int		balance = -radius;
 
-	int p0;
-	int p1;
-	int w0;
-	int w1;
+	int		p0;
+	int		p1;
+	int		w0;
+	int		w1;
 	while (xoff <= yoff)
 	{
 		p0 = x - xoff;
@@ -25,20 +24,20 @@ void 	draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
 		SDL_RenderDrawLine(things->renderer, p0, y - yoff, p0 + w0, y - yoff);//2
 		SDL_RenderDrawLine(things->renderer, p1, y + xoff, p1 + w1, y + xoff);//3
 		SDL_RenderDrawLine(things->renderer, p1, y - xoff, p1 + w1, y - xoff);//4
-
 		if ((balance += (xoff + xoff + 1)) >= 0)
 		{
 			yoff--;
-			balance-= (yoff + yoff);
+			balance -= (yoff + yoff);
 		}
 		xoff++;
 	}
 }
 
-
-void 	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things)
+void		test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things)
 {
-	int x_buff = x0;
+	int		x_buff;
+
+	x_buff = x0;
 	while (x_buff <= x1)
 	{
 		draw_filled_circle(x_buff, y0, radius, things);
@@ -46,9 +45,9 @@ void 	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *th
 	}
 }
 
-void 	test_draw_neon_circle_line(int x0, int y, int x1, int radius, t_sdl_things *things)
+void		test_draw_neon_circle_line(int x0, int y, int x1, int radius, t_sdl_things *things)
 {
-	int 	rad_buff = radius;
+	int		rad_buff = radius;
 	float	percent_stuff;
 	Uint8	red = 255;
 	Uint8	green = 0;
@@ -64,5 +63,4 @@ void 	test_draw_neon_circle_line(int x0, int y, int x1, int radius, t_sdl_things
 		test_draw_circle_line(x0, y, x1, rad_buff, things);
 		rad_buff--;
 	}
-
 }

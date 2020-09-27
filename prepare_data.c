@@ -15,6 +15,7 @@
 static void	move_to_zero(t_room *rooms, int offset_x, int offset_y)/////////maybe find parts of paths first?
 {
 	t_room *rooms_to_fix = rooms;
+
 	while (rooms_to_fix)
 	{
 		rooms_to_fix->x -= offset_x;
@@ -23,9 +24,10 @@ static void	move_to_zero(t_room *rooms, int offset_x, int offset_y)/////////mayb
 	}
 }
 
-static void put_it_into_screen(t_room *rooms, float zoom)
+static void	put_it_into_screen(t_room *rooms, float zoom)
 {
 	t_room *rooms_to_fix = rooms;
+
 	while (rooms_to_fix)
 	{
 		rooms_to_fix->x *= zoom;
@@ -34,7 +36,7 @@ static void put_it_into_screen(t_room *rooms, float zoom)
 	}
 }
 
-static void fix_initial_position(t_all_data *data, t_sdl_things *things)
+static void	fix_initial_position(t_all_data *data, t_sdl_things *things)
 {
 	float zoom_factor;
 
@@ -48,7 +50,7 @@ static void fix_initial_position(t_all_data *data, t_sdl_things *things)
 	things->zoom = zoom_factor;
 }
 
-void 	find_win_size(t_all_data *data, t_sdl_things *things)///////////should i even do it?
+void		find_win_size(t_all_data *data, t_sdl_things *things)///////////should i even do it?
 {
 	t_room *room;
 	int		x_max;
@@ -81,12 +83,8 @@ void 	find_win_size(t_all_data *data, t_sdl_things *things)///////////should i e
 		fix_initial_position(data, things);
 }
 
-
-
-
-void	find_parts_of_paths(t_all_data *data)
+void		find_parts_of_paths(t_all_data *data)
 {
 	t_room *room_checker = data->all_rooms;
 	t_step *step_checker = data->all_steps;
-
 }

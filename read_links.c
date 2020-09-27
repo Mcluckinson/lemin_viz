@@ -12,9 +12,9 @@
 
 #include "lem_viz.h"
 
-static t_room *find_room(t_all_data *data, char *name)
+static t_room	*find_room(t_all_data *data, char *name)
 {
-	t_room *room;
+	t_room		*room;
 
 	room = data->all_rooms;
 	while (room)
@@ -26,10 +26,10 @@ static t_room *find_room(t_all_data *data, char *name)
 	return (NULL);
 }
 
-static t_link 	*make_link(char *line, t_link *link, t_all_data *data)
+static t_link	*make_link(char *line, t_link *link, t_all_data *data)
 {
-	t_link	*result;
-	char **split;
+	t_link		*result;
+	char		**split;
 
 	if (!(result = (t_link*)ft_memalloc(sizeof(t_link))))
 	{
@@ -51,10 +51,10 @@ static t_link 	*make_link(char *line, t_link *link, t_all_data *data)
 	return (result);
 }
 
-static t_link *initital_link(t_all_data *data)
+static t_link	*initital_link(t_all_data *data)
 {
-	t_link *result;
-	char **split;
+	t_link		*result;
+	char		**split;
 
 	split = NULL;
 	if (!(result = (t_link*)ft_memalloc(sizeof(t_link))))
@@ -71,18 +71,18 @@ static t_link *initital_link(t_all_data *data)
 	return (result);
 }
 
-static int is_command(char *line)
+static int		is_command(char *line)
 {
 	if (ft_strequ(line, "##start") || ft_strequ(line, "##end"))
 		return (1);
 	return (0);
 }
 
-int 	read_links(t_all_data *data)
+int				read_links(t_all_data *data)
 {
-	t_link	*link;
-	char *line;
-	int check;
+	t_link		*link;
+	char		*line;
+	int			check;
 
 	if (!(link = initital_link(data)))
 		return (0);
@@ -97,7 +97,7 @@ int 	read_links(t_all_data *data)
 			ft_strdel(&line);
 			if (!check)
 				continue;
-			break;
+			break ;
 		}
 		if (is_link(line))
 		{
@@ -114,4 +114,3 @@ int 	read_links(t_all_data *data)
 	}
 	return (0);
 }
-

@@ -12,7 +12,7 @@
 
 #include "lem_viz.h"
 
-void		clear_sdl(t_all_data *data, t_sdl_things *thing)
+void	clear_sdl(t_all_data *data, t_sdl_things *thing)
 {
 	SDL_DestroyWindow(thing->win);
 	SDL_Quit();

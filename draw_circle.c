@@ -1,15 +1,15 @@
 #include "lem_viz.h"
 
-
 /*
  * SET COLOR FIRST
  */
-int 	draw_circle(int x, int y, int rad, t_sdl_things *things)
+
+int			draw_circle(int x, int y, int rad, t_sdl_things *things)
 {
-	int 	x_point;
-	int 	y_point;
-	int 	error;
-	int 	delta;
+	int		x_point;
+	int		y_point;
+	int		error;
+	int		delta;
 
 	x_point = 0;
 	y_point = rad;
@@ -37,25 +37,23 @@ int 	draw_circle(int x, int y, int rad, t_sdl_things *things)
 	return (0);
 }
 
-int 	draw_neon_circle(int x, int y, int radius, t_sdl_things *things)
+int			draw_neon_circle(int x, int y, int radius, t_sdl_things *things)
 {
-	float percent;
-	int 	r_radius;
+	float	percent;
+	float	c;
+	int		r_radius;
 
 	r_radius = 0;
 	percent = 1;
 	SDL_SetRenderDrawColor(things->renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawPoint(things->renderer, x, y);
-
 	while (++r_radius <= radius)
 	{
 		percent = (float)r_radius / (float)radius;
 		printf("|%fd\n|", percent);
-		float c = (float)255 - (float)255 * percent;
-
+		c = (float)255 - (float)255 * percent;
 		SDL_SetRenderDrawColor(things->renderer, c, 0, c, SDL_ALPHA_OPAQUE);
 		draw_circle(x, y, r_radius, things);
 	}
 	return (0);
 }
-

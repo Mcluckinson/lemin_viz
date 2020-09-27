@@ -75,4 +75,3 @@ void	blur_v4(t_sdl_things *things)
 		}
 	}
 }
-

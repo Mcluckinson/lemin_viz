@@ -12,9 +12,9 @@
 
 #include "lem_viz.h"
 
-int 	valid_coords(t_room *room, t_room *list)
+int			valid_coords(t_room *room, t_room *list)
 {
-	t_room *start;
+	t_room	*start;
 
 	start = list;
 	while (start)
@@ -29,7 +29,7 @@ int 	valid_coords(t_room *room, t_room *list)
 	return (1);
 }
 
-int 	duplicate_links(t_link *link, t_all_data *data)
+int			duplicate_links(t_link *link, t_all_data *data)
 {
 	t_link	*start;
 
