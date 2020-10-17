@@ -20,7 +20,8 @@ int			ft_error(const char *error)
 
 int			del_line_and_return(char *line, int ret)
 {
-	free(line);
+	if (ret || line)
+		free(line);
 	line = NULL;
 	return (ret);
 }
@@ -42,23 +43,22 @@ int			is_all_digits(char *line)
 	return (1);
 }
 
-int			split_bits(char *line, char e)
+int			split_bits(char *line, char c)
 {
 	char	**split;
 	int		i;
-	int		c;
+	int		j;
 
-	c = -1;
 	i = -1;
+	j = -1;
 	split = NULL;
-	if (!(split = ft_strsplit(line, e)))
+	if (!(split = ft_strsplit(line, c)))
 		return (0);
 	while (split[++i])
 		continue ;
-	while (split[++c])
-		ft_strdel(&split[c]);
-	if (split)
-		free(split);
+	while (split[++j])
+		ft_strdel(&split[j]);
+	free(split);
 	return (i);
 }
 
