@@ -12,38 +12,39 @@
 
 #include "lem_viz.h"
 
+static void		check_step(t_all_data *data, char *line)
+{
+	if (is_step(line))
+	{
+		data->courier = line;
+	}
+}
+
 int				read_links(t_all_data *data)
 {
 	t_link		*link;
 	char		*line;
 	int			check;
 
-	if (!(link = initital_link(data)))
+	if (!(link = initial_link(data)))
 		return (0);
-	while (1)
+	while (get_next_line(data->del_me_fd, &line) > 0)
 	{
-		if (get_next_line(data->del_me_fd, &line) != 1)
-			del_line_and_return(line, 0);
 		if (is_comment(line))
 		{
 			check = is_command(line);
-			ft_strdel(&line);
 			if (!check)
 				continue;
 			break ;
 		}
 		if (is_link(line))
 		{
-			link = make_link(line, link, data);
-			if (link)
-				continue;
+			if (!(link = make_link(line, link, data)))
+				return (0);
+			continue;
 		}
-		if (is_step(line))
-		{
-			data->courier = line;
-			return (1);
-		}
+		check_step(data, line);
 		break ;
 	}
-	return (0);
+	return (1);
 }

@@ -37,8 +37,9 @@ typedef struct			s_room
 
 typedef struct 			s_link
 {
-	t_room 				*room1;
-	t_room 				*room2;
+	t_room 				*first_room;
+	t_room 				*second_room;
+	struct s_link		*prev;
 	struct s_link		*next;
 }						t_link;
 
@@ -160,10 +161,10 @@ int		draw_all_paths(t_sdl_things *things, t_all_data *data);
 void	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 
 /*
- * helper
+ * Link_helper
  */
 t_link	*make_link(char *line, t_link *link, t_all_data *data);
-t_link	*initital_link(t_all_data *data);
+t_link	*initial_link(t_all_data *data);
 int		is_command(char *line);
 
 #endif

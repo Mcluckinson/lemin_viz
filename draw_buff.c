@@ -98,7 +98,7 @@ void		draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data)
 //	Uint32	color = 16711935;
 	while (start)
 	{
-		draw_brezenham_line_in_buff(things, start->room1->x, start->room1->y, start->room2->x, start->room2->y, color, buff, things->radius);
+		draw_brezenham_line_in_buff(things, start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, color, buff, things->radius);
 		start = start->next;
 	}
 }
@@ -122,7 +122,7 @@ void		draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data)
 		start = data->all_links;
 		while (start)
 		{
-			draw_brezenham(start->room1->x, start->room1->y, start->room2->x, start->room2->y, rad_buff, things);
+			draw_brezenham(start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, rad_buff, things);
 			start = start->next;
 		}
 		rad_buff -= (float)0.9;

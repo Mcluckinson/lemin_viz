@@ -15,7 +15,7 @@
 static int	draw_line(t_link *link, t_sdl_things *things)
 {
 	SDL_SetRenderDrawColor(things->renderer, 255, 0, 255, 0);
-	draw_brezenham(link->room1->x, link->room1->y, link->room2->x, link->room2->y, 10, things);
+	draw_brezenham(link->first_room->x, link->first_room->y, link->second_room->x, link->second_room->y, 10, things);
 	return (1);
 }
 
