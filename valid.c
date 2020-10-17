@@ -22,13 +22,8 @@ int		is_comment(char *line)
 		len = ft_strlen(line);
 		if (len > 1)
 		{
-			if (line[0] == '#'/* && line[1] != '#'*/)
+			if (line[0] == '#')
 				return (1);
-			/*		else if (len > 2)
-			{
-				if (line[0] == '#' && line[1] == '#' && !ft_strequ(line, "##start") && !ft_strequ(line, "##end"))
-					return (del_line_and_return(line, 1));
-			}*/
 		}
 	}
 	return (0);
@@ -50,8 +45,6 @@ int		is_link(char *line)
 	if (!line)
 		return (0);
 	if (split_bits(line, '-') != 2)
-		return (0);
-	if (line[0] == 'L')
 		return (0);
 	return (1);
 }
