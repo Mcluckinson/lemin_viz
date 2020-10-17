@@ -17,6 +17,8 @@
 #include "SDL2/SDL2.framework/Headers/SDL.h"
 #include "libft/libft.h"
 #include "math.h"
+#include <stdbool.h>
+#include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
 #define DEFAULT_WIDTH 1920
@@ -59,7 +61,7 @@ typedef struct 			s_step_line
 
 typedef struct			s_all_data
 {
-	int					bukashechki;
+	int					ants;
 	t_room 				*all_rooms;
 	t_link 				*all_links;
 	t_step_line 		*all_steps;
@@ -127,6 +129,7 @@ int		is_step(char *step);
 int		is_room(char *line);
 int		valid_coords(t_room *room, t_room *list);
 int		duplicate_links(t_link *link, t_all_data *data);
+bool	check_ants_quantity(int quantity, char *line);
 
 /*
  * drawing

@@ -68,7 +68,7 @@ static t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step
 	if (curr_step)
 		curr_step->next = result;
 	result->ant_num = ft_atoi(ft_strchr(buff[0], 'L') + 1);
-	if (result->ant_num < 1 || result->ant_num > data->bukashechki)
+	if (result->ant_num < 1 || result->ant_num > data->ants)
 	{
 		del_str_arr(buff);
 		free(result);

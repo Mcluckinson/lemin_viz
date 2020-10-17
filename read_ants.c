@@ -22,24 +22,28 @@ static int	is_ants(char *line)
 int			read_ants(t_all_data *data)
 {
 	char	*line;
-	int		ants;
+	int		success;
 
-	ants = 0;
-	while (get_next_line(data->del_me_fd, &line) > 0)
+	while ((success = get_next_line(data->del_me_fd, &line)))
 	{
-		if (line)
+		if (success < 1 || !line)
+			ft_error("u tryna segv me?? D:<");
+		if (is_comment(line))
 		{
-			if (is_comment(line))
-				continue;
-			else
-			{
-				ants = is_ants(line);
-				if (!ants)
-					del_line_and_return(line, 0);
-				data->bukashechki = ants;
-				break ;
-			}
+			if (ft_strequ(line, "##start") || ft_strequ(line, "##end"))
+				return (del_line_and_return(line, 0));
+			ft_strdel(&line);
+			continue ;
+		}
+		else
+		{
+			data->ants = is_ants(line);
+			if (!data->ants)
+				return (del_line_and_return(line, 0));
+			ft_putendl_fd(line, 1);
+			break ;
 		}
 	}
-	return (del_line_and_return(line, 1));
+	return (check_ants_quantity(data->ants, line) ? del_line_and_return(line, 1)
+												: del_line_and_return(line, 0));
 }
