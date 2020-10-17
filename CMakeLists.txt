@@ -102,7 +102,10 @@ add_executable(lemin_viz
         read_rooms.c
         read_steps.c
         utils.c
-        valid.c set_levels_for_view.c modify_levels.c)
+        valid.c
+		set_levels_for_view.c
+		modify_levels.c
+		read_links_helper.c)
 
 target_link_libraries(lemin_viz
         "ft"

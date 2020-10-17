@@ -159,4 +159,11 @@ void	draw_test_window(t_sdl_things *things, t_all_data *data);
 int		draw_all_paths(t_sdl_things *things, t_all_data *data);
 void	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 
+/*
+ * helper
+ */
+t_link	*make_link(char *line, t_link *link, t_all_data *data);
+t_link	*initital_link(t_all_data *data);
+int		is_command(char *line);
+
 #endif
