@@ -21,8 +21,8 @@
 #include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
-#define DEFAULT_WIDTH 1920
-#define DEFAULT_HEIGHT 1080
+#define DEFAULT_WIDTH 1366
+#define DEFAULT_HEIGHT 768
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 2
@@ -110,6 +110,7 @@ int		str_contains(char *str, char *contains);
 void	modify_levels(t_all_data *data);
 char	**get_ants_array(int ants_count);
 int		path_count(char *ants);
+void 		fix_coords(t_all_data *data, t_sdl_things *things);
 
 /*
  *

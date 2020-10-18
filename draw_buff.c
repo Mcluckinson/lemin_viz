@@ -1,7 +1,3 @@
-//
-// Created by scump on 05.05.2020.
-//
-
 #include "lem_viz.h"
 
 void		draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl_things *things)

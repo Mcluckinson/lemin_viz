@@ -12,79 +12,144 @@
 
 #include "lem_viz.h"
 
-static void	move_to_zero(t_room *rooms, int offset_x, int offset_y)/////////maybe find parts of paths first?
+static int			find_max_width(t_all_data *data)
 {
-	t_room *rooms_to_fix = rooms;
+	int 	max;
+	int		min;
+	int 	result;
+	t_room  *counter;
 
-	while (rooms_to_fix)
+	counter = data->all_rooms;
+	max = counter->x;
+	min = counter->x;
+
+	while (counter)
 	{
-		rooms_to_fix->x -= offset_x;
-		rooms_to_fix->y -= offset_y;
-		rooms_to_fix = rooms_to_fix->next;
+		max = counter->x > max ? counter->x : max;
+		min = counter->x < min ? counter->x : min;
+		counter = counter->next;
+	}
+	result = max - min;
+	return (result);
+}
+
+static int			find_max_height(t_all_data *data)
+{
+	int 	max;
+	int		min;
+	int 	result;
+	t_room  *counter;
+
+
+	counter = data->all_rooms;
+	max = counter->y;
+	min = counter->y;
+	while (counter)
+	{
+		max = counter->y > max ? counter->y : max;
+		min = counter->y < min ? counter->y : min;
+		counter = counter->next;
+	}
+	result = max - min;
+	return (result);
+}
+
+static void 			center_x(int max_width, t_all_data *data)
+{
+	t_room *counter;
+	int		offset;
+	int 	negative;
+
+	negative = 0;
+	offset = DEFAULT_WIDTH / 2 - max_width / 2;
+	counter = data->all_rooms;
+	while (counter)
+	{
+		counter->x-= offset;
+		if (counter->x < negative)
+			negative = counter->x;
+		counter = counter->next;
+	}
+	counter = data->all_rooms;
+	while (counter)
+	{
+		counter->x-= negative;
+		counter = counter->next;
 	}
 }
 
-static void	put_it_into_screen(t_room *rooms, float zoom)
-{
-	t_room *rooms_to_fix = rooms;
 
-	while (rooms_to_fix)
+static void 			center_y(int max_height, t_all_data *data)
+{
+	t_room *counter;
+	int		offset;
+	int 	negative;
+
+	negative = 0;
+	offset = DEFAULT_HEIGHT / 2 - max_height / 2;
+	counter = data->all_rooms;
+	while (counter)
 	{
-		rooms_to_fix->x *= zoom;
-		rooms_to_fix->y *= zoom;
-		rooms_to_fix = rooms_to_fix->next;
+		counter->y-= offset;
+		if (counter->y < negative)
+			negative = counter->y;
+		counter = counter->next;
+	}
+	counter = data->all_rooms;
+	while (counter)
+	{
+		counter->y-= negative;
+		counter = counter->next;
 	}
 }
 
-static void	fix_initial_position(t_all_data *data, t_sdl_things *things)
+static float			should_fix(t_all_data *data)
 {
-	float zoom_factor;
+	int max_width;
+	int max_height;
+	float fix_ratio_x;
+	float fix_ratio_y;
 
-	if ((float)things->width / DEFAULT_WIDTH > (float)things->height / DEFAULT_HEIGHT)
-		zoom_factor = (float)DEFAULT_WIDTH / (float)things->width;
-	else
-		zoom_factor = (float)DEFAULT_HEIGHT / (float)things->height;
-	put_it_into_screen(data->all_rooms, zoom_factor);
-	things->width *= zoom_factor;
-	things->height *= zoom_factor;
-	things->zoom = zoom_factor;
+	fix_ratio_y = 1;
+	fix_ratio_x = 1;
+	max_width = find_max_width(data);
+	max_height = find_max_height(data);
+
+	if (max_width < DEFAULT_WIDTH && max_height < DEFAULT_HEIGHT)
+		return (1);
+	if (max_width > DEFAULT_WIDTH)
+		fix_ratio_x = (float)DEFAULT_WIDTH / (float)max_width;
+	if (max_height > DEFAULT_HEIGHT)
+		fix_ratio_y = (float)DEFAULT_HEIGHT / (float)max_height;
+	return (fix_ratio_x < fix_ratio_y ? fix_ratio_x : fix_ratio_y);
 }
 
-void		find_win_size(t_all_data *data, t_sdl_things *things)///////////should i even do it?
-{
-	t_room *room;
-	int		x_max;
-	int		x_min;
-	int		y_max;
-	int		y_min;
 
-	x_max = DEFAULT_WIDTH;
-	x_min = 9999;////////////TEMP SHIT FIND SMTH BETTER
-	y_max = DEFAULT_HEIGHT;
-	y_min = 9999;/////////SAME
-	room = data->all_rooms;
-	while (room)
+void 		fix_coords(t_all_data *data, t_sdl_things *things)
+{
+	float	fixer;
+	t_room *counter;
+	int 	max_width;
+	int 	max_height;
+
+	counter = data->all_rooms;
+	fixer = should_fix(data);
+	if (fixer != 1)
 	{
-		x_max = (x_max < room->x ? room->x : x_max);
-		x_min = (x_min > room->x ? room->x : x_min);
-		y_max = (y_max < room->y ? room->y : y_max);
-		y_min = (y_min > room->y ? room->y : y_min);
-		room = room->next;
+		while (counter)
+		{
+			counter->x*=fixer;
+			counter->y*=fixer;
+			counter = counter->next;
+		}
+		things->radius = 4 * fixer;
+		things->original_radius = things->radius;
 	}
-	things->width = x_max - x_min;
-	things->height = y_max - y_min;
-	int center_w = things->width / 2;
-	int center_h = things->height / 2;
-	int offset_w = center_w - x_max;
-	int offset_h = center_h - y_max;
+	max_width = find_max_width(data);
+	max_height = find_max_height(data);
+	center_x(max_width, data);
+	center_y(max_height, data);
+	things->height = DEFAULT_HEIGHT;
+	things->width = DEFAULT_WIDTH;
 
-//	move_to_zero(data->all_rooms, center_w, center_h);
-	if (things->width > DEFAULT_WIDTH || things->height > DEFAULT_HEIGHT)
-		fix_initial_position(data, things);
-}
-
-void		find_parts_of_paths(t_all_data *data)
-{
-	t_room *room_checker = data->all_rooms;
-	t_step *step_checker = data->all_steps;
 }

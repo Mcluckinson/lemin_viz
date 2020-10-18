@@ -34,7 +34,7 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 		SDL_WaitEvent(&event);
 		if (SDL_QUIT == event.type || SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
-		pulse_map(env, data);
+//		pulse_map(env, data);
 
 	//	SDL_Delay(50);
 	}

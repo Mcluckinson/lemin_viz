@@ -45,7 +45,7 @@ int					main(int ac, char **av)
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))
 		return (0);
 		//	return (huevie_dela());
-	find_win_size(data, sdl_things);
+	fix_coords(data, sdl_things);
 	if ((!init_sdl(sdl_things)))
 		return (0);
 	//	return (huevie_dela());
