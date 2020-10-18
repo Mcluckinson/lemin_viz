@@ -177,5 +177,6 @@ int		is_command(char *line);
  */
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
 int			check_correct_steps(char **line);
+void		draw_all_steps(t_step_line *steps, t_all_data *data);
 
 #endif

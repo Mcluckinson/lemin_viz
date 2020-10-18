@@ -12,6 +12,15 @@
 
 #include "lem_viz.h"
 
+int is_end_room(char *currentRoom, char *endRoom)
+{
+	if (ft_strequ(currentRoom, endRoom))
+	{
+		return (true);
+	}
+	return (false);
+}
+
 int get_old_x(int ant)
 {
 	int		current_x;
@@ -51,7 +60,7 @@ void draw_one_step(t_step_line *current_step)
 	}
 }
 
-void draw_all_steps(t_step_line *steps)
+void draw_all_steps(t_step_line *steps, t_all_data *data)
 {
 	while (steps)
 	{
