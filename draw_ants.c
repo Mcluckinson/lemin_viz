@@ -12,7 +12,7 @@
 
 #include "lem_viz.h"
 
-int get_ant_x(int ant)
+int get_old_x(int ant)
 {
 	int		current_x;
 
@@ -21,7 +21,7 @@ int get_ant_x(int ant)
 	return (current_x);
 }
 
-int get_ant_y(int ant)
+int get_old_y(int ant)
 {
 	int		current_y;
 
@@ -32,16 +32,30 @@ int get_ant_y(int ant)
 
 void draw_one_ant(t_step *counter)
 {
-	int old_x = get_ant_x(counter->ant_num);
-	int old_y = get_ant_y(counter->ant_num);
+	int old_x = get_old_x(counter->ant_num);
+	int old_y = get_old_y(counter->ant_num);
+	int new_x = counter->room->x;
+	int new_y = counter->room->y;
 	////then we will move ant to new coords
 }
 
-void draw_one_step(t_step *counter)
+void draw_one_step(t_step_line *current_step)
 {
+	t_step *counter;
+
+	counter = current_step->stepz;
 	while (counter)
 	{
 		draw_one_ant(counter);
 		counter = counter->next;
+	}
+}
+
+void draw_all_steps(t_step_line *steps)
+{
+	while (steps)
+	{
+		draw_one_step(steps);
+		steps = steps->next;
 	}
 }
