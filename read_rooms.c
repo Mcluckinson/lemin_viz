@@ -53,14 +53,15 @@ static int		start_end_check(char *line, t_room **rooms, t_all_data *data)
 		if (!(*rooms = make_room(*rooms, line, data)))
 			return (del_line_and_return(line, 0));
 		data->start = *rooms;
-		return (1);
+		data->start->is_part_of_path = true;
+		return (true);
 	}
 	else if (flag == 2 && !data->end)
 	{
 		if (!(*rooms = make_room(*rooms, line, data)))
 			return (del_line_and_return(line, 0));
 		data->end = *rooms;
-		return (1);
+		return (true);
 	}
 	return (del_line_and_return(line, 0));
 }
