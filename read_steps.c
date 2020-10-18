@@ -52,44 +52,6 @@ static int			check_correct_steps(char **line)
 	return (1);
 }
 
-static t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step)
-{
-	t_step			*result;
-	char			**buff;
-	t_room			*finder;
-
-	if (!(buff = ft_strsplit(step_line, '-')))
-		return (NULL);
-	if (!(result = (t_step*)ft_memalloc(sizeof(t_step))) || split_bits(step_line, '-') != 2)
-	{
-		del_str_arr(buff);
-		return (NULL);
-	}
-	if (curr_step)
-		curr_step->next = result;
-	result->ant_num = ft_atoi(ft_strchr(buff[0], 'L') + 1);
-	if (result->ant_num < 1 || result->ant_num > data->ants)
-	{
-		del_str_arr(buff);
-		free(result);
-		return (NULL);
-	}
-	finder = data->all_rooms;
-	while (finder)
-	{
-		if (ft_strequ(finder->name, buff[1]))
-		{
-			result->room = finder;
-			finder->is_part_of_path = 1;
-			return (result);
-		}
-		finder = finder->next;
-	}
-	del_str_arr(buff);
-	free(result);
-	return (NULL);
-}
-
 static int			split_steps(t_step_line *step_line, t_all_data *data)
 {
 	char			**split_step_line;
@@ -109,8 +71,10 @@ static int			split_steps(t_step_line *step_line, t_all_data *data)
 		if (!step_line->stepz)
 			step_line->stepz = step;
 	}
+	del_str_arr(split_step_line);
 	return (1);
 }
+
 
 int					read_steps(t_all_data *data)
 {
