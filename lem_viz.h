@@ -170,4 +170,9 @@ t_link	*make_link(char *line, t_link *link, t_all_data *data);
 t_link	*initial_link(t_all_data *data);
 int		is_command(char *line);
 
+/*
+ * Steps_helper
+ */
+t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
+
 #endif

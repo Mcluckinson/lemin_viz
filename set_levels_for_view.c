@@ -84,7 +84,7 @@ int				set_levels(t_all_data *data, t_step_line *steps,
 		}
 		link++;
 	}
-	ft_memdel((void **)ref);
+	del_str_arr(ref);
 	return (0);
 }
 
@@ -108,6 +108,6 @@ int				set_levels_from_data(t_all_data *data)
 		steps = steps->next;
 	}
 	modify_levels(data);
-	ft_memdel((void **)ants);
+	del_str_arr(ants);
 	return (1);
 }

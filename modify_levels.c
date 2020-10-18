@@ -84,7 +84,7 @@ char		**get_ants_array(int ants_count)
 	int		i;
 
 	i = 0;
-	result = (char**)ft_memalloc(sizeof(char *) * ants_count + 1);
+	result = (char**)ft_memalloc(sizeof(char *) * (ants_count + 2));
 	while (i <= ants_count)
 	{
 		result[i] = ant_name_for_index(i + 1);
