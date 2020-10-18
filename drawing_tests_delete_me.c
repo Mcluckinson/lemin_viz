@@ -8,13 +8,7 @@ void 	update(t_sdl_things *things)
 	SDL_RenderPresent(things->renderer);
 }
 
-void 	set_pixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue, t_sdl_things *things)
-{
-
-
-}
-
-static void			render_background(t_sdl_things *sdl)
+void			render_background(t_sdl_things *sdl)
 {
 	SDL_Rect rect;
 
@@ -40,8 +34,9 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 		SDL_WaitEvent(&event);
 		if (SDL_QUIT == event.type || SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
+		pulse_map(env, data);
 
-//		SDL_Delay(1000 / 60);
+		SDL_Delay(50);
 	}
 	if (env->renderer)
 		SDL_DestroyRenderer(env->renderer);

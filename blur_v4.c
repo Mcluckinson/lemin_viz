@@ -1,12 +1,5 @@
-//
-// Created by scump on 04.05.2020.
-//
+
 #include "lem_viz.h"
-
-/////////SET PIXEL FUNCTION REQUIRED
-
-///////GET PIXEL FUNCTION REQUIRED
-
 
 void	blur_v4(t_sdl_things *things)
 {

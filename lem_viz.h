@@ -79,6 +79,7 @@ typedef struct			s_all_data
 typedef struct 			s_sdl_things
 {
 	int 				radius;
+	int 				original_radius;
 	t_all_data			*map_data;
 	SDL_Window			*win;
 	SDL_Surface			*surf;
@@ -144,7 +145,8 @@ void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
 void	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
 void	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
 void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
-void	blur_v2(t_sdl_things *things);
+void			render_background(t_sdl_things *sdl);
+void 	pulse_map(t_sdl_things *env, t_all_data *data);
 
 
 /* BUFF DRAWING
