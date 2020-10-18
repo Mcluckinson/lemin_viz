@@ -12,10 +12,10 @@
 
 #include "lem_viz.h"
 
-static t_step		*next_assign_steep(t_step *result,
+static t_step	*next_assign_steep(t_step *result,
 										t_all_data *data, char **buff)
 {
-	t_room			*finder;
+	t_room		*finder;
 
 	finder = data->all_rooms;
 	while (finder)
@@ -34,11 +34,11 @@ static t_step		*next_assign_steep(t_step *result,
 	return (NULL);
 }
 
-t_step		*assign_step(char *step_line,
+t_step			*assign_step(char *step_line,
 						t_all_data *data, t_step *curr_step)
 {
-	t_step			*result;
-	char			**buff;
+	t_step		*result;
+	char		**buff;
 
 	if (!(buff = ft_strsplit(step_line, '-')))
 		return (NULL);
@@ -58,4 +58,22 @@ t_step		*assign_step(char *step_line,
 		return (NULL);
 	}
 	return (next_assign_steep(result, data, buff));
+}
+
+int				check_correct_steps(char **line)
+{
+	int			i;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (is_step(line[i]))
+			continue;
+		else
+		{
+			del_str_arr(line);
+			return (0);
+		}
+	}
+	return (1);
 }

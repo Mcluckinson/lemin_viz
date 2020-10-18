@@ -106,7 +106,8 @@ add_executable(lemin_viz
 		set_levels_for_view.c
 		modify_levels.c
         read_links_helper.c
-		error_manager.c pulse_map.c
+		error_manager.c
+		pulse_map.c
 		read_steps_helper.c)
 
 target_link_libraries(lemin_viz

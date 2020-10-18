@@ -34,24 +34,6 @@ static t_step_line	*next_step_line(char *line)
 	return (result);
 }
 
-static int			check_correct_steps(char **line)
-{
-	int				i;
-
-	i = -1;
-	while (line[++i])
-	{
-		if (is_step(line[i]))
-			continue;
-		else
-		{
-			del_str_arr(line);
-			return (0);
-		}
-	}
-	return (1);
-}
-
 static int			split_steps(t_step_line *step_line, t_all_data *data)
 {
 	char			**split_step_line;
@@ -75,10 +57,26 @@ static int			split_steps(t_step_line *step_line, t_all_data *data)
 	return (1);
 }
 
+int					read_steps_next(t_all_data *data)
+{
+	char			*line;
+	t_step_line		*step_lines;
+
+	step_lines = data->all_steps;
+	while (get_next_line(data->del_me_fd, &line) > 0)
+	{
+		ft_putendl(line);
+		if (!(step_lines->next = next_step_line(line)))
+			return (0);
+		if (!split_steps(step_lines->next, data))
+			return (0);
+		step_lines = step_lines->next;
+	}
+	return (1);
+}
 
 int					read_steps(t_all_data *data)
 {
-	char			*line;
 	t_step_line		*step_lines;
 
 	if (!(step_lines = (t_step_line*)ft_memalloc(sizeof(t_step_line))))
@@ -95,14 +93,5 @@ int					read_steps(t_all_data *data)
 		return (0);
 	}
 	data->all_steps = step_lines;
-	while (get_next_line(data->del_me_fd, &line) > 0)
-	{
-		ft_putendl(line);
-		if (!(step_lines->next = next_step_line(line)))
-			return (0);
-		if (!split_steps(step_lines->next, data))
-			return (0);
-		step_lines = step_lines->next;
-	}
-	return (1);
+	return (read_steps_next(data));
 }

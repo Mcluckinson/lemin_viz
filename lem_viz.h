@@ -176,5 +176,6 @@ int		is_command(char *line);
  * Steps_helper
  */
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
+int			check_correct_steps(char **line);
 
 #endif
