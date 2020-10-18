@@ -36,7 +36,7 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 			break ;
 		pulse_map(env, data);
 
-		SDL_Delay(50);
+	//	SDL_Delay(50);
 	}
 	if (env->renderer)
 		SDL_DestroyRenderer(env->renderer);

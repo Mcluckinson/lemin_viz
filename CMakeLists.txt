@@ -84,7 +84,6 @@ add_executable(lemin_viz
         blur_v4.c
         brezenham.c
         clear.c
-        delete_me_im_a_debug.c
         draw_ants.c
         draw_buff.c
         draw_circle.c

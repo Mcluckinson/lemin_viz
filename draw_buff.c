@@ -50,7 +50,7 @@ void		draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things,
 
 void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, int y1, Uint32 color, Uint32 *buff, int radius)
 {
-	int		dx, dy, p, x, y;
+	int		dx, dy, x, y;
 
 
 	int steep = abs(y1 - y0) > abs(x1 - x0);
@@ -77,7 +77,6 @@ void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, 
 
 	while(x<x1)
 	{
-	//	draw_filled_circle(steep ? y : x, steep ? x : y, radius, things);
 		draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		error -= dy;
 		if (error < 0)
@@ -95,7 +94,6 @@ void		draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data)
 	t_link	*start = data->all_links;;
 
 	Uint32	color = 0xFF00FF;
-//	Uint32	color = 16711935;
 	while (start)
 	{
 		draw_brezenham_line_in_buff(things, start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, color, buff, things->radius);
@@ -118,7 +116,7 @@ void		draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data)
 		percent_stuff = (float)rad_buff / (float)things->radius;
 		green = 255 - 255 * percent_stuff + 10;
 		alpha = 0;
-		SDL_SetRenderDrawColor(things->renderer, red, green, blue, alpha);///check alfa?
+		SDL_SetRenderDrawColor(things->renderer, red, green, blue, alpha);
 		start = data->all_links;
 		while (start)
 		{
