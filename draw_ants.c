@@ -86,25 +86,40 @@ int get_new_y(t_step *current_step, t_step *next_step)
 	return (current_y);
 }
 
+void check_ant_was_starded(t_room *start, t_step *current_step, t_step *next_step)
+{
+	if (current_step->ant_num == next_step->ant_num)
+	{
+		next_step->was_started = true;
+	}
+}
+
+void print_ant(int old_x, int old_y, int new_x, int new_y, int ant_num)
+{
+	printf("ant %d goes from x %d y %d to x %d y %d\n", ant_num, old_x, old_y, new_x, new_y);
+}
+
 void draw_one_ant(t_room *start, t_room *end, t_step *current_step, t_step *next_step)
 {
-	t_room *current_room;
-	t_room *next_room;
 	int old_x;
 	int old_y;
 	int new_x;
 	int new_y;
+	int ant_num;
 
-	current_room = current_step->room;
-	next_room = next_step->room;
-	if (is_end_room(current_room->name, end->name))
+	ant_num = current_step->ant_num;
+	if (is_end_room(current_step->room->name, end->name))
 		return ;
+	while (next_step->ant_num != ant_num && next_step->next)
+	{
+		next_step = next_step->next;
+	}
+	check_ant_was_starded(start, current_step, next_step);
 	old_x = get_old_x(current_step, start);
 	old_y = get_old_y(current_step, start);
 	new_x = get_new_x(current_step, next_step);
 	new_y = get_new_y(current_step, next_step);
-
-	////then we will move ant to new coords
+	print_ant(old_x, old_y, new_x, new_y, ant_num);
 }
 
 void draw_one_step(t_room *start, t_room *end, t_step_line *current_step, t_step_line *next_step)
@@ -118,15 +133,14 @@ void draw_one_step(t_room *start, t_room *end, t_step_line *current_step, t_step
 	{
 		draw_one_ant(start, end, current, next);
 		current = current->next;
-		if (next->next)
-		{
-			next = next->next;
-		}
 	}
 }
 
-void draw_all_steps(t_step_line *steps, t_all_data *data)
+void draw_all_steps(t_all_data *data)
 {
+	t_step_line *steps;
+
+	steps = data->all_steps;
 	draw_one_step(data->start, data->end, steps, steps->next);
 	while (steps)
 	{
