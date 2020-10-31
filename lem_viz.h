@@ -48,6 +48,7 @@ typedef struct 			s_link
 typedef struct			s_step
 {
 	int 				ant_num;
+	int					was_started;
 	t_room 				*room;
 	struct s_step		*next;
 }						t_step;
