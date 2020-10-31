@@ -21,8 +21,8 @@
 #include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
-#define DEFAULT_WIDTH 1366
-#define DEFAULT_HEIGHT 768
+#define DEFAULT_WIDTH 2000
+#define DEFAULT_HEIGHT 1500
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 2
