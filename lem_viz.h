@@ -21,8 +21,8 @@
 #include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
-#define DEFAULT_WIDTH 2000
-#define DEFAULT_HEIGHT 1500
+#define DEFAULT_WIDTH 1920
+#define DEFAULT_HEIGHT 1080
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 2
@@ -179,6 +179,13 @@ int		is_command(char *line);
  */
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
 int			check_correct_steps(char **line);
-void		draw_all_steps(t_step_line *steps, t_all_data *data);
+void		draw_all_steps(t_all_data *data);
+
+/*
+ * zoomin and movin
+ */
+int			find_center_y(t_all_data *data);
+int			find_center_x(t_all_data *data);
+void	zoom(t_all_data *data, SDL_Event event, t_sdl_things *things);
 
 #endif

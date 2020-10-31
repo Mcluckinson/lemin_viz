@@ -12,6 +12,36 @@
 
 #include "lem_viz.h"
 
+int			find_center_x(t_all_data *data)
+{
+	t_room *counter = data->all_rooms;
+	int x_max = counter->x;
+	int x_min = counter->x;
+
+	while (counter)
+	{
+		x_max = counter->x > x_max ? counter->x : x_max;
+		x_min = counter->x < x_min ? counter->x : x_min;
+		counter = counter->next;
+	}
+	return ((x_max + x_min) / 2);
+}
+
+int			find_center_y(t_all_data *data)
+{
+	t_room *counter = data->all_rooms;
+	int y_max = counter->y;
+	int y_min = counter->y;
+
+	while (counter)
+	{
+		y_max = counter->y > y_max ? counter->y : y_max;
+		y_min = counter->y < y_min ? counter->y : y_min;
+		counter = counter->next;
+	}
+	return ((y_max + y_min) / 2);
+}
+
 static int			find_max_width(t_all_data *data)
 {
 	int 	max;
@@ -54,51 +84,34 @@ static int			find_max_height(t_all_data *data)
 	return (result);
 }
 
-static void 			center_x(int max_width, t_all_data *data)
+static void 			center_x(t_all_data *data)
 {
-	t_room *counter;
-	int		offset;
-	int 	negative;
+	t_room *counter = NULL;
+	int		offset = 0;
+	int center_x = find_center_x(data);
 
-	negative = 0;
-	offset = DEFAULT_WIDTH / 2 - max_width / 2;
+	offset = DEFAULT_WIDTH / 2 - center_x;
 	counter = data->all_rooms;
 	while (counter)
 	{
-		counter->x-= offset;
-		if (counter->x < negative)
-			negative = counter->x;
-		counter = counter->next;
-	}
-	counter = data->all_rooms;
-	while (counter)
-	{
-		counter->x-= negative;
+		counter->x+= offset;
 		counter = counter->next;
 	}
 }
 
 
-static void 			center_y(int max_height, t_all_data *data)
+static void 			center_y(t_all_data *data)
 {
-	t_room *counter;
-	int		offset;
-	int 	negative;
+	t_room *counter = NULL;
+	int		offset = 0;
 
-	negative = 0;
-	offset = DEFAULT_HEIGHT / 2 - max_height / 2;
+	int center_y = find_center_y(data);
+
+	offset = DEFAULT_HEIGHT / 2 - center_y;
 	counter = data->all_rooms;
 	while (counter)
 	{
-		counter->y-= offset;
-		if (counter->y < negative)
-			negative = counter->y;
-		counter = counter->next;
-	}
-	counter = data->all_rooms;
-	while (counter)
-	{
-		counter->y-= negative;
+		counter->y+= offset;
 		counter = counter->next;
 	}
 }
@@ -145,11 +158,9 @@ void 		fix_coords(t_all_data *data, t_sdl_things *things)
 		things->radius = 4 * fixer;
 		things->original_radius = things->radius;
 	}
-	max_width = find_max_width(data);
-	max_height = find_max_height(data);
-	center_x(max_width, data);
-	center_y(max_height, data);
+	center_x(data);
+	center_y(data);
 	things->height = DEFAULT_HEIGHT;
 	things->width = DEFAULT_WIDTH;
-
+	things->zoom = 1;
 }

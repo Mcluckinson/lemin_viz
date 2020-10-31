@@ -46,6 +46,8 @@ int		is_link(char *line)
 		return (0);
 	if (split_bits(line, '-') != 2)
 		return (0);
+	if (line[0] == 'L')
+		return (0);
 	return (1);
 }
 

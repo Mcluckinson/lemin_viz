@@ -34,7 +34,13 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 		SDL_WaitEvent(&event);
 		if (SDL_QUIT == event.type || SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
-//		pulse_map(env, data);
+		if (event.type == SDL_MOUSEWHEEL)
+		{
+			zoom(data, event, env);
+			draw_all_paths2(env, data);
+			SDL_RenderPresent(env->renderer);////clear old?
+		}
+	//	pulse_map(env, data);///SUPER SLOW KILLS SPEED OH BOI
 
 	//	SDL_Delay(50);
 	}

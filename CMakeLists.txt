@@ -107,7 +107,7 @@ add_executable(lemin_viz
         read_links_helper.c
 		error_manager.c
 		pulse_map.c
-		read_steps_helper.c)
+		read_steps_helper.c zoom.c)
 
 target_link_libraries(lemin_viz
         "ft"

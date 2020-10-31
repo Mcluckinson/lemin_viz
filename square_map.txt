@@ -1,0 +1,10 @@
+10
+##start
+kek 0 0
+puk 400 400
+loh 0 400
+##end
+pidr 400 0
+kek-loh
+loh-puk
+puk-pidr

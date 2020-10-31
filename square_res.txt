@@ -1,0 +1,23 @@
+10
+##start
+kek 0 0
+puk 400 400
+loh 0 400
+##end
+pidr 400 0
+kek-loh
+loh-puk
+puk-pidr
+pidr-kek
+L1-loh 
+L1-puk L2-loh 
+L1-pidr L2-puk L3-loh 
+L2-pidr L3-puk L4-loh 
+L3-pidr L4-puk L5-loh 
+L4-pidr L5-puk L6-loh 
+L5-pidr L6-puk L7-loh 
+L6-pidr L7-puk L8-loh 
+L7-pidr L8-puk L9-loh 
+L8-pidr L9-puk L10-loh 
+L9-pidr L10-puk 
+L10-pidr 
