@@ -1,10 +1,10 @@
 
 #include "lem_viz.h"
 
-static Uint32 get_color()
+/*static Uint32 get_color()
 {
 
-}
+}*/
 
 void	blur_v4(t_sdl_things *things)
 {

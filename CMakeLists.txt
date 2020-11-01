@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 3.17)
-project(lemin_viz)
+project(lem_in_vizuals C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(.)
 link_directories(
         SDL2/
         libft)
@@ -12,104 +11,38 @@ include_directories(
         includes
         libft)
 
-add_executable(lemin_viz
-        libft/ft_atoi.c
-        libft/ft_bzero.c
-        libft/ft_delarr.c
-        libft/ft_isalnum.c
-        libft/ft_isalpha.c
-        libft/ft_isascii.c
-        libft/ft_isdigit.c
-        libft/ft_isprint.c
-        libft/ft_itoa.c
-        libft/ft_listlast.c
-        libft/ft_lstadd.c
-        libft/ft_lstcount.c
-        libft/ft_lstdel.c
-        libft/ft_lstdelcont.c
-        libft/ft_lstdelone.c
-        libft/ft_lstfind.c
-        libft/ft_lstiter.c
-        libft/ft_lstmap.c
-        libft/ft_lstnew.c
-        libft/ft_memalloc.c
-        libft/ft_memccpy.c
-        libft/ft_memchr.c
-        libft/ft_memcmp.c
-        libft/ft_memcpy.c
-        libft/ft_memdel.c
-        libft/ft_memmove.c
-        libft/ft_memset.c
-        libft/ft_power.c
-        libft/ft_putchar.c
-        libft/ft_putchar_fd.c
-        libft/ft_putendl.c
-        libft/ft_putendl_fd.c
-        libft/ft_putnbr.c
-        libft/ft_putnbr_fd.c
-        libft/ft_putstr.c
-        libft/ft_putstr_fd.c
-        libft/ft_strcat.c
-        libft/ft_strchr.c
-        libft/ft_strclr.c
-        libft/ft_strcmp.c
-        libft/ft_strcpy.c
-        libft/ft_strdel.c
-        libft/ft_strdup.c
-        libft/ft_strequ.c
-        libft/ft_striter.c
-        libft/ft_striteri.c
-        libft/ft_strjoin.c
-        libft/ft_strlcat.c
-        libft/ft_strlen.c
-        libft/ft_strmap.c
-        libft/ft_strmapi.c
-        libft/ft_strncat.c
-        libft/ft_strncmp.c
-        libft/ft_strncpy.c
-        libft/ft_strnequ.c
-        libft/ft_strnew.c
-        libft/ft_strnstr.c
-        libft/ft_strrchr.c
-        libft/ft_strsplit.c
-        libft/ft_strstr.c
-        libft/ft_strsub.c
-        libft/ft_strtrim.c
-        libft/ft_swap.c
-        libft/ft_tolower.c
-        libft/ft_toupper.c
-        libft/get_next_line.c
-        libft/get_next_line.h
-        libft/libft.h
-        blur_v4.c
-        brezenham.c
-        clear.c
-        draw_ants.c
-        draw_buff.c
-        draw_circle.c
-        draw_filled_circle.c
-        draw_map.c
-        drawing_tests_delete_me.c
-        duplicate_values.c
-        init_sdl.c
-        lem_viz.h
-        main.c
-        music.c
-        prepare_data.c
-        read_ants.c
-        read_links.c
-        read_rooms.c
-        read_steps.c
-        utils.c
-        valid.c
-		set_levels_for_view.c
-		modify_levels.c
-        read_links_helper.c
-		error_manager.c
-		pulse_map.c
-		read_steps_helper.c zoom.c)
+add_executable(lem_in_vizuals
+        includes/lem_viz.h
+        src/blur_v4.c
+        src/brezenham.c
+        src/clear.c
+        src/draw_ants.c
+        src/draw_buff.c
+        src/draw_circle.c
+        src/draw_filled_circle.c
+        src/draw_map.c
+        src/drawing_tests_delete_me.c
+        src/duplicate_values.c
+        src/error_manager.c
+        src/init_sdl.c
+        src/main.c
+        src/modify_levels.c
+        src/music.c
+        src/prepare_data.c
+        src/pulse_map.c
+        src/read_ants.c
+        src/read_links.c
+        src/read_links_helper.c
+        src/read_rooms.c
+        src/read_steps.c
+        src/read_steps_helper.c
+        src/set_levels_for_view.c
+        src/utils.c
+        src/valid.c
+        src/zoom.c)
 
-target_link_libraries(lemin_viz
+
+target_link_libraries(lem_in_vizuals
         "ft"
         "-F ${PROJECT_SOURCE_DIR}/SDL2 -framework SDL2"
-)
+        )

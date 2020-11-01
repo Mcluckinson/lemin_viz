@@ -14,8 +14,8 @@
 # define LEM_VIZ_H
 
 //#include "SDL.h"
-#include "SDL2/SDL2.framework/Headers/SDL.h"
-#include "libft/libft.h"
+#include "../SDL2/SDL2.framework/Headers/SDL.h"
+#include "../libft/libft.h"
 #include "math.h"
 #include <stdbool.h>
 #include <limits.h>
