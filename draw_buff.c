@@ -47,8 +47,6 @@ void		draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things,
 void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, int y1, Uint32 color, Uint32 *buff, int radius)
 {
 	int		dx, dy, x, y;
-
-
 	int steep = abs(y1 - y0) > abs(x1 - x0);
 
 	if (steep)
@@ -56,21 +54,17 @@ void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, 
 		y0 = (x0 + y0) - (x0 = y0);
 		y1 = (x1 + y1) - (x1 = y1);
 	}
-
 	if (x0 > x1)
 	{
 		x1 = (x0 + x1) - (x0 = x1);
 		y1 = (y0 + y1) - (y0 = y1);
 	}
-
 	dx = x1 - x0;
 	dy = abs(y1 - y0);
-
 	x = x0;
 	y = y0;
 	int error = dx / 2;
 	int ystep = (y0 < y1) ? 1 : -1;
-
 	while(x<x1)
 	{
 		draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
@@ -99,26 +93,24 @@ void		draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data)
 
 void		draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data)
 {
-	float	rad_buff = ((float)things->radius - 1 * things->zoom) * ((!things->zoom ? 1 : things->zoom));///////////this should be in structure and changeable
+	int		rad_buff = ((float)things->radius - (float)1 * things->zoom) * (things->zoom);
 	float	percent_stuff;
 	Uint8	red = 255;
-	Uint8	green = 0;
+	Uint8	green;
 	Uint8	blue = 255;
-	Uint8	alpha = 255;
-	t_link	*start = data->all_links;
+	t_link	*start;
 
 	while (rad_buff > things->zoom)
 	{
 		percent_stuff = (float)rad_buff / (float)things->radius;
 		green = 255 - 255 * percent_stuff + 10;
-		alpha = 0;
-		SDL_SetRenderDrawColor(things->renderer, red, green, blue, alpha);
+		SDL_SetRenderDrawColor(things->renderer, red, green, blue, 0);
 		start = data->all_links;
 		while (start)
 		{
 			draw_brezenham(start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, rad_buff, things);
 			start = start->next;
 		}
-		rad_buff -= (float)0.9;
+		rad_buff -= 1;
 	}
 }

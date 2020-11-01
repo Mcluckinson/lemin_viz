@@ -24,42 +24,17 @@ void		sdl_error(t_sdl_things *things)
 
 int			init_sdl(t_sdl_things *things)
 {
-	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
 		ft_error(SDL_GetError());
 	if (!(things->win = SDL_CreateWindow("lem-in vizuals", 100, 100, things->width, things->height, SDL_WINDOW_SHOWN)))
 		sdl_error(things);
-//	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
-	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_SOFTWARE)))
+	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED)))
 		sdl_error(things);
 	if (!(things->background = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_TARGET, things->width, things->height)))
-		sdl_error(things);
-	if (!(things->surf = SDL_GetWindowSurface(things->win)))
-		sdl_error(things);
-/*
- * CAREFUL WITH THIS THO
- *
- */
+		sdl_error(things);////probably useless?
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	!things->zoom ? (things->radius = 4) : (things->radius = 5 * things->zoom);
 	things->original_radius = things->radius;
-	//things->radius = 10 * things->zoom;
 	return (1);
 }
-
-/*SDL_Surface		*load_texture(char *path, t_wolf *wolf)
-{
-	SDL_Surface		*stock;
-	SDL_Surface		*surface;
-
-	stock = SDL_LoadBMP(path);
-	if (stock == NULL)
-	{
-		ft_putstr("Error while loading a texture file\n");
-		SDL_Quit();
-		exit(1);
-	}
-	surface = SDL_ConvertSurfaceFormat(stock, wolf->surf->format->format, 0);
-	SDL_FreeSurface(stock);
-	return (surface);
-}*/

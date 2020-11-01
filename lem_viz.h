@@ -21,8 +21,8 @@
 #include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 
-#define DEFAULT_WIDTH 1920
-#define DEFAULT_HEIGHT 1080
+#define DEFAULT_WIDTH 1366
+#define DEFAULT_HEIGHT 768
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 2
@@ -92,7 +92,6 @@ typedef struct 			s_sdl_things
 	SDL_AudioDeviceID	device_id;
 	SDL_Event 			*ev;
 	SDL_Texture			*background;
-	//SDL_Texture			*texture_buff;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
@@ -187,5 +186,7 @@ void		draw_all_steps(t_all_data *data);
 int			find_center_y(t_all_data *data);
 int			find_center_x(t_all_data *data);
 void	zoom(t_all_data *data, SDL_Event event, t_sdl_things *things);
+void 			center_x(t_all_data *data, int center);
+void 			center_y(t_all_data *data, int center);
 
 #endif

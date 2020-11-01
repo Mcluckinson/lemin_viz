@@ -26,7 +26,10 @@ static void move_to_mouse(int x, int y, t_all_data *data)
 static void zoom_coords(t_all_data *data, float ratio)
 {
 	t_room *counter;
+	int mouse_x;
+	int mouse_y;
 
+	SDL_GetMouseState(&mouse_x, &mouse_y);
 	counter = data->all_rooms;
 	while (counter)
 	{
@@ -34,24 +37,20 @@ static void zoom_coords(t_all_data *data, float ratio)
 		counter->y *= ratio;
 		counter = counter->next;
 	}
+	center_x(data, mouse_x);
+	center_y(data, mouse_y);
 }
 
 static void get_ratio(t_sdl_things *things, SDL_Event event)
 {
 	if (event.wheel.y > 0)
-		things->zoom += (float)0.1;
+		things->zoom += (float)0.01;
 	else if (event.wheel.y < 0)
-		things->zoom -= (float)0.1;
-	return ;
+		things->zoom -= (float)0.01;
 }
 
 void	zoom(t_all_data *data, SDL_Event event, t_sdl_things *things)
 {
-	int mouse_x;
-	int mouse_y;
-
-	SDL_GetMouseState(&mouse_x, &mouse_y);
 	get_ratio(things, event);
-	move_to_mouse(mouse_x, mouse_y, data);
 	zoom_coords(data, things->zoom);
 }

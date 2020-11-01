@@ -84,13 +84,13 @@ static int			find_max_height(t_all_data *data)
 	return (result);
 }
 
-static void 			center_x(t_all_data *data)
+void 			center_x(t_all_data *data, int center)
 {
 	t_room *counter = NULL;
 	int		offset = 0;
 	int center_x = find_center_x(data);
 
-	offset = DEFAULT_WIDTH / 2 - center_x;
+	offset = center - center_x;
 	counter = data->all_rooms;
 	while (counter)
 	{
@@ -100,14 +100,14 @@ static void 			center_x(t_all_data *data)
 }
 
 
-static void 			center_y(t_all_data *data)
+void 			center_y(t_all_data *data, int center)
 {
 	t_room *counter = NULL;
-	int		offset = 0;
+	int		offset;
 
 	int center_y = find_center_y(data);
 
-	offset = DEFAULT_HEIGHT / 2 - center_y;
+	offset = center - center_y;
 	counter = data->all_rooms;
 	while (counter)
 	{
@@ -142,8 +142,6 @@ void 		fix_coords(t_all_data *data, t_sdl_things *things)
 {
 	float	fixer;
 	t_room *counter;
-	int 	max_width;
-	int 	max_height;
 
 	counter = data->all_rooms;
 	fixer = should_fix(data);
@@ -158,8 +156,8 @@ void 		fix_coords(t_all_data *data, t_sdl_things *things)
 		things->radius = 4 * fixer;
 		things->original_radius = things->radius;
 	}
-	center_x(data);
-	center_y(data);
+	center_x(data, DEFAULT_WIDTH / 2);
+	center_y(data, DEFAULT_HEIGHT / 2);
 	things->height = DEFAULT_HEIGHT;
 	things->width = DEFAULT_WIDTH;
 	things->zoom = 1;

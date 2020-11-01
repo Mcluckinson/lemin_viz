@@ -3,6 +3,7 @@
 void 	update(t_sdl_things *things)
 {
 	//SDL_UpdateTexture(things->background, NULL, pixels, int pitch);
+	SDL_SetRenderDrawColor( things->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderClear(things->renderer);
 	SDL_RenderCopy(things->renderer, things->background, NULL, NULL);
 	SDL_RenderPresent(things->renderer);
@@ -25,7 +26,7 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 {
 	SDL_Event		event;
 
-	render_background(env);
+//	render_background(env);
 	draw_all_paths2(env, data);
 	SDL_RenderPresent(env->renderer);
 
