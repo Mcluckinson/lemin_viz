@@ -15,6 +15,12 @@ void		draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl
 	}
 }
 
+void 		draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
+{
+	if (x >= 0 && x < things->width && y < things->height)
+		things->m_buffer1[y * things->width + x] = color;
+}
+
 void		draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
 {
 	int		xoff = 0;
@@ -67,6 +73,7 @@ void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, 
 	int ystep = (y0 < y1) ? 1 : -1;
 	while(x<x1)
 	{
+//		draw_stoopid_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		error -= dy;
 		if (error < 0)

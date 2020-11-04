@@ -30,6 +30,7 @@ void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *th
 	while (x < x1)
 	{
 		draw_filled_circle(steep ? y : x, steep ? x : y, radius, things);
+	//	draw_stoopid_line(steep ? y : x, steep ? x : y, radius, things);
 		error -= dy;
 		if (error < 0)
 		{

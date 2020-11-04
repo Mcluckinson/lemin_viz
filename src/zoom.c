@@ -4,25 +4,6 @@
 
 #include "lem_viz.h"
 
-static void move_to_mouse(int x, int y, t_all_data *data)
-{
-	int diff_x;
-	int diff_y;
-	t_room *counter;
-
-	diff_x = (DEFAULT_WIDTH / 2) - x;
-	diff_y = (DEFAULT_HEIGHT / 2) - y;
-
-	counter = data->all_rooms;
-	while (counter)
-	{
-		counter->x -= diff_x;
-		counter->y -= diff_y;
-		counter = counter->next;
-	}
-
-}
-
 static void zoom_coords(t_all_data *data, float ratio)
 {
 	t_room *counter;
@@ -44,9 +25,9 @@ static void zoom_coords(t_all_data *data, float ratio)
 static void get_ratio(t_sdl_things *things, SDL_Event event)
 {
 	if (event.wheel.y > 0)
-		things->zoom += (float)0.01;
+		things->zoom = (float)1.1;
 	else if (event.wheel.y < 0)
-		things->zoom -= (float)0.01;
+		things->zoom = (float)0.9;
 }
 
 void	zoom(t_all_data *data, SDL_Event event, t_sdl_things *things)

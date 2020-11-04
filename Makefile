@@ -35,7 +35,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ_A)
 	Make -C $(LIB_PATH)
-	gcc $(OBJ_A) $(INC) $(LIB) $(FRAME) -o $(NAME)
+	clang $(OBJ_A) $(INC) $(LIB) $(FRAME) -o $(NAME)
+#	gcc $(OBJ_A) $(INC) $(LIB) $(FRAME) -o $(NAME)
 
 -include $(DEP_A)
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

@@ -20,12 +20,21 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
+#include <pthread.h>
 
 #define DEFAULT_WIDTH 1366
 #define DEFAULT_HEIGHT 768
+#define THREAD_NUM 8
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 2
+#define BLUR_EXTENT 3
+
+typedef struct		s_xy
+{
+	int				x;
+	int				y;
+}					t_xy;
 
 typedef struct			s_room
 {
@@ -91,10 +100,12 @@ typedef struct 			s_sdl_things
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
 	SDL_Event 			*ev;
-	SDL_Texture			*background;
+	SDL_Texture			*t_buffer1;
+	SDL_Texture 		*t_buffer2;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
+	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
 }						t_sdl_things;
 
 /*
@@ -159,6 +170,9 @@ void	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
 void	blur_v4(t_sdl_things *things);
 int		draw_all_paths2(t_sdl_things *things, t_all_data *data);
 void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
+void	draw_stoopid_line (int x, int y, int radius, t_sdl_things *things);
+void 		draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
+void		fastend_blur(t_sdl_things *things);
 /*
  * testing delete me
  */

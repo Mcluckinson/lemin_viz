@@ -4,6 +4,17 @@
 
 #include "lem_viz.h"
 
+void draw_stoopid_line (int x, int y, int radius2, t_sdl_things *things)
+{
+	int radius = radius2 * 2;
+	SDL_RenderDrawPoint(things->renderer, x, y);
+	while (--radius > 0)
+	if (y - radius > 0)
+		SDL_RenderDrawPoint(things->renderer, x, y - radius);
+	if (y + radius < DEFAULT_HEIGHT)
+		SDL_RenderDrawPoint(things->renderer, x, y + radius);
+}
+
 void		draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
 {
 	int		xoff = 0;

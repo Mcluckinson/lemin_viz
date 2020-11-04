@@ -1,13 +1,13 @@
 #include "lem_viz.h"
 
-void 	update(t_sdl_things *things)
+/*void 	update(t_sdl_things *things)
 {
 	//SDL_UpdateTexture(things->background, NULL, pixels, int pitch);
 	SDL_SetRenderDrawColor( things->renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 	SDL_RenderClear(things->renderer);
 	SDL_RenderCopy(things->renderer, things->background, NULL, NULL);
 	SDL_RenderPresent(things->renderer);
-}
+}*/
 
 void			render_background(t_sdl_things *sdl)
 {
@@ -33,7 +33,7 @@ void				main_loop(t_sdl_things *env, t_all_data *data)
 	while (1)
 	{
 		SDL_WaitEvent(&event);
-		if (SDL_QUIT == event.type || SDLK_ESCAPE == event.key.keysym.sym)
+		if (/*SDL_QUIT == event.type ||*/ SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
 		if (event.type == SDL_MOUSEWHEEL)
 		{
