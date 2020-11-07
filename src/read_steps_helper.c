@@ -77,3 +77,28 @@ int				check_correct_steps(char **line)
 	}
 	return (1);
 }
+
+bool			is_all_steps_found(t_step_line *all_steps, int ants_count)
+{
+	t_step_line *steps;
+	t_step 		*step;
+	int 		ants;
+
+	steps = all_steps;
+	ants = 1;
+	while (steps)
+	{
+		step = steps->stepz;
+		while (step)
+		{
+			if (step->ant_num == ants)
+				ants++;
+			step = step->next;
+		}
+		steps = steps->next;
+	}
+	ants--;
+	if (ants_count != ants)
+		return (false);
+	return (true);
+}

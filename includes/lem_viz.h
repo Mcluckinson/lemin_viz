@@ -193,6 +193,7 @@ int		is_command(char *line);
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
 int			check_correct_steps(char **line);
 void		draw_all_steps(t_all_data *data);
+bool		is_all_steps_found(t_step_line *all_steps, int ants_count);
 
 /*
  * zoomin and movin

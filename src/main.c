@@ -47,7 +47,7 @@ int					main(int ac, char **av)
 	///////////del this one below
 	data->del_me_fd = open(av[1], O_RDONLY);
 	if (!(read_data(data)))
-		return (0);
+		return (ft_error("Invalid data"));
 	set_levels_from_data(data);
 	//	return (huevie_dela());
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))

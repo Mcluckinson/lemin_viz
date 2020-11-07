@@ -65,14 +65,14 @@ int					read_steps_next(t_all_data *data)
 	step_lines = data->all_steps;
 	while (get_next_line(data->del_me_fd, &line) > 0)
 	{
-		ft_putendl(line);
+//		ft_putendl(line);
 		if (!(step_lines->next = next_step_line(line)))
 			return (0);
 		if (!split_steps(step_lines->next, data))
 			return (0);
 		step_lines = step_lines->next;
 	}
-	return (1);
+	return (is_all_steps_found(data->all_steps, data->ants));
 }
 
 int					read_steps(t_all_data *data)
