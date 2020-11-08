@@ -198,6 +198,11 @@ void		draw_all_steps(t_all_data *data);
 bool		is_all_steps_found(t_step_line *all_steps, int ants_count);
 
 /*
+ * Helpers
+ */
+void		delete_unused(t_all_data *data);
+
+/*
  * zoomin and movin
  */
 int			find_center_y(t_all_data *data);
