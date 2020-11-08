@@ -21,6 +21,32 @@ void 		draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things,
 		things->m_buffer1[y * things->width + x] = color;
 }
 
+static void draw_fat_horizontal_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
+{
+	int counter;
+
+	counter = -radius;
+	while (counter < radius)
+	{
+		if (x + counter > 0 && x + counter < DEFAULT_WIDTH && y > 0 && y < DEFAULT_HEIGHT)
+			things->m_buffer1[y * DEFAULT_WIDTH + x + counter] = color;
+		counter++;
+	}
+}
+
+static void draw_fat_vertical_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
+{
+	int counter;
+
+	counter = -radius;
+	while (counter < radius)
+	{
+		if (y + counter > 0 && y + counter < DEFAULT_HEIGHT && x > 0 && x < DEFAULT_WIDTH)
+			things->m_buffer1[(y + counter) * DEFAULT_WIDTH + x] = color;
+		counter++;
+	}
+}
+
 void		draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
 {
 	int		xoff = 0;
@@ -73,7 +99,9 @@ void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, 
 	int ystep = (y0 < y1) ? 1 : -1;
 	while(x<x1)
 	{
-		draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
+//		draw_stoopid_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
+	//	draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
+		steep ? draw_fat_horizontal_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color) : draw_fat_vertical_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		error -= dy;
 		if (error < 0)
 		{

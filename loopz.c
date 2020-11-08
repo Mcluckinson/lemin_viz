@@ -19,7 +19,7 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 		{
 			zoom(data, event, things);
 			draw_map(things, data);
-			SDL_RenderPresent(things->renderer);////clear old?
+			SDL_RenderPresent(things->renderer);
 		}
 	}
 	if (things->renderer)

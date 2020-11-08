@@ -59,7 +59,6 @@ int					main(int ac, char **av)
 	delete_unused(data);
 	//	return (huevie_dela());
 	loopz(sdl_things, data);
-//	draw_test_window(sdl_things, data);
 	return (0);
 //		free_and_quit(data);
 }

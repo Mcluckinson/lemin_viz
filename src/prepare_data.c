@@ -87,7 +87,7 @@ static int			find_max_height(t_all_data *data)
 void 			center_x(t_all_data *data, int center)
 {
 	t_room *counter = NULL;
-	int		offset = 0;
+	int		offset;
 	int center_x = find_center_x(data);
 
 	offset = center - center_x;

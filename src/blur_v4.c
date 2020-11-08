@@ -1,7 +1,7 @@
 
 #include "lem_viz.h"
 
-static void blur_v5(t_sdl_things *things, int x, int y)/////gets blur for 1 point
+/*static void blur_v5(t_sdl_things *things, int x, int y)/////gets blur for 1 point
 {
 	int box_blur_x;
 	Uint8 red = 0, green = 0, blue = 0;
@@ -39,7 +39,7 @@ static void blur_v5(t_sdl_things *things, int x, int y)/////gets blur for 1 poin
 			things->m_buffer1[y * things->width + x] = color;
 		}
 
-}
+}*/
 
 /*static void	*threadman(void *things)
 {
