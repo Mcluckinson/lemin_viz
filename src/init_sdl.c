@@ -30,8 +30,8 @@ int			init_sdl(t_sdl_things *things)
 		sdl_error(things);
 	if (!(things->renderer = SDL_CreateRenderer(things->win, -1, SDL_RENDERER_ACCELERATED)))
 		sdl_error(things);
-//	if (!(things->background = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_TARGET, things->width, things->height)))
-//		sdl_error(things);////probably useless?
+	if (!(things->textue = SDL_CreateTexture(things->renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_TARGET, things->width, things->height)))
+		sdl_error(things);
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	!things->zoom ? (things->radius = 4) : (things->radius = 5 * things->zoom);

@@ -41,7 +41,7 @@ static void blur_v5(t_sdl_things *things, int x, int y)/////gets blur for 1 poin
 
 }
 
-static void	*threadman(void *things)
+/*static void	*threadman(void *things)
 {
 	t_xy		plot;
 	t_xy		start_end;
@@ -69,9 +69,9 @@ static void	*threadman(void *things)
 		}
 	}
 	pthread_exit(NULL);
-}
+}*/
 
-void		fastend_blur(t_sdl_things *things)
+/*void		fastend_blur(t_sdl_things *things)
 {
 	int			rc;
 	int			i;
@@ -95,7 +95,7 @@ void		fastend_blur(t_sdl_things *things)
 		i++;
 	}
 //	draw_it_all(things);
-}
+}*/
 
 void	blur_v4(t_sdl_things *things)
 {

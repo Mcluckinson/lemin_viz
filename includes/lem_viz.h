@@ -27,7 +27,7 @@
 #define THREAD_NUM 8
 
 #define MODIFIER_X 2
-#define MODIFIER_Y 2
+#define MODIFIER_Y 20
 #define BLUR_EXTENT 3
 
 typedef struct		s_xy
@@ -99,13 +99,12 @@ typedef struct 			s_sdl_things
 	SDL_Renderer 		*renderer;
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
-	SDL_Event 			*ev;
-	SDL_Texture			*t_buffer1;
-	SDL_Texture 		*t_buffer2;
+//	SDL_Event 			*ev;
+	SDL_Texture 		*textue;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
-	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
+//	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
 }						t_sdl_things;
 
 /*
@@ -159,6 +158,9 @@ void	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things
 void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 void			render_background(t_sdl_things *sdl);
 void 	pulse_map(t_sdl_things *env, t_all_data *data);
+void 	buff_to_texture(t_sdl_things *things);
+void 	loopz(t_sdl_things *env, t_all_data *data);
+void 	draw_map(t_sdl_things *things, t_all_data *data);
 
 
 /* BUFF DRAWING

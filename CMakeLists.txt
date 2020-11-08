@@ -39,7 +39,7 @@ add_executable(lem_in_vizuals
         src/set_levels_for_view.c
         src/utils.c
         src/valid.c
-        src/zoom.c)
+        src/zoom.c loopz.c draw_map.c general_drawing.c)
 
 
 target_link_libraries(lem_in_vizuals
