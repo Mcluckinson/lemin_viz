@@ -27,13 +27,6 @@ static int			read_data(t_all_data *data)
 	return (1);
 }
 
-static void delete_unused(t_all_data *data)
-{
-	if (!data->is_generated_map)
-		return ;
-//	delete_unused_rooms();
-//	delete_unused_links();
-}
 ///////////dont forget to delete em args he he
 int					main(int ac, char **av)
 {
