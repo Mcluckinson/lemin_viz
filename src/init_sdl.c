@@ -34,7 +34,7 @@ int			init_sdl(t_sdl_things *things)
 		sdl_error(things);
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
-	!things->zoom ? (things->radius = 4) : (things->radius = 5 * things->zoom);
-	things->original_radius = things->radius;
+//	!things->zoom ? (things->radius = 4) : (things->radius = 5 * things->zoom);
+//	things->original_radius = things->radius;
 	return (1);
 }

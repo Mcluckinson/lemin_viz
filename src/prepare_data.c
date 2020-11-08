@@ -153,9 +153,10 @@ void 		fix_coords(t_all_data *data, t_sdl_things *things)
 			counter->y*=fixer;
 			counter = counter->next;
 		}
-		things->radius = 4 * fixer;
-		things->original_radius = things->radius;
 	}
+	things->radius = 4 * fixer;
+	things->radius = things->radius ? things->radius : 1;
+	things->original_radius = things->radius;
 	center_x(data, DEFAULT_WIDTH / 2);
 	center_y(data, DEFAULT_HEIGHT / 2);
 	things->height = DEFAULT_HEIGHT;
