@@ -18,7 +18,6 @@ add_executable(lem_in_vizuals
         src/clear.c
         src/draw_ants.c
         src/draw_buff.c
-        src/draw_circle.c
         src/draw_filled_circle.c
         src/draw_map.c
         src/drawing_tests_delete_me.c

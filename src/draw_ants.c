@@ -148,3 +148,13 @@ void draw_all_steps(t_all_data *data)
 		steps = steps->next;
 	}
 }
+
+void initial_ants(t_sdl_things *things, t_all_data *data)
+{
+	Uint32 color = 0x9cd244;
+	int radius = things->radius * 2;
+
+
+	draw_filled_circle_in_buff(data->start->x, data->start->y, radius, things, color);
+
+}

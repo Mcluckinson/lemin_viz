@@ -11,5 +11,8 @@ void 	draw_map(t_sdl_things *things, t_all_data *data)
 //	blur_v4(things);
 //	fastend_blur(things);
 //	draw_all_paths_after_blur(things, data);
+	initial_ants(things, data);
 	buff_to_texture(things);
+
+
 }

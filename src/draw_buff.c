@@ -100,7 +100,6 @@ void		draw_brezenham_line_in_buff(t_sdl_things *things, int x0, int y0, int x1, 
 	while(x<x1)
 	{
 //		draw_stoopid_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
-	//	draw_filled_circle_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		steep ? draw_fat_horizontal_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color) : draw_fat_vertical_line_in_buff(steep ? y : x, steep ? x : y, radius, things, color);
 		error -= dy;
 		if (error < 0)
