@@ -4,60 +4,41 @@
 
 #include "lem_viz.h"
 
-static int getLeft(t_all_data *data)
+static t_xy get_offset(t_all_data *data)
 {
+	t_xy result;
 	t_room *counter;
-	int left;
 
 	counter = data->all_rooms;
-	left = DEFAULT_WIDTH;
+	result.x = counter->x;
+	result.y = counter->y;
 	while (counter)
 	{
-		if (counter->x > 0 && counter->x < DEFAULT_WIDTH)
-		{
-			if (counter->x < left)
-				left = counter->x;
-		}
+		if (counter->y < result.y)
+			result.y = counter->y;
+		if (counter->x < result.x)
+			result.x = counter->x;
 		counter = counter->next;
 	}
-	return (left);
+	return (result);
 }
 
-static int gettop(t_all_data *data)/////optimize it: do it one function instead of traversing the list twice
+static void move_to_mouse(t_all_data *data, int mouse_x, int mouse_y, float factor, t_xy offset)
 {
-	t_room *counter;
-	int top;
-
-	counter = data->all_rooms;
-	top = DEFAULT_HEIGHT;
-	while (counter)
-	{
-		if (counter->y > 0 && counter->y < DEFAULT_HEIGHT)
-		{
-			if (counter->y < top)
-				top = counter->y;
-		}
-		counter = counter->next;
-	}
-	return (top);
-}
-
-static void move_to_mouse(t_all_data *data, int mouse_x, int mouse_y, float factor)
-{
-	int offset_x;
-	int offset_y;
 	t_room *counter;
 
 	mouse_x -= DEFAULT_WIDTH / 2;
 	mouse_y -= DEFAULT_HEIGHT / 2;
-
+	offset.x -= DEFAULT_WIDTH / 2;
+	offset.y -= DEFAULT_HEIGHT / 2;
+	factor -= (float)1;
 	counter = data->all_rooms;
-	offset_x = (mouse_x - (getLeft(data) - DEFAULT_WIDTH / 2))* (factor - 1.0);
-	offset_y = (mouse_y - (gettop(data) - DEFAULT_HEIGHT / 2)) * (factor - 1.0);
+	offset.x = (mouse_x  - offset.x) * factor;
+	offset.y = (mouse_y - offset.y) * factor;
 	while(counter)
 	{
-		counter->x -= offset_x;
-		counter->y -= offset_y;
+		counter->x -= offset.x;
+		counter->y -= offset.y;
 		counter = counter->next;
 	}
 
@@ -68,7 +49,9 @@ static void zoom_coords(t_all_data *data, float ratio)
 	t_room *counter;
 	int mouse_x;
 	int mouse_y;
+	t_xy offset;
 
+	offset = get_offset(data);
 	SDL_GetMouseState(&mouse_x, &mouse_y);
 	counter = data->all_rooms;
 	while (counter)
@@ -77,7 +60,7 @@ static void zoom_coords(t_all_data *data, float ratio)
 		counter->y *= ratio;
 		counter = counter->next;
 	}
-	move_to_mouse(data, mouse_x, mouse_y, ratio);
+	move_to_mouse(data, mouse_x, mouse_y, ratio, offset);
 }
 
 static void get_ratio(t_sdl_things *things, SDL_Event event)
