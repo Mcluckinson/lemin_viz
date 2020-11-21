@@ -177,6 +177,7 @@ void 		draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things,
 void		fastend_blur(t_sdl_things *things);
 void initial_ants(t_sdl_things *things, t_all_data *data);
 void	draw_circle_in_buff(int x, int y, int rad, t_sdl_things *things, Uint32 color);
+void draw_all_rooms(t_sdl_things *things, t_all_data *data);
 /*
  * testing delete me
  */
