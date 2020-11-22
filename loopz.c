@@ -7,8 +7,10 @@
 void 	loopz(t_sdl_things *things, t_all_data *data)
 {
 	SDL_Event		event;
+	double			step_completed;
 
-	draw_map(things, data);
+	step_completed = 0.01;
+	draw_map(things, data, step_completed);
 	SDL_RenderPresent(things->renderer);
 	while (1)
 	{
@@ -18,9 +20,26 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 		if (event.type == SDL_MOUSEWHEEL)
 		{
 			zoom(data, event, things);
-			draw_map(things, data);
+			draw_map(things, data, step_completed);
 			SDL_RenderPresent(things->renderer);
 		}
+		if (event.type == SDL_KEYDOWN)
+		{
+			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
+			{
+				things->ants_go_brrrr = true;
+				while (step_completed <= 1)
+				{
+					draw_map(things, data, step_completed);
+					SDL_RenderPresent(things->renderer);
+					step_completed += 0.01;
+				}
+				data->curr_step = data->curr_step->next;
+				step_completed = 0.01;
+			}
+			//	draw_next_step();
+		}
+
 	}
 	if (things->renderer)
 		SDL_DestroyRenderer(things->renderer);

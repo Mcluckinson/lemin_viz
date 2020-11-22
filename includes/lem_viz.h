@@ -82,7 +82,7 @@ typedef struct			s_all_data
 	char 				*courier;
 	int 				del_me_fd;
 	int					is_generated_map;
-
+	t_step_line 		*curr_step;
 
 }						t_all_data;
 
@@ -100,10 +100,13 @@ typedef struct 			s_sdl_things
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
 //	SDL_Event 			*ev;
-	SDL_Texture 		*textue;
+	SDL_Texture 		*textue;///paths n roomz
+	SDL_Texture			*ants;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
+	bool				ants_go_brrrr;
+	double				step_progress;
 //	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
 }						t_sdl_things;
 
@@ -160,7 +163,8 @@ void			render_background(t_sdl_things *sdl);
 void 	pulse_map(t_sdl_things *env, t_all_data *data);
 void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
-void 	draw_map(t_sdl_things *things, t_all_data *data);
+void 	draw_map(t_sdl_things *things, t_all_data *data, double step_completed);
+void	draw_step(t_sdl_things *things, t_all_data *data, double step_completed);
 
 
 /* BUFF DRAWING

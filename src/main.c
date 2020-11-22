@@ -51,6 +51,7 @@ int					main(int ac, char **av)
 		return (0);
 	delete_unused(data);
 	//	return (huevie_dela());
+	data->curr_step = data->all_steps;////put this in a proper place
 	loopz(sdl_things, data);
 	return (0);
 //		free_and_quit(data);
