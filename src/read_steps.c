@@ -65,7 +65,6 @@ int					read_steps_next(t_all_data *data)
 	step_lines = data->all_steps;
 	while (get_next_line(data->del_me_fd, &line) > 0)
 	{
-//		ft_putendl(line);
 		if (!(step_lines->next = next_step_line(line)))
 			return (0);
 		if (!split_steps(step_lines->next, data))

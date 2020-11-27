@@ -35,6 +35,8 @@ typedef struct		s_xy
 {
 	int				x;
 	int				y;
+	int 			width;
+	int 			height;
 }					t_xy;
 
 typedef struct			s_room
@@ -213,10 +215,6 @@ void		delete_unused(t_all_data *data);
 /*
  * zoomin and movin
  */
-int			find_center_y(t_all_data *data);
-int			find_center_x(t_all_data *data);
-void	zoom(t_all_data *data, SDL_Event event, t_sdl_things *things);
-void 			center_x(t_all_data *data, int center);
-void 			center_y(t_all_data *data, int center);
+void		zoom(t_all_data *data, SDL_Event event, t_sdl_things *things);
 
 #endif
