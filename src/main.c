@@ -52,6 +52,7 @@ int					main(int ac, char **av)
 	delete_unused(data);
 	//	return (huevie_dela());
 	data->curr_step = data->all_steps;////put this in a proper place
+	init_music(sdl_things);
 	loopz(sdl_things, data);
 	return (0);
 //		free_and_quit(data);

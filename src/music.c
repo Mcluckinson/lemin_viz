@@ -17,8 +17,9 @@ int				init_music(t_sdl_things *things)
 	SDL_AudioSpec	wav_spec;
 	Uint32			wav_length;
 
-	SDL_LoadWAV("./resources/wolves.wav", &wav_spec,
-				&things->wav_buffer, &wav_length);
+	if (!SDL_LoadWAV("../rsrcs/dorime.wav", &wav_spec,
+				&things->wav_buffer, &wav_length))
+		printf("%s\n", SDL_GetError());
 	things->device_id = SDL_OpenAudioDevice(NULL, 0, &wav_spec, NULL, 0);
 	SDL_QueueAudio(things->device_id, things->wav_buffer, wav_length);
 	SDL_PauseAudioDevice(things->device_id, 0);

@@ -127,6 +127,7 @@ void	modify_levels(t_all_data *data);
 char	**get_ants_array(int ants_count);
 int		path_count(char *ants);
 void 		fix_coords(t_all_data *data, t_sdl_things *things);
+int				init_music(t_sdl_things *things);
 
 /*
  *

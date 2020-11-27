@@ -48,4 +48,5 @@ add_executable(lem_in_vizuals
 target_link_libraries(lem_in_vizuals
         "ft"
         "-F ${PROJECT_SOURCE_DIR}/SDL2 -framework SDL2"
+        "-F ${PROJECT_SOURCE_DIR}/SDL2 -framework SDL2_image"
         )
