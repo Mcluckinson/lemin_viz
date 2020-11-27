@@ -15,6 +15,7 @@
 
 //#include "SDL.h"
 #include "../SDL2/SDL2.framework/Headers/SDL.h"
+#include "../SDL2/SDL2_image.framework/Headers/SDL_image.h"
 #include "../libft/libft.h"
 #include "math.h"
 #include <stdbool.h>
