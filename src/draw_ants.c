@@ -36,16 +36,63 @@ static int count_stepz(t_step_line *stepz_line)
 		stepz_amount++;
 		counter = counter->next;
 	}
+	return (stepz_amount);
 }
 
 static int find_ant_to_move(t_step_line *old_step, t_step_line *new_step)
 {
+	t_step *old_counter = old_step->stepz;
+	t_step *new_counter = new_step->stepz;
 
+	while (new_counter)
+	{
+		if (new_counter->was_started)
+		{
+			new_counter = new_counter->next;
+			continue ;
+		}
+		while (old_counter)
+		{
+			if (old_counter->ant_num == new_counter->ant_num)
+			{
+				new_counter->was_started = true;
+				return (new_counter->ant_num);
+			}
+
+			old_counter = old_counter->next;
+		}
+		new_counter = new_counter->next;
+	}
+	return (0);
 }
 
-static t_xy find_x_y()
+static t_step *find_da_step_4_ant(t_step_line *step_line, int ant_num)
 {
+	t_step *finder;
 
+	finder = step_line->stepz;
+	while (finder)
+	{
+		if (finder->ant_num == ant_num)
+			break ;
+		finder = finder->next;
+	}
+	return (finder);
+}
+
+static t_xy find_x_y(t_sdl_things *things, t_step_line *old_step, t_step_line *new_step, int ant_num)
+{
+	t_xy coords;
+	t_step *old;
+	t_step *new;
+	t_room *start;
+
+	old = find_da_step_4_ant(old_step, ant_num);
+	new = find_da_step_4_ant(new_step, ant_num);
+	start = old->room;
+
+	coords.x = start->x + (new->room->x - start->x) * things->step_progress;////change to things->step_progress
+	coords.y = start->y + (new->room->y - start->y) * things->step_progress;////change to things->step_progress
 }
 
 static bool	try_step(t_sdl_things *things, t_all_data *data, t_step_line *old_step, t_step_line *new_step)
@@ -56,7 +103,7 @@ static bool	try_step(t_sdl_things *things, t_all_data *data, t_step_line *old_st
 	if (!ant_num)
 		return (false);
 	t_xy x_y;
-	x_y = find_x_y();
+	x_y = find_x_y(things,old_step, new_step, ant_num);
 	draw_cheemz(things, x_y.x, x_y.y);
 	return (true);
 }
@@ -123,23 +170,17 @@ static void next_step(t_sdl_things *things, t_all_data *data, t_step_line *old_s
 			break ;
 	}
 	while (stepz_to_go > 0)
+	{
 		new_stepz(things, data, new_step);
+		stepz_to_go--;
+	}
 	clear_stepz_progress(new_step);
-
 }
 
 void	draw_step(t_sdl_things *things, t_all_data *data, double step_completed)
 {
-	t_step *step_counter;
-	int x;
-	int y;
-
-	step_counter = data->curr_step->stepz;
 	if (data->curr_step == data->all_steps)
 		initial_step(things, data, step_completed);
 	else
-	{
-		next_step(things, data, data->curr_step, data->curr_step->next);
-		data->curr_step = data->curr_step->next;
-	}
+		next_step(things, data, data->curr_step->prev, data->curr_step);
 }

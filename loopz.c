@@ -7,24 +7,21 @@
 void 	loopz(t_sdl_things *things, t_all_data *data)
 {
 	SDL_Event		event;
-	double			step_completed;
 
-	step_completed = 0.01;
+	things->step_progress = 0.01;
 	things->redraw = true;
-	draw_map(things, data, step_completed);
+	draw_map(things, data, things->step_progress);///fix
 	SDL_RenderPresent(things->renderer);
 	things->redraw = false;
-//	while (1)
 	while (SDL_WaitEvent(&event))
 	{
-	//	SDL_WaitEvent(&event);
 		if (SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
 		if (event.type == SDL_MOUSEWHEEL && !things->ants_go_brrrr)
 		{
 			things->redraw = true;
 			zoom(data, event, things);
-			draw_map(things, data, step_completed);
+			draw_map(things, data, things->step_progress);///fix
 			SDL_RenderPresent(things->renderer);
 			things->redraw = false;
 		}
@@ -33,16 +30,16 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE && !things->ants_go_brrrr)
 			{
 				things->ants_go_brrrr = true;
-				while (step_completed <= 1)
+				while (things->step_progress <= 1)
 				{
-					draw_map(things, data, step_completed);
+					draw_map(things, data, things->step_progress);///fix dis step_progress things
 					SDL_RenderPresent(things->renderer);
-					step_completed += 0.01;
+					things->step_progress += 0.01;
 					SDL_Delay(1000 / 60);
 				}
 				data->curr_step = data->curr_step->next;
 				things->ants_go_brrrr = false;
-				step_completed = 0.01;
+				things->step_progress = 0.01;
 			}
 			//	draw_next_step();
 		}

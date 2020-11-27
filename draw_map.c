@@ -8,7 +8,7 @@ static void redraw_map(t_sdl_things *things, t_all_data *data)
 {
 	ft_bzero(things->m_buffer1, sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
 	draw_all_paths_b4_blur(things, data);
-	//	blur_v4(things);
+//	blur_v4(things);
 //	fastend_blur(things);
 //	draw_all_paths_after_blur(things, data);
 	draw_all_rooms(things, data);

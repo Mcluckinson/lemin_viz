@@ -7,14 +7,13 @@
 void		load_cheemz(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
-	SDL_Texture	*texture;
 
 	surface = IMG_Load("../rsrcs/cheems.png");
 	if (!surface)
 		ft_error(SDL_GetError());
 	things->cheems = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
-	if (!texture)
+	if (!things->cheems)
 		ft_error(SDL_GetError());
 }
 

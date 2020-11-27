@@ -69,6 +69,8 @@ int					read_steps_next(t_all_data *data)
 			return (0);
 		if (!split_steps(step_lines->next, data))
 			return (0);
+		if (step_lines->next)
+			step_lines->next->prev = step_lines;
 		step_lines = step_lines->next;
 	}
 	return (is_all_steps_found(data->all_steps, data->ants));

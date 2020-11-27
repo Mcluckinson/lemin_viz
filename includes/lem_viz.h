@@ -70,6 +70,7 @@ typedef struct 			s_step_line
 	char 				*line;
 	t_step 				*stepz;
 	struct s_step_line	*next;
+	struct s_step_line	*prev;
 }						t_step_line;
 
 typedef struct			s_all_data
