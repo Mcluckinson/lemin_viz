@@ -24,5 +24,4 @@ void 	buff_to_texture(t_sdl_things *things)
 		}
 	}
 	SDL_SetRenderTarget(things->renderer, NULL );
-	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
 }

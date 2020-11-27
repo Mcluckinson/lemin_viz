@@ -42,7 +42,7 @@ add_executable(lem_in_vizuals
         src/delete_unused.c
         loopz.c
         draw_map.c
-        general_drawing.c src/draw_roomz.c)
+        general_drawing.c src/draw_roomz.c src/draw_texture.c)
 
 
 target_link_libraries(lem_in_vizuals

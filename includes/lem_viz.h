@@ -104,12 +104,13 @@ typedef struct 			s_sdl_things
 	SDL_AudioDeviceID	device_id;
 //	SDL_Event 			*ev;
 	SDL_Texture 		*textue;///paths n roomz
-	SDL_Texture			*ants;
+	SDL_Texture			*cheems;//this is cheemz texture
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
 	bool				ants_go_brrrr;
 	double				step_progress;
+	bool				redraw;
 //	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
 }						t_sdl_things;
 
@@ -169,6 +170,8 @@ void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data, double step_completed);
 void	draw_step(t_sdl_things *things, t_all_data *data, double step_completed);
+void draw_cheemz(t_sdl_things *things, int x, int y);
+void load_cheemz(t_sdl_things *things);
 
 
 /* BUFF DRAWING

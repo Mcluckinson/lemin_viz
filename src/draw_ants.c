@@ -20,7 +20,8 @@ void initial_ants(t_sdl_things *things, t_all_data *data)
 	Uint32 color = 0xFFFF00;
 	int radius = things->radius * 2;
 
-	draw_filled_circle_in_buff(data->start->x, data->start->y, radius, things, color);
+//	draw_filled_circle_in_buff(data->start->x, data->start->y, radius, things, color);///use draw cheemz instead
+	draw_cheemz(things, data->start->x, data->start->y);
 }
 
 static int count_stepz(t_step_line *stepz_line)
@@ -55,11 +56,8 @@ static bool	try_step(t_sdl_things *things, t_all_data *data, t_step_line *old_st
 	if (!ant_num)
 		return (false);
 	t_xy x_y;
-	int radius = things->radius * 2;///should put it in *things and stop doing this operation so many times;
-	Uint32 color = 0XFFFF00;///DEFINE THIS IN HEADER
-
 	x_y = find_x_y();
-	draw_filled_circle_in_buff(x_y.x, x_y.y, radius, things, color);
+	draw_cheemz(things, x_y.x, x_y.y);
 	return (true);
 }
 
@@ -69,14 +67,12 @@ static void	initial_step(t_sdl_things *things, t_all_data *data, double step_com
 	t_step *step = data->curr_step->stepz;
 	int x;
 	int y;
-	int radius = things->radius * 2;
-	Uint32 color = 0XFFFF00;
 
 	while (step)
 	{
 		x = start->x + (step->room->x - start->x) * step_completed;////change to things->step_progress
 		y = start->y + (step->room->y - start->y) * step_completed;////change to things->step_progress
-		draw_filled_circle_in_buff(x, y, radius, things, color);
+		draw_cheemz(things, x, y);
 		step = step->next;
 	}
 }
@@ -87,8 +83,6 @@ static void new_stepz(t_sdl_things *things, t_all_data *data, t_step_line *new_s
 	t_step *step = new_step->stepz;
 	int x;
 	int y;
-	int radius = things->radius * 2;
-	Uint32 color = 0XFFFF00;
 
 	while (step)
 	{
@@ -96,7 +90,7 @@ static void new_stepz(t_sdl_things *things, t_all_data *data, t_step_line *new_s
 		{
 			x = start->x + (step->room->x - start->x) * things->step_progress;
 			y = start->y + (step->room->y - start->y) * things->step_progress;
-			draw_filled_circle_in_buff(x, y, radius, things, color);
+			draw_cheemz(things, x, y);
 		}
 		step = step->next;
 	}

@@ -34,5 +34,6 @@ int			init_sdl(t_sdl_things *things)
 		sdl_error(things);
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * things->width * things->height);
+	load_cheemz(things);
 	return (1);
 }

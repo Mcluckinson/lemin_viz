@@ -10,22 +10,27 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 	double			step_completed;
 
 	step_completed = 0.01;
+	things->redraw = true;
 	draw_map(things, data, step_completed);
 	SDL_RenderPresent(things->renderer);
-	while (1)
+	things->redraw = false;
+//	while (1)
+	while (SDL_WaitEvent(&event))
 	{
-		SDL_WaitEvent(&event);
+	//	SDL_WaitEvent(&event);
 		if (SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
-		if (event.type == SDL_MOUSEWHEEL)
+		if (event.type == SDL_MOUSEWHEEL && !things->ants_go_brrrr)
 		{
+			things->redraw = true;
 			zoom(data, event, things);
 			draw_map(things, data, step_completed);
 			SDL_RenderPresent(things->renderer);
+			things->redraw = false;
 		}
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
+			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE && !things->ants_go_brrrr)
 			{
 				things->ants_go_brrrr = true;
 				while (step_completed <= 1)
@@ -33,14 +38,18 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 					draw_map(things, data, step_completed);
 					SDL_RenderPresent(things->renderer);
 					step_completed += 0.01;
+					SDL_Delay(1000 / 60);
 				}
 				data->curr_step = data->curr_step->next;
+				things->ants_go_brrrr = false;
 				step_completed = 0.01;
 			}
 			//	draw_next_step();
 		}
 
 	}
+	///the thing below should be performed by a CLEAR_STUFF funtion, make one if there's none
+	///destroy textures and shit
 	if (things->renderer)
 		SDL_DestroyRenderer(things->renderer);
 	free(things->m_buffer1);
