@@ -10,7 +10,7 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 
 	things->step_progress = 0.01;
 	things->redraw = true;
-	draw_map(things, data, things->step_progress);///fix
+	draw_map(things, data);
 	SDL_RenderPresent(things->renderer);
 	things->redraw = false;
 	while (SDL_WaitEvent(&event))
@@ -21,7 +21,7 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 		{
 			things->redraw = true;
 			zoom(data, event, things);
-			draw_map(things, data, things->step_progress);///fix
+			draw_map(things, data);
 			SDL_RenderPresent(things->renderer);
 			things->redraw = false;
 		}
@@ -32,7 +32,7 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 				things->ants_go_brrrr = true;
 				while (things->step_progress <= 1)
 				{
-					draw_map(things, data, things->step_progress);///fix dis step_progress things
+					draw_map(things, data);
 					SDL_RenderPresent(things->renderer);
 					things->step_progress += 0.01;
 					SDL_Delay(1000 / 60);
@@ -41,11 +41,10 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 				things->ants_go_brrrr = false;
 				things->step_progress = 0.01;
 			}
-			//	draw_next_step();
 		}
 
 	}
-	///the thing below should be performed by a CLEAR_STUFF funtion, make one if there's none
+	///the thing below should be performed by a ft_error funtion, update it to clear t_sdl_things and t_all_data_whatever_it's called
 	///destroy textures and shit
 	if (things->renderer)
 		SDL_DestroyRenderer(things->renderer);

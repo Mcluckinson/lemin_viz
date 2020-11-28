@@ -16,13 +16,13 @@ static void redraw_map(t_sdl_things *things, t_all_data *data)
 }
 
 
-void 	draw_map(t_sdl_things *things, t_all_data *data, double step_completed)
+void 	draw_map(t_sdl_things *things, t_all_data *data)
 {
 	if (things->redraw)
 		redraw_map(things, data);
 	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
 	if (things->ants_go_brrrr)
-		draw_step(things, data, step_completed);
-	else
+		draw_step(things, data);
+	else///change this to: if ants left at start
 		initial_ants(things, data);
 }

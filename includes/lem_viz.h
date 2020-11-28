@@ -169,8 +169,8 @@ void			render_background(t_sdl_things *sdl);
 void 	pulse_map(t_sdl_things *env, t_all_data *data);
 void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
-void 	draw_map(t_sdl_things *things, t_all_data *data, double step_completed);
-void	draw_step(t_sdl_things *things, t_all_data *data, double step_completed);
+void 	draw_map(t_sdl_things *things, t_all_data *data);
+void	draw_step(t_sdl_things *things, t_all_data *data);
 void draw_cheemz(t_sdl_things *things, int x, int y);
 void load_cheemz(t_sdl_things *things);
 

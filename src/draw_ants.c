@@ -108,7 +108,7 @@ static bool	try_step(t_sdl_things *things, t_all_data *data, t_step_line *old_st
 	return (true);
 }
 
-static void	initial_step(t_sdl_things *things, t_all_data *data, double step_completed)
+static void	initial_step(t_sdl_things *things, t_all_data *data)
 {
 	t_room *start = data->start;
 	t_step *step = data->curr_step->stepz;
@@ -117,8 +117,8 @@ static void	initial_step(t_sdl_things *things, t_all_data *data, double step_com
 
 	while (step)
 	{
-		x = start->x + (step->room->x - start->x) * step_completed;////change to things->step_progress
-		y = start->y + (step->room->y - start->y) * step_completed;////change to things->step_progress
+		x = start->x + (step->room->x - start->x) * things->step_progress;
+		y = start->y + (step->room->y - start->y) * things->step_progress;
 		draw_cheemz(things, x, y);
 		step = step->next;
 	}
@@ -177,10 +177,10 @@ static void next_step(t_sdl_things *things, t_all_data *data, t_step_line *old_s
 	clear_stepz_progress(new_step);
 }
 
-void	draw_step(t_sdl_things *things, t_all_data *data, double step_completed)
+void	draw_step(t_sdl_things *things, t_all_data *data)
 {
 	if (data->curr_step == data->all_steps)
-		initial_step(things, data, step_completed);
+		initial_step(things, data);
 	else
 		next_step(things, data, data->curr_step->prev, data->curr_step);
 }
