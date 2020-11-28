@@ -147,20 +147,19 @@ void		draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data)
 	Uint32 color;
 	int radius_destroyer;
 
+	if (things->radius < 2)
+		return ;
 	radius_destroyer = things->radius - 1;
-	//SDL_SetRenderTarget(things->renderer, things->texture);
 	while (rad_buff > 0)
 	{
 		radius_destroyer--;
 		percent_stuff = (float)rad_buff / (float)things->radius;
 		green = 255 - 255 * percent_stuff + 10;
-	//	SDL_SetRenderDrawColor(things->renderer, red, green, blue, 0);
 		start = data->all_links;
 		color = red << 16 | green << 8 | blue;
 		while (start)
 		{
 			draw_brezenham_line_in_buff(things, start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, color, things->m_buffer1, radius_destroyer);
-	//		draw_brezenham(start->first_room->x, start->first_room->y, start->second_room->x, start->second_room->y, rad_buff, things);
 			start = start->next;
 		}
 		rad_buff -= 1;

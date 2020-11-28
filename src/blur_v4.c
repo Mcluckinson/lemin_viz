@@ -15,9 +15,8 @@
 
 void	blur_v4(t_sdl_things *things)
 {
-	/*OK FIRST WE SWAP BUFFS
-	 * DO IT OUTSIDe BiiieeeeaAACH
-	 */
+	if (things->radius < 2)
+		return ;
 	Uint32 *temp = things->m_buffer1;
 	things->m_buffer1 = things->m_buffer2;
 	things->m_buffer2 = temp;
@@ -63,12 +62,6 @@ void	blur_v4(t_sdl_things *things)
 			}
 			color = red  | green << 8 | blue << 16;
 			things->m_buffer1[y * things->width + x] = color;
-	//		if (red || green || blue)
-	//		{
-	//			SDL_SetRenderDrawColor(things->renderer, red, green, blue, SDL_ALPHA_OPAQUE);
-	//			SDL_RenderDrawPoint(things->renderer, current_x, current_y);
-	//		}
-
 		}
 	}
 }
