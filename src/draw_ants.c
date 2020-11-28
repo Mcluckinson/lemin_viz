@@ -117,6 +117,8 @@ static void	initial_step(t_sdl_things *things, t_all_data *data)
 		x = start->x + (step->room->x - start->x) * things->step_progress;
 		y = start->y + (step->room->y - start->y) * things->step_progress;
 		draw_cheemz(things, x, y);
+		if (!data->ants_reduced)
+			data->ants--;
 		step = step->next;
 	}
 }
@@ -135,6 +137,8 @@ static void new_stepz(t_sdl_things *things, t_all_data *data, t_step_line *new_s
 			x = start->x + (step->room->x - start->x) * things->step_progress;
 			y = start->y + (step->room->y - start->y) * things->step_progress;
 			draw_cheemz(things, x, y);
+			if (!data->ants_reduced)
+				data->ants--;
 		}
 		step = step->next;
 	}
@@ -144,7 +148,7 @@ static void clear_stepz_progress(t_step_line *stepz)
 {
 	t_step *step_counter;
 
-	step_counter = stepz->stepz;///kek
+	step_counter = stepz->stepz;
 	while (step_counter)
 	{
 		step_counter->was_started = 0;

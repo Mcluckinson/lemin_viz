@@ -31,6 +31,6 @@ void 	draw_map(t_sdl_things *things, t_all_data *data)
 	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
 	if (things->ants_go_brrrr)
 		draw_step(things, data);
-	else///change this to: if ants left at start
+	if (data->ants > 0)
 		initial_ants(things, data);
 }

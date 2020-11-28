@@ -39,14 +39,17 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE && !things->ants_go_brrrr)
 			{
 				things->ants_go_brrrr = true;
-				while (things->step_progress <= 1)
+				data->ants_reduced = false;
+				while (things->step_progress <= 1 && data->curr_step)
 				{
 					draw_map(things, data);
+					data->ants_reduced = true;
 					SDL_RenderPresent(things->renderer);
 					things->step_progress += 0.01;
 					SDL_Delay(1000 / 60);
 				}
-				data->curr_step = data->curr_step->next;
+				if (data->curr_step)
+					data->curr_step = data->curr_step->next;
 				things->ants_go_brrrr = false;
 				things->step_progress = 0.01;
 			}

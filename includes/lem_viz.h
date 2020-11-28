@@ -87,7 +87,7 @@ typedef struct			s_all_data
 	int 				del_me_fd;
 	int					is_generated_map;
 	t_step_line 		*curr_step;
-
+	bool				ants_reduced;
 }						t_all_data;
 
 typedef struct 			s_sdl_things
@@ -103,16 +103,14 @@ typedef struct 			s_sdl_things
 	SDL_Renderer 		*renderer;
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
-//	SDL_Event 			*ev;
-	SDL_Texture 		*textue;///paths n roomz
-	SDL_Texture			*cheems;//this is cheemz texture
+	SDL_Texture 		*textue;
+	SDL_Texture			*cheems;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
 	bool				ants_go_brrrr;
 	double				step_progress;
 	bool				redraw;
-//	pthread_t			threads[THREAD_NUM];/////KEK CHECK NORM BOI THIS IS KINDA FORBIDDEN AYE?!
 }						t_sdl_things;
 
 /*
@@ -158,15 +156,11 @@ bool	check_ants_quantity(int quantity, char *line);
 int		init_sdl(t_sdl_things *things);
 void	find_win_size(t_all_data *data, t_sdl_things *things);
 int		draw_circle(int x, int y, int rad, t_sdl_things *things);
-int		draw_neon_circle(int x, int y, int radius, t_sdl_things *things);
 int		draw_line_of_circles(t_sdl_things *things);
-int		should_i_draw(t_sdl_things *things, int x, int y);
 void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
 void	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
 void	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
 void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
-void			render_background(t_sdl_things *sdl);
-void 	pulse_map(t_sdl_things *env, t_all_data *data);
 void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);
@@ -190,12 +184,6 @@ void		fastend_blur(t_sdl_things *things);
 void initial_ants(t_sdl_things *things, t_all_data *data);
 void	draw_circle_in_buff(int x, int y, int rad, t_sdl_things *things, Uint32 color);
 void draw_all_rooms(t_sdl_things *things, t_all_data *data);
-/*
- * testing delete me
- */
-void	draw_test_window(t_sdl_things *things, t_all_data *data);
-int		draw_all_paths(t_sdl_things *things, t_all_data *data);
-void	draw_neon_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 
 /*
  * Link_helper
@@ -209,7 +197,6 @@ int		is_command(char *line);
  */
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
 int			check_correct_steps(char **line);
-void		draw_all_steps(t_all_data *data);
 bool		is_all_steps_found(t_step_line *all_steps, int ants_count);
 
 /*
