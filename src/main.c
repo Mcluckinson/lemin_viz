@@ -36,7 +36,6 @@ int					main(int ac, char **av)
 	data = NULL;
 	if (!(data = (t_all_data*)ft_memalloc(sizeof(t_all_data))))
 		return (0);
-	///////////del this one below
 	data->del_me_fd = open(av[1], O_RDONLY);
 	if (!(read_data(data)))
 		return (ft_error("Invalid data"));
