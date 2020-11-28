@@ -86,7 +86,6 @@ static t_xy find_x_y(t_sdl_things *things, t_step_line *old_step, t_step_line *n
 	old = find_da_step_4_ant(old_step, ant_num);
 	new = find_da_step_4_ant(new_step, ant_num);
 	start = old->room;
-
 	coords.x = start->x + (new->room->x - start->x) * things->step_progress;
 	coords.y = start->y + (new->room->y - start->y) * things->step_progress;
 	return (coords);

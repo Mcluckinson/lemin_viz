@@ -34,23 +34,23 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 			SDL_RenderPresent(things->renderer);
 			things->redraw = false;
 		}
-		if (event.type == SDL_KEYDOWN)
+ 		if (event.type == SDL_KEYDOWN)
 		{
 			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE && !things->ants_go_brrrr)
 			{
 				things->ants_go_brrrr = true;
 				data->ants_reduced = false;
-				while (things->step_progress <= 1 && data->curr_step)
+				while (things->step_progress <= 1)
 				{
 					draw_map(things, data);
 					data->ants_reduced = true;
 					SDL_RenderPresent(things->renderer);
 					things->step_progress += 0.01;
-					SDL_Delay(1000 / 60);
+					SDL_Delay(1000 / 600);
 				}
+				things->ants_go_brrrr = false;
 				if (data->curr_step)
 					data->curr_step = data->curr_step->next;
-				things->ants_go_brrrr = false;
 				things->step_progress = 0.01;
 			}
 		}
