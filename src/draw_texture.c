@@ -12,17 +12,18 @@
 
 #include "lem_viz.h"
 
-void			load_cheemz(t_sdl_things *things)
+bool			load_cheemz(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
 
 	surface = IMG_Load("../rsrcs/cheems.png");
 	if (!surface)
-		ft_error(SDL_GetError());
+		return (false);
 	things->cheems = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->cheems)
-		ft_error(SDL_GetError());
+		return (false);
+	return (true);
 }
 
 void			draw_cheemz(t_sdl_things *things, int x, int y)

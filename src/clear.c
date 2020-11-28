@@ -12,14 +12,10 @@
 
 #include "lem_viz.h"
 
-int			ft_error(const char *error)
+static void	clear_sdl(t_sdl_things *things)
 {
-	ft_putendl_fd(error, 2);
-	exit(-1);
-}
-
-void	clear_sdl(t_all_data *data, t_sdl_things *things)
-{
+	if (!things)
+		return ;
 	if (things->win)
 		SDL_DestroyWindow(things->win);
 	if (things->renderer)
@@ -28,9 +24,25 @@ void	clear_sdl(t_all_data *data, t_sdl_things *things)
 		SDL_DestroyTexture(things->texture);
 	if (things->cheems)
 		SDL_DestroyTexture(things->cheems);
-	free(things->m_buffer1);
-	free(things->m_buffer2);
+	if (things->m_buffer1)
+		free(things->m_buffer1);
+	if (things->m_buffer2)
+		free(things->m_buffer2);
 	free(things);
 	SDL_Quit();
-	ft_error("Quit");
+}
+
+int			ft_error(const char *error)
+{
+	ft_putendl_fd(error, 2);
+	exit(-1);
+}
+
+int			ft_error_new(t_all_data *data,
+				t_sdl_things *things, const char *error)
+{
+	clear_sdl(things);
+	clear_data(data);
+	ft_putendl_fd(error, 2);
+	exit(-1);
 }

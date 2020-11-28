@@ -67,6 +67,4 @@ void			loopz(t_sdl_things *things, t_all_data *data)
 			event_key_down(event, things, data);
 		}
 	}
-	clear_sdl(data, things);
-	exit(0);
 }

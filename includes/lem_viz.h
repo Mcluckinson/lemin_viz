@@ -115,11 +115,11 @@ typedef struct 			s_sdl_things
  * util functions
  */
 int		ft_error(const char *error);
+int		ft_error_new(t_all_data *data, t_sdl_things *things, const char *error);
+void	clear_data(t_all_data *data);
 int		del_line_and_return(char *line, int ret);
 int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
-void	clear_sdl(t_all_data *data, t_sdl_things *things);
-void	sdl_error(t_sdl_things *things);
 int		str_contains(char *str, char *contains);
 void	modify_levels(t_all_data *data);
 char	**get_ants_array(int ants_count);
@@ -164,7 +164,7 @@ void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);
 void	draw_step(t_sdl_things *things, t_all_data *data);
 void	draw_cheemz(t_sdl_things *things, int x, int y);
-void	load_cheemz(t_sdl_things *things);
+bool load_cheemz(t_sdl_things *things);
 
 
 /* BUFF DRAWING
