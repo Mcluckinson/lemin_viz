@@ -120,7 +120,7 @@ int		ft_error(const char *error);
 int		del_line_and_return(char *line, int ret);
 int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
-void	clear_sdl(t_all_data *data, t_sdl_things *thing);
+void	clear_sdl(t_all_data *data, t_sdl_things *things);
 void	sdl_error(t_sdl_things *things);
 int		str_contains(char *str, char *contains);
 void	modify_levels(t_all_data *data);

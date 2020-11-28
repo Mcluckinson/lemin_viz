@@ -24,8 +24,8 @@ static t_room	*find_path_room(t_room *rooms)
 		room = NULL;
 	}
 	if (!rooms->is_part_of_path)
-		return NULL;
-	return rooms;
+		return (NULL);
+	return (rooms);
 }
 
 static t_link	*find_path_link(t_link *links)
@@ -48,15 +48,15 @@ static t_link	*find_path_link(t_link *links)
 	if (!links->first_room->is_part_of_path
 		|| !links->second_room->is_part_of_path)
 	{
-		return NULL;
+		return (NULL);
 	}
-	return links;
+	return (links);
 }
 
-static t_room *delete_unused_rooms(t_room *rooms)
+static t_room	*delete_unused_rooms(t_room *rooms)
 {
-	t_room *ref;
-	t_room *room;
+	t_room		*ref;
+	t_room		*room;
 
 	ref = find_path_room(rooms);
 	room = ref;
@@ -65,13 +65,13 @@ static t_room *delete_unused_rooms(t_room *rooms)
 		room->next = find_path_room(room->next);
 		room = room->next;
 	}
-	return ref;
+	return (ref);
 }
 
-static t_link *delete_unused_links(t_link *links)
+static t_link	*delete_unused_links(t_link *links)
 {
-	t_link *ref;
-	t_link *link;
+	t_link		*ref;
+	t_link		*link;
 
 	ref = find_path_link(links);
 	link = ref;
@@ -84,10 +84,10 @@ static t_link *delete_unused_links(t_link *links)
 		}
 		link = link->next;
 	}
-	return ref;
+	return (ref);
 }
 
-void delete_unused(t_all_data *data)
+void			delete_unused(t_all_data *data)
 {
 	if (!data->is_generated_map)
 		return ;

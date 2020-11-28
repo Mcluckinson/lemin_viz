@@ -12,9 +12,10 @@
 
 #include "lem_viz.h"
 
-static void redraw_map(t_sdl_things *things, t_all_data *data)
+static void	redraw_map(t_sdl_things *things, t_all_data *data)
 {
-	ft_bzero(things->m_buffer1, sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
+	ft_bzero(things->m_buffer1,
+		sizeof(Uint32) * (DEFAULT_WIDTH * DEFAULT_HEIGHT));
 	draw_all_paths_b4_blur(things, data);
 //	blur_v4(things);
 //	fastend_blur(things);
@@ -23,12 +24,11 @@ static void redraw_map(t_sdl_things *things, t_all_data *data)
 	buff_to_texture(things);
 }
 
-
-void 	draw_map(t_sdl_things *things, t_all_data *data)
+void		draw_map(t_sdl_things *things, t_all_data *data)
 {
 	if (things->redraw)
 		redraw_map(things, data);
-	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
+	SDL_RenderCopy(things->renderer, things->texture, NULL, NULL);
 	if (things->ants_go_brrrr)
 		draw_step(things, data);
 	if (data->ants > 0)
