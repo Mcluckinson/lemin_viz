@@ -41,7 +41,7 @@ add_executable(lem_in_vizuals
         src/loopz.c
         src/general_drawing.c
         src/draw_roomz.c
-        src/draw_texture.c)
+        src/draw_texture.c src/draw_ants_steps.c src/draw_ants_helper.c)
 
 
 target_link_libraries(lem_in_vizuals

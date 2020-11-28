@@ -13,14 +13,12 @@
 #ifndef LEM_VIZ_H
 # define LEM_VIZ_H
 
-//#include "SDL.h"
 #include "../SDL2/SDL2.framework/Headers/SDL.h"
 #include "../SDL2/SDL2_image.framework/Headers/SDL_image.h"
 #include "../libft/libft.h"
 #include "math.h"
 #include <stdbool.h>
 #include <limits.h>
-#include <fcntl.h>///////////NOT RLY NEEDED DELETE ME PLZ
 #include <pthread.h>
 
 #define DEFAULT_WIDTH 1366
@@ -126,8 +124,8 @@ int		str_contains(char *str, char *contains);
 void	modify_levels(t_all_data *data);
 char	**get_ants_array(int ants_count);
 int		path_count(char *ants);
-void 		fix_coords(t_all_data *data, t_sdl_things *things);
-int				init_music(t_sdl_things *things);
+void 	fix_coords(t_all_data *data, t_sdl_things *things);
+int		init_music(t_sdl_things *things);
 
 /*
  *
@@ -165,8 +163,8 @@ void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);
 void	draw_step(t_sdl_things *things, t_all_data *data);
-void draw_cheemz(t_sdl_things *things, int x, int y);
-void load_cheemz(t_sdl_things *things);
+void	draw_cheemz(t_sdl_things *things, int x, int y);
+void	load_cheemz(t_sdl_things *things);
 
 
 /* BUFF DRAWING
@@ -179,11 +177,11 @@ void	blur_v4(t_sdl_things *things);
 int		draw_all_paths2(t_sdl_things *things, t_all_data *data);
 void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
 void	draw_stoopid_line (int x, int y, int radius, t_sdl_things *things);
-void 		draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
-void		fastend_blur(t_sdl_things *things);
-void initial_ants(t_sdl_things *things, t_all_data *data);
+void 	draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
+void	fastend_blur(t_sdl_things *things);
+void	initial_ants(t_sdl_things *things, t_all_data *data);
 void	draw_circle_in_buff(int x, int y, int rad, t_sdl_things *things, Uint32 color);
-void draw_all_rooms(t_sdl_things *things, t_all_data *data);
+void	draw_all_rooms(t_sdl_things *things, t_all_data *data);
 
 /*
  * Link_helper
@@ -198,6 +196,12 @@ int		is_command(char *line);
 t_step		*assign_step(char *step_line, t_all_data *data, t_step *curr_step);
 int			check_correct_steps(char **line);
 bool		is_all_steps_found(t_step_line *all_steps, int ants_count);
+
+/*
+ * Ants steps Helpers
+ */
+bool	try_step(t_sdl_things *things, t_step_line *old_step, t_step_line *new_step);
+int		count_stepz(t_step_line *stepz_line);
 
 /*
  * Helpers

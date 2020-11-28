@@ -33,6 +33,7 @@ static t_room	*make_room(t_room *room, char *line, t_all_data *data)
 	if (!data->all_rooms)
 		data->all_rooms = result;
 	ft_strdel(&line);
+	line = NULL;
 	return (result);
 }
 
@@ -53,7 +54,6 @@ static int		start_end_check(char *line, t_room **rooms, t_all_data *data)
 		if (!(*rooms = make_room(*rooms, line, data)))
 			return (del_line_and_return(line, 0));
 		data->start = *rooms;
-		data->start->is_part_of_path = true;
 		return (true);
 	}
 	else if (flag == 2 && !data->end)
@@ -93,7 +93,6 @@ int				read_rooms(t_all_data *data)
 			rooms = make_room(rooms, line, data);
 			if (valid_coords(rooms, data->all_rooms))
 				continue ;
-			line = NULL;
 		}
 		if (is_link(line))
 			return (transfer_line(data, line));
