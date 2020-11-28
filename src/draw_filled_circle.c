@@ -1,17 +1,30 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_filled_circle.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyuriko <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/28 15:50:48 by cyuriko           #+#    #+#             */
+/*   Updated: 2020/11/28 15:50:50 by cyuriko          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lem_viz.h"
 
-void		draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
+void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
 {
-	int		xoff = 0;
-	int		yoff = radius;
-	int		balance = -radius;
+	int	xoff;
+	int	yoff;
+	int	balance;
+	int	p0;
+	int	p1;
+	int	w0;
+	int	w1;
 
-	int		p0;
-	int		p1;
-	int		w0;
-	int		w1;
+	xoff = 0;
+	yoff = radius;
+	balance = -radius;
 	while (xoff <= yoff)
 	{
 		p0 = x - xoff;
@@ -30,4 +43,3 @@ void		draw_filled_circle(int x, int y, int radius, t_sdl_things *things)
 		xoff++;
 	}
 }
-

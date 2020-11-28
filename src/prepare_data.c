@@ -15,10 +15,10 @@
 static t_xy		find_resolution(t_room *rooms)
 {
 	t_xy		result;
-	int 		max_x;
+	int			max_x;
 	int			min_x;
-	int 		max_y;
-	int 		min_y;
+	int			max_y;
+	int			min_y;
 
 	max_x = rooms->x;
 	min_x = rooms->x;
@@ -41,18 +41,15 @@ static t_xy		find_resolution(t_room *rooms)
 
 void			center_coordinate(t_all_data *data, int width, int height)
 {
-	t_room		*counter = NULL;
+	t_room		*counter;
 	int			offset_x;
 	int			offset_y;
-	int			center_x;
-	int			center_y;
 	t_xy		resolution;
 
+	counter = NULL;
 	resolution = find_resolution(data->all_rooms);
-	center_x = resolution.x;
-	center_y = resolution.y;
-	offset_x = width - center_x;
-	offset_y = height - center_y;
+	offset_x = width - resolution.x;
+	offset_y = height - resolution.y;
 	counter = data->all_rooms;
 	while (counter)
 	{
@@ -75,7 +72,6 @@ static float	should_fix(t_all_data *data)
 	fix_ratio_x = 1;
 	max_width = resolution.width;
 	max_height = resolution.height;
-
 	if (max_width < DEFAULT_WIDTH && max_height < DEFAULT_HEIGHT)
 		return (1);
 	if (max_width > DEFAULT_WIDTH)
@@ -84,7 +80,6 @@ static float	should_fix(t_all_data *data)
 		fix_ratio_y = (float)DEFAULT_HEIGHT / (float)max_height;
 	return (fix_ratio_x < fix_ratio_y ? fix_ratio_x : fix_ratio_y);
 }
-
 
 void			fix_coords(t_all_data *data, t_sdl_things *things)
 {
@@ -97,12 +92,12 @@ void			fix_coords(t_all_data *data, t_sdl_things *things)
 	{
 		while (counter)
 		{
-			counter->x*=fixer;
-			counter->y*=fixer;
+			counter->x *= fixer;
+			counter->y *= fixer;
 			counter = counter->next;
 		}
 	}
-	center_coordinate(data,DEFAULT_WIDTH / 2, DEFAULT_HEIGHT / 2);
+	center_coordinate(data, DEFAULT_WIDTH / 2, DEFAULT_HEIGHT / 2);
 	things->radius = 4 * fixer;
 	things->radius = things->radius ? things->radius : 1;
 	things->original_radius = things->radius;

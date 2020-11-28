@@ -80,9 +80,9 @@ int				check_correct_steps(char **line)
 
 bool			is_all_steps_found(t_step_line *all_steps, int ants_count)
 {
-	t_step_line *steps;
-	t_step 		*step;
-	int 		ants;
+	t_step_line	*steps;
+	t_step		*step;
+	int			ants;
 
 	steps = all_steps;
 	ants = 1;

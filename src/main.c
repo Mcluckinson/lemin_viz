@@ -32,7 +32,6 @@ int					main(int ac, char **av)
 	t_sdl_things	*sdl_things;
 	t_all_data		*data;
 	//DONT FORGET TO ADD WALL WEXtrA WError BACK TO MAKEFILE KEK
-
 	data = NULL;
 	if (!(data = (t_all_data*)ft_memalloc(sizeof(t_all_data))))
 		return (0);
