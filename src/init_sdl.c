@@ -38,9 +38,9 @@ int			init_sdl(t_sdl_things *things)
 						SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE)))
 		sdl_error(things);
 	if (!(things->texture = SDL_CreateTexture(things->renderer,
-											  SDL_PIXELFORMAT_RGB888,
-											  SDL_TEXTUREACCESS_TARGET,
-											  width, height)))
+											SDL_PIXELFORMAT_RGB888,
+											SDL_TEXTUREACCESS_TARGET,
+											width, height)))
 		sdl_error(things);
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);

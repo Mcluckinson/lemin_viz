@@ -45,7 +45,7 @@ int					main(int ac, char **av)
 		//	return (huevie_dela());
 	fix_coords(data, sdl_things);
 	if ((!init_sdl(sdl_things)))
-		return (0);
+		return (0);///clear here
 	delete_unused(data);
 		//	return (huevie_dela());
 	data->curr_step = data->all_steps;////put this in a proper place

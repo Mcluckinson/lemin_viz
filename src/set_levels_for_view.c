@@ -107,6 +107,7 @@ int				set_levels_from_data(t_all_data *data)
 		level++;
 		steps = steps->next;
 	}
+	data->start->is_part_of_path = true;
 	modify_levels(data);
 	del_str_arr(ants);
 	return (1);

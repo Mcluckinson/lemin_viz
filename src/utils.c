@@ -12,12 +12,6 @@
 
 #include "lem_viz.h"
 
-int			ft_error(const char *error)
-{
-	ft_putendl_fd(error, 2);
-	exit(-1);
-}
-
 int			del_line_and_return(char *line, int ret)
 {
 	if (ret || line)
