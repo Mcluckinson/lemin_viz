@@ -28,7 +28,7 @@ void		draw_map(t_sdl_things *things, t_all_data *data)
 {
 	if (things->redraw)
 		redraw_map(things, data);
-	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
+	SDL_RenderCopy(things->renderer, things->texture, NULL, NULL);
 	if (things->ants_go_brrrr)
 		draw_step(things, data);
 	else///change this to: if ants left at start

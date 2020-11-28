@@ -55,11 +55,6 @@ void 	loopz(t_sdl_things *things, t_all_data *data)
 	}
 	///the thing below should be performed by a ft_error funtion, update it to clear t_sdl_things and t_all_data_whatever_it's called
 	///destroy textures and shit
-	if (things->renderer)
-		SDL_DestroyRenderer(things->renderer);
-	free(things->m_buffer1);
-	free(things->m_buffer2);
-	SDL_DestroyWindow(things->win);
-	SDL_Quit();
+	clear_sdl(data, things);
 	exit(0);
 }

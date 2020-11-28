@@ -18,7 +18,7 @@ void		buff_to_texture(t_sdl_things *things)
 	int		y;
 	Uint32	color;
 
-	SDL_SetRenderTarget(things->renderer, things->textue);
+	SDL_SetRenderTarget(things->renderer, things->texture);
 	SDL_SetRenderDrawColor(things->renderer, 0, 0, 0, 0xFF);
 	SDL_RenderClear(things->renderer);
 	y = -1;

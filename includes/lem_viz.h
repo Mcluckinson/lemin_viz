@@ -104,7 +104,7 @@ typedef struct 			s_sdl_things
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
 //	SDL_Event 			*ev;
-	SDL_Texture 		*textue;///paths n roomz
+	SDL_Texture 		*texture;///paths n roomz
 	SDL_Texture			*cheems;//this is cheemz texture
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
@@ -122,7 +122,7 @@ int		ft_error(const char *error);
 int		del_line_and_return(char *line, int ret);
 int		is_all_digits(char *line);
 void	del_str_arr(char **to_delete);
-void	clear_sdl(t_all_data *data, t_sdl_things *thing);
+void	clear_sdl(t_all_data *data, t_sdl_things *things);
 void	sdl_error(t_sdl_things *things);
 int		str_contains(char *str, char *contains);
 void	modify_levels(t_all_data *data);

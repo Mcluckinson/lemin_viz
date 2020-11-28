@@ -16,8 +16,8 @@ void		sdl_error(t_sdl_things *things)
 {
 	if (things->win)
 		SDL_DestroyWindow(things->win);
-	if (things->textue)
-		SDL_DestroyTexture(things->textue);
+	if (things->texture)
+		SDL_DestroyTexture(things->texture);
 	SDL_Quit();
 	ft_error(SDL_GetError());
 }
@@ -37,10 +37,10 @@ int			init_sdl(t_sdl_things *things)
 	if (!(things->renderer = SDL_CreateRenderer(things->win, -1,
 						SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE)))
 		sdl_error(things);
-	if (!(things->textue = SDL_CreateTexture(things->renderer,
-						SDL_PIXELFORMAT_RGB888,
-						SDL_TEXTUREACCESS_TARGET,
-						width, height)))
+	if (!(things->texture = SDL_CreateTexture(things->renderer,
+											  SDL_PIXELFORMAT_RGB888,
+											  SDL_TEXTUREACCESS_TARGET,
+											  width, height)))
 		sdl_error(things);
 	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
