@@ -103,7 +103,7 @@ typedef struct 			s_sdl_things
 	SDL_Renderer 		*renderer;
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
-	SDL_Texture 		*textue;
+	SDL_Texture 		*texture;
 	SDL_Texture			*cheems;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
