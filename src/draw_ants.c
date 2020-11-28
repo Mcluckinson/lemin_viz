@@ -17,10 +17,6 @@
 
 void initial_ants(t_sdl_things *things, t_all_data *data)
 {
-	Uint32 color = 0xFFFF00;
-	int radius = things->radius * 2;
-
-//	draw_filled_circle_in_buff(data->start->x, data->start->y, radius, things, color);///use draw cheemz instead
 	draw_cheemz(things, data->start->x, data->start->y);
 }
 
@@ -95,7 +91,7 @@ static t_xy find_x_y(t_sdl_things *things, t_step_line *old_step, t_step_line *n
 	coords.y = start->y + (new->room->y - start->y) * things->step_progress;////change to things->step_progress
 }
 
-static bool	try_step(t_sdl_things *things, t_all_data *data, t_step_line *old_step, t_step_line *new_step)
+static bool	try_step(t_sdl_things *things, t_step_line *old_step, t_step_line *new_step)
 {
 	int ant_num;
 
@@ -163,7 +159,7 @@ static void next_step(t_sdl_things *things, t_all_data *data, t_step_line *old_s
 	bool steps_done = true;
 	while (steps_done)
 	{
-		steps_done = try_step(things, data, old_step, new_step);
+		steps_done = try_step(things, old_step, new_step);
 		if (steps_done)
 			stepz_to_go--;
 		else

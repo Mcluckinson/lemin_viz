@@ -27,7 +27,6 @@ static int			read_data(t_all_data *data)
 	return (1);
 }
 
-///////////dont forget to delete em args he he
 int					main(int ac, char **av)
 {
 	t_sdl_things	*sdl_things;
@@ -50,7 +49,7 @@ int					main(int ac, char **av)
 	if ((!init_sdl(sdl_things)))
 		return (0);
 	delete_unused(data);
-	//	return (huevie_dela());
+		//	return (huevie_dela());
 	data->curr_step = data->all_steps;////put this in a proper place
 	init_music(sdl_things);
 	loopz(sdl_things, data);

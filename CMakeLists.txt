@@ -20,7 +20,6 @@ add_executable(lem_in_vizuals
         src/draw_buff.c
         src/draw_filled_circle.c
         src/draw_map.c
-        src/drawing_tests_delete_me.c
         src/duplicate_values.c
         src/error_manager.c
         src/init_sdl.c
@@ -28,7 +27,6 @@ add_executable(lem_in_vizuals
         src/modify_levels.c
         src/music.c
         src/prepare_data.c
-        src/pulse_map.c
         src/read_ants.c
         src/read_links.c
         src/read_links_helper.c
@@ -40,9 +38,10 @@ add_executable(lem_in_vizuals
         src/valid.c
         src/zoom.c
         src/delete_unused.c
-        loopz.c
-        draw_map.c
-        general_drawing.c src/draw_roomz.c src/draw_texture.c)
+        src/loopz.c
+        src/general_drawing.c
+        src/draw_roomz.c
+        src/draw_texture.c)
 
 
 target_link_libraries(lem_in_vizuals

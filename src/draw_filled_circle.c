@@ -1,6 +1,4 @@
-//
-// Created by scump on 24.04.2020.
-//
+
 
 #include "lem_viz.h"
 

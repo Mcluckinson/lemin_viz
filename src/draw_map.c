@@ -3,25 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cyuriko <cyuriko@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cyuriko <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/14 16:56:21 by cyuriko           #+#    #+#             */
-/*   Updated: 2020/03/15 16:29:18 by cyuriko          ###   ########.fr       */
+/*   Created: 2020/11/28 15:50:48 by cyuriko           #+#    #+#             */
+/*   Updated: 2020/11/28 15:50:50 by cyuriko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_viz.h"
 
-int			draw_all_paths2(t_sdl_things *things, t_all_data *data)
+static void redraw_map(t_sdl_things *things, t_all_data *data)
 {
-//	SDL_SetRenderTarget(things->renderer, things->t_buffer1);
-//	SDL_SetRenderDrawColor( things->renderer, 0, 0, 0, 0xFF );
-//	SDL_RenderClear(things->renderer);
-//	ft_bzero(things->m_buffer1, sizeof(Uint32) * DEFAULT_HEIGHT * DEFAULT_WIDTH);
-//	ft_bzero(things->m_buffer2, sizeof(Uint32) * DEFAULT_HEIGHT * DEFAULT_WIDTH);
-//	draw_all_paths_b4_blur(things, data);
+	ft_bzero(things->m_buffer1, sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
+	draw_all_paths_b4_blur(things, data);
 //	blur_v4(things);
 //	fastend_blur(things);
 //	draw_all_paths_after_blur(things, data);
-	return (0);
+	draw_all_rooms(things, data);
+	buff_to_texture(things);
+}
+
+
+void 	draw_map(t_sdl_things *things, t_all_data *data)
+{
+	if (things->redraw)
+		redraw_map(things, data);
+	SDL_RenderCopy(things->renderer, things->textue, NULL, NULL);
+	if (things->ants_go_brrrr)
+		draw_step(things, data);
+	else///change this to: if ants left at start
+		initial_ants(things, data);
 }
