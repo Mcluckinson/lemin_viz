@@ -10,6 +10,7 @@ LIB_PATH = ./libft
 INC = -I .  -I $(INC_PATH) -I $(LIB_PATH) -I ./ \
     		-I src/ \
 			-I SDL2/SDL2.framework/Headers \
+			-I SLD2/SDL2_image.framework/Headers \
 			-F SDL2/
 
 FRAME = 	-F SDL2/ -framework SDL2 -rpath SDL2/
@@ -17,11 +18,38 @@ FLAGS = 	-c -g -MMD -MP -Wall -Wextra -Werror -O3
 
 LIB = 		-L$(LIB_PATH) -lft
 
-SRC = blur_v4.c brezenham.c clear.c draw_ants.c draw_buff.c draw_circle.c draw_filled_circle.c \
-draw_map.c drawing_tests_delete_me.c duplicate_values.c error_manager.c init_sdl.c main.c modify_levels.c \
-music.c prepare_data.c pulse_map.c read_ants.c read_links.c read_links_helper.c \
-read_rooms.c read_steps.c read_steps_helper.c set_levels_for_view.c utils.c \
-valid.c zoom.c
+SRC = 	blur_v4.c \
+		brezenham.c \
+		clear.c \
+		clear_data.c \
+		delete_unused.c \
+		draw_ants.c \
+		draw_ants_helper.c \
+		draw_buff.c \
+		draw_buff_2.c \
+		draw_circle.c \
+		draw_filled_circle.c \
+		draw_map.c \
+		draw_map_texture.c \
+		duplicate_values.c \
+		error_manager.c \
+		general_drawing.c \
+		init_sdl.c \
+		loopz.c \
+		main.c \
+		modify_levels.c \
+		music.c \
+		prepare_data.c \
+		read_ants.c \
+		read_links.c \
+		read_links_helper.c \
+		read_rooms.c \
+		read_steps.c \
+		read_steps_helper.c \
+		set_levels_for_view.c \
+		utils.c \
+		valid.c \
+		zoom.c
 
 OBJ = $(SRC:.c=.o)
 
