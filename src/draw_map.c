@@ -31,6 +31,11 @@ void		draw_map(t_sdl_things *things, t_all_data *data)
 	draw_roomz(things, data);
 	if (things->ants_go_brrrr && data->curr_step)
 		draw_step(things, data);
+	if (!things->ants_go_brrrr && data->curr_step)
+	{
+		if (data->curr_step != data->all_steps)
+			finish_step(things, data);
+	}
 	if (data->ants > 0)
 		initial_ants(things, data);
 }

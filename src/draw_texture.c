@@ -75,3 +75,15 @@ void			draw_roomz(t_sdl_things *things, t_all_data *data)
 		counter = counter->next;
 	}
 }
+
+void 			finish_step(t_sdl_things *things, t_all_data *data)
+{
+	t_step *counter;
+
+	counter = data->curr_step->stepz;
+	while (counter)
+	{
+		draw_cheemz(things, counter->room->x, counter->room->y);
+		counter = counter->next;
+	}
+}
