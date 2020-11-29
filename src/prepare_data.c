@@ -75,9 +75,9 @@ static float	should_fix(t_all_data *data)
 	if (max_width < DEFAULT_WIDTH && max_height < DEFAULT_HEIGHT)
 		return (1);
 	if (max_width > DEFAULT_WIDTH)
-		fix_ratio_x = (float)DEFAULT_WIDTH / (float)max_width;
+		fix_ratio_x = ((float)DEFAULT_WIDTH - 50) / (float)max_width;
 	if (max_height > DEFAULT_HEIGHT)
-		fix_ratio_y = (float)DEFAULT_HEIGHT / (float)max_height;
+		fix_ratio_y = ((float)DEFAULT_HEIGHT - 50) / (float)max_height;
 	return (fix_ratio_x < fix_ratio_y ? fix_ratio_x : fix_ratio_y);
 }
 

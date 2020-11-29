@@ -3,7 +3,7 @@
 ##start
 Tgn5 1 1
 ##end
-Ndo4 5 5
+Ndo4 500 500
 Pqt5 9 9
 Dqq5 14 14
 Zbi4 16 16

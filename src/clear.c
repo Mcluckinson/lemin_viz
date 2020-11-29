@@ -24,6 +24,12 @@ static void	clear_sdl(t_sdl_things *things)
 		SDL_DestroyTexture(things->texture);
 	if (things->cheems)
 		SDL_DestroyTexture(things->cheems);
+	if (things->roomz)
+		SDL_DestroyTexture(things->roomz);
+	if (things->start)
+		SDL_DestroyTexture(things->start);
+	if (things->end)
+		SDL_DestroyTexture(things->end);
 	if (things->m_buffer1)
 		free(things->m_buffer1);
 	if (things->m_buffer2)

@@ -76,8 +76,6 @@ typedef struct			s_all_data
 	t_room 				*all_rooms;
 	t_link 				*all_links;
 	t_step_line 		*all_steps;
-//	int 				w_height;
-//	int					w_width;
 	t_room 				*start;
 	t_room 				*end;
 	char 				*courier;
@@ -100,6 +98,9 @@ typedef struct 			s_sdl_things
 	SDL_AudioDeviceID	device_id;
 	SDL_Texture 		*texture;
 	SDL_Texture			*cheems;
+	SDL_Texture 		*roomz;
+	SDL_Texture			*start;
+	SDL_Texture			*end;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
@@ -166,18 +167,17 @@ void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);
 void	draw_step(t_sdl_things *things, t_all_data *data);
 void	draw_cheemz(t_sdl_things *things, int x, int y);
-bool load_cheemz(t_sdl_things *things);
+void 	draw_roomz(t_sdl_things *things, t_all_data *data);
+bool	load_cheemz(t_sdl_things *things);
 
 
 /* BUFF DRAWING
  *
  */
-void	draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
 void	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
 void	blur_v4(t_sdl_things *things);
 void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
 void	initial_ants(t_sdl_things *things, t_all_data *data);
-void	draw_all_rooms(t_sdl_things *things, t_all_data *data);
 void	draw_brezenham_line_in_buff(t_sdl_things *things, t_drawing_things drawing_things);
 
 /*

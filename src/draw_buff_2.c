@@ -12,21 +12,6 @@
 
 #include "lem_viz.h"
 
-static void		draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl_things *things)
-{
-	int		x;
-	int		side;
-
-	x = x0;
-	side = x0 < x1 ? 1 : -1;
-	while (x != x1)
-	{
-		if (x >= 0 && x < things->width && y >= 0 && y < things->height)
-			buff[y * things->width + x] = color;
-		x += side;
-	}
-}
-
 static t_drawing_things assemble_coords(t_room *start, t_room *end, t_drawing_things things)
 {
 	things.x0 = start->x;
@@ -78,34 +63,5 @@ void		draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data)
 			start = start->next;
 		}
 		rad_buff -= 1;
-	}
-}
-
-void		draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color)
-{
-	int		xoff = 0;
-	int		yoff = radius;
-	int		balance = -radius;
-
-	int		p0;
-	int		p1;
-	int		w0;
-	int		w1;
-	while (xoff <= yoff)
-	{
-		p0 = x - xoff;
-		p1 = x - yoff;
-		w0 = xoff + xoff;
-		w1 = yoff + yoff;
-		draw_line_in_buff(color, things->m_buffer1, p0, p0 + w0, y + yoff, things);
-		draw_line_in_buff(color, things->m_buffer1, p0, p0 + w0, y - yoff, things);
-		draw_line_in_buff(color, things->m_buffer1, p1, p1 + w1, y + xoff, things);
-		draw_line_in_buff(color, things->m_buffer1, p1, p1 + w1, y - xoff, things);
-		if ((balance += (xoff + xoff + 1)) >= 0)
-		{
-			yoff--;
-			balance -= (yoff + yoff);
-		}
-		xoff++;
 	}
 }
