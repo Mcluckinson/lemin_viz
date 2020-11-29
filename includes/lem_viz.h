@@ -107,6 +107,7 @@ typedef struct 			s_sdl_things
 	bool				ants_go_brrrr;
 	double				step_progress;
 	bool				redraw;
+	t_xy 				xy;
 }						t_sdl_things;
 
 typedef struct 			s_drawing_things
