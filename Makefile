@@ -49,6 +49,7 @@ SRC = 	blur_v4.c \
 		read_steps_helper.c \
 		set_levels_for_view.c \
 		utils.c \
+		utils_check.c \
 		valid.c \
 		zoom.c
 

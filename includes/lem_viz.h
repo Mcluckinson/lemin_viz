@@ -136,6 +136,7 @@ int		path_count(char *ants);
 void 	fix_coords(t_all_data *data, t_sdl_things *things);
 int		init_music(t_sdl_things *things);
 void 	swap_values(int *a, int *b);
+void	check_args(int argc, char **argv, t_all_data *data, t_sdl_things *things);
 
 /*
  *

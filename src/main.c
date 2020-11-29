@@ -27,26 +27,6 @@ static int			read_data(t_all_data *data)
 	return (1);
 }
 
-void fun_func(int argc, char **argv,t_all_data *data, t_sdl_things *things)
-{
-	int fd;
-
-	if (argc == 1)
-		ft_error("Pass the argument");
-//	else if (argc == 2)
-//		return ;
-	while (--argc)
-	{
-//		printf("AC = %i\n", argc);
-//		if (str_contains(argv[argc], "-G"))
-//			printf("Find flag -G\n");
-		fd = open(argv[argc], O_RDONLY);
-		if (fd > 0)
-			data->del_me_fd = fd;
-//		printf("FD = %i\n\n", fd);
-	}
-}
-
 int					main(int ac, char **av)
 {
 	t_sdl_things	*sdl_things;
@@ -58,7 +38,7 @@ int					main(int ac, char **av)
 		return (ft_error("Couldn't allocate memory."));
 	if (!(sdl_things = (t_sdl_things*)ft_memalloc(sizeof(t_sdl_things))))
 		return (ft_error_new(data, sdl_things, SDL_GetError()));
-	fun_func(ac, av, data, sdl_things);
+	check_args(ac, av, data, sdl_things);
 	if (!(read_data(data)))
 		return (ft_error("Invalid data"));
 	set_levels_from_data(data);
