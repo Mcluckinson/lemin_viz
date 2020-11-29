@@ -69,7 +69,7 @@ void		del_str_arr(char **to_delete)
 	}
 }
 
-void 	swap_values(int *a, int *b)
+void		swap_values(int *a, int *b)
 {
 	int c;
 
