@@ -86,6 +86,7 @@ typedef struct			s_all_data
 
 typedef struct 			s_sdl_things
 {
+	bool				game_mode;
 	int 				radius;
 	SDL_Window			*win;
 	SDL_Surface			*surf;
