@@ -162,13 +162,14 @@ bool	check_ants_quantity(int quantity, char *line);
  */
 int		init_sdl(t_sdl_things *things);
 void 	buff_to_texture(t_sdl_things *things);
-void 	loopz(t_sdl_things *env, t_all_data *data);
-void 	draw_map(t_sdl_things *things, t_all_data *data);
+void	loop(t_sdl_things *env, t_all_data *data);
+void	loop_game_mode(t_sdl_things *env, t_all_data *data);
+void	draw_map(t_sdl_things *things, t_all_data *data);
 void	draw_step(t_sdl_things *things, t_all_data *data);
 void	draw_cheemz(t_sdl_things *things, int x, int y);
-void 	draw_roomz(t_sdl_things *things, t_all_data *data);
+void	draw_roomz(t_sdl_things *things, t_all_data *data);
 bool	load_cheemz(t_sdl_things *things);
-void 	finish_step(t_sdl_things *things, t_all_data *data);
+void	finish_step(t_sdl_things *things, t_all_data *data);
 
 
 /* BUFF DRAWING

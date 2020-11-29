@@ -37,9 +37,9 @@ add_executable(lem_in_vizuals
         src/valid.c
         src/zoom.c
         src/delete_unused.c
-        src/loopz.c
+        src/loop.c
         src/general_drawing.c
-        src/draw_texture.c src/draw_ants_steps.c src/draw_ants_helper.c src/clear_data.c src/draw_buff_2.c)
+        src/draw_texture.c src/draw_ants_steps.c src/draw_ants_helper.c src/clear_data.c src/draw_buff_2.c src/loop_game_mode.c)
 
 
 target_link_libraries(lem_in_vizuals

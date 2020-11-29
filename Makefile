@@ -35,7 +35,8 @@ SRC = 	blur_v4.c \
 		error_manager.c \
 		general_drawing.c \
 		init_sdl.c \
-		loopz.c \
+		loop.c \
+		loop_game_mode.c \
 		main.c \
 		modify_levels.c \
 		music.c \
