@@ -40,12 +40,9 @@ static void	clear_links(t_link *links)
 	{
 		ref = links;
 		links = links->next;
-		if (links)
-			links->prev = NULL;
 		ref->first_room = NULL;
 		ref->second_room = NULL;
 		ref->next = NULL;
-		ref->prev = NULL;
 		free(ref);
 		ref = NULL;
 	}

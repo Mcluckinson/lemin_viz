@@ -60,7 +60,7 @@ void						draw_all_paths_after_blur
 	t_drawing_things	drawing_things;
 
 	rad_buff = ((float)things->radius -
-			(float)1 * things->zoom) * (things->zoom) + 1;
+			(float)1 * things->zoom) * (things->zoom);
 	if (things->radius < 2)
 		return ;
 	drawing_things.radius = things->radius - 1;

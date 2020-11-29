@@ -14,7 +14,6 @@ include_directories(
 add_executable(lem_in_vizuals
         includes/lem_viz.h
         src/blur_v4.c
-        src/brezenham.c
         src/clear.c
         src/draw_ants.c
         src/draw_buff.c

@@ -37,11 +37,9 @@ static t_link	*find_path_link(t_link *links)
 	{
 		link = links;
 		links = links->next;
-		links->prev = NULL;
 		link->first_room = NULL;
 		link->second_room = NULL;
 		link->next = NULL;
-		link->prev = NULL;
 		free(link);
 		link = NULL;
 	}
@@ -78,10 +76,6 @@ static t_link	*delete_unused_links(t_link *links)
 	while (link)
 	{
 		link->next = find_path_link(link->next);
-		if (link->next)
-		{
-			link->next->prev = link;
-		}
 		link = link->next;
 	}
 	return (ref);

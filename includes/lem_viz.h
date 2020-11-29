@@ -50,7 +50,6 @@ typedef struct 			s_link
 {
 	t_room 				*first_room;
 	t_room 				*second_room;
-	struct s_link		*prev;
 	struct s_link		*next;
 }						t_link;
 
@@ -161,7 +160,6 @@ bool	check_ants_quantity(int quantity, char *line);
  * drawing
  */
 int		init_sdl(t_sdl_things *things);
-void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
 void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);

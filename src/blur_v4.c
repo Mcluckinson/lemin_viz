@@ -13,22 +13,29 @@
 
 #include "lem_viz.h"
 
+static void 	swap_buffs(t_sdl_things *things)
+{
+	Uint32 *tmp;
+
+	tmp = things->m_buffer1;
+	things->m_buffer1 = things->m_buffer2;
+	things->m_buffer2 = tmp;
+}
+
 void	blur_v4(t_sdl_things *things)
 {
-	if (things->radius < 2)
-		return ;
-	Uint32 *temp = things->m_buffer1;
-	things->m_buffer1 = things->m_buffer2;
-	things->m_buffer2 = temp;
 
-	Uint32 color;
-	int current_x = 0;
-	int current_y = 0;
+	swap_buffs(things);
+	int current_x;
+	int current_y;
 	int y = -1;
 	int x;
 	int box_blur_x;
-	Uint8 red = 0, green = 0, blue = 0;
+	Uint8 red, green, blue;
 	int redTotal, greenTotal, blueTotal;
+
+	if (things->radius < 2)
+		return ;
 	while (y++ < things->height)
 	{
 		x = -1;
@@ -46,10 +53,9 @@ void	blur_v4(t_sdl_things *things)
 				if (y >= 0 && x + box_blur_x >= 0 &&
 				y < things->height && x + box_blur_x < things->width)
 				{
-					color = things->m_buffer2[current_y * things->width + current_x];
-					red = color;
-					green = color >> 8;
-					blue = color >> 16;
+					red = things->m_buffer2[current_y * things->width + current_x];
+					green = red >> 8;
+					blue = red >> 16;
 
 					redTotal += red;
 					greenTotal += green;
@@ -59,8 +65,7 @@ void	blur_v4(t_sdl_things *things)
 				green = greenTotal / 9;
 				blue = blueTotal / 9;
 			}
-			color = red  | green << 8 | blue << 16;
-			things->m_buffer1[y * things->width + x] = color;
+			things->m_buffer1[y * things->width + x] = red  | green << 8 | blue << 16;
 		}
 	}
 }

@@ -37,7 +37,6 @@ t_link			*make_link(char *line, t_link *link, t_all_data *data)
 		return (NULL);
 	}
 	link->next = result;
-	result->prev = link;
 	if (!(split = ft_strsplit(line, '-')))
 	{
 		ft_strdel(&line);
