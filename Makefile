@@ -13,8 +13,7 @@ INC = -I .  -I $(INC_PATH) -I $(LIB_PATH) -I ./ \
 			-F SDL2/
 
 FRAME = 	-F SDL2/ -framework SDL2 -rpath SDL2/
-#FLAGS = 	-c -g -MMD -MP -Wall -Wextra -Werror -O3#
-FLAGS = 	-c -g -MMD -MP -O3
+FLAGS = 	-c -g -MMD -MP -Wall -Wextra -Werror -O3
 
 LIB = 		-L$(LIB_PATH) -lft
 

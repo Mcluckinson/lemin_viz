@@ -100,7 +100,6 @@ void			fix_coords(t_all_data *data, t_sdl_things *things)
 	center_coordinate(data, DEFAULT_WIDTH / 2, DEFAULT_HEIGHT / 2);
 	things->radius = 4 * fixer;
 	things->radius = things->radius ? things->radius : 1;
-	things->original_radius = things->radius;
 	things->height = DEFAULT_HEIGHT;
 	things->width = DEFAULT_WIDTH;
 	things->zoom = 1;

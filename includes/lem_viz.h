@@ -23,7 +23,6 @@
 
 #define DEFAULT_WIDTH 1366
 #define DEFAULT_HEIGHT 768
-#define THREAD_NUM 8
 
 #define MODIFIER_X 2
 #define MODIFIER_Y 20
@@ -77,8 +76,8 @@ typedef struct			s_all_data
 	t_room 				*all_rooms;
 	t_link 				*all_links;
 	t_step_line 		*all_steps;
-	int 				w_height;
-	int					w_width;
+//	int 				w_height;
+//	int					w_width;
 	t_room 				*start;
 	t_room 				*end;
 	char 				*courier;
@@ -91,8 +90,6 @@ typedef struct			s_all_data
 typedef struct 			s_sdl_things
 {
 	int 				radius;
-	int 				original_radius;
-	t_all_data			*map_data;
 	SDL_Window			*win;
 	SDL_Surface			*surf;
 	SDL_Event			event;
@@ -111,6 +108,16 @@ typedef struct 			s_sdl_things
 	bool				redraw;
 }						t_sdl_things;
 
+typedef struct 			s_drawing_things
+{
+	int					x0;
+	int					y0;
+	int 				x1;
+	int 				y1;
+	int 				radius;
+	Uint32 				color;
+}						t_drawing_things;
+
 /*
  * util functions
  */
@@ -126,6 +133,7 @@ char	**get_ants_array(int ants_count);
 int		path_count(char *ants);
 void 	fix_coords(t_all_data *data, t_sdl_things *things);
 int		init_music(t_sdl_things *things);
+void 	swap_values(int *a, int *b);
 
 /*
  *
@@ -152,13 +160,7 @@ bool	check_ants_quantity(int quantity, char *line);
  * drawing
  */
 int		init_sdl(t_sdl_things *things);
-void	find_win_size(t_all_data *data, t_sdl_things *things);
-int		draw_circle(int x, int y, int rad, t_sdl_things *things);
-int		draw_line_of_circles(t_sdl_things *things);
 void	draw_filled_circle(int x, int y, int radius, t_sdl_things *things);
-void	test_draw_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
-void	test_draw_neon_circle_line(int x0, int y0, int x1, int radius, t_sdl_things *things);
-void	draw_brezenham(int x0, int y0, int x1, int y1, int radius, t_sdl_things *things);
 void 	buff_to_texture(t_sdl_things *things);
 void 	loopz(t_sdl_things *env, t_all_data *data);
 void 	draw_map(t_sdl_things *things, t_all_data *data);
@@ -171,17 +173,12 @@ bool load_cheemz(t_sdl_things *things);
  *
  */
 void	draw_filled_circle_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
-void	draw_line_in_buff(Uint32 color, Uint32 *buff, int x0, int x1, int y, t_sdl_things *things);
 void	draw_all_paths_b4_blur(t_sdl_things *things, t_all_data *data);
 void	blur_v4(t_sdl_things *things);
-int		draw_all_paths2(t_sdl_things *things, t_all_data *data);
 void	draw_all_paths_after_blur(t_sdl_things *things, t_all_data *data);
-void	draw_stoopid_line (int x, int y, int radius, t_sdl_things *things);
-void 	draw_stoopid_line_in_buff(int x, int y, int radius, t_sdl_things *things, Uint32 color);
-void	fastend_blur(t_sdl_things *things);
 void	initial_ants(t_sdl_things *things, t_all_data *data);
-void	draw_circle_in_buff(int x, int y, int rad, t_sdl_things *things, Uint32 color);
 void	draw_all_rooms(t_sdl_things *things, t_all_data *data);
+void	draw_brezenham_line_in_buff(t_sdl_things *things, t_drawing_things drawing_things);
 
 /*
  * Link_helper

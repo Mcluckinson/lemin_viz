@@ -27,7 +27,6 @@ void	blur_v4(t_sdl_things *things)
 	int y = -1;
 	int x;
 	int box_blur_x;
-	int extent = 3;
 	Uint8 red = 0, green = 0, blue = 0;
 	int redTotal, greenTotal, blueTotal;
 	while (y++ < things->height)
@@ -35,11 +34,11 @@ void	blur_v4(t_sdl_things *things)
 		x = -1;
 		while (x++ < things->width)
 		{
-			box_blur_x = -extent - 1;
+			box_blur_x = -BLUR_EXTENT - 1;
 			redTotal = 0;
 			greenTotal = 0;
 			blueTotal = 0;
-			while (box_blur_x++ <= extent)
+			while (box_blur_x++ <= BLUR_EXTENT)
 			{
 				current_x = x + box_blur_x;
 				current_y = y;
