@@ -33,8 +33,8 @@ void fun_func(int argc, char **argv,t_all_data *data, t_sdl_things *things)
 
 	if (argc == 1)
 		ft_error("Pass the argument");
-	else if (argc == 2)
-		return ;
+//	else if (argc == 2)
+//		return ;
 	while (--argc)
 	{
 //		printf("AC = %i\n", argc);
