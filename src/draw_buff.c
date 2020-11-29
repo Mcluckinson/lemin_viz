@@ -40,9 +40,13 @@ static void draw_fat_vertical_line_in_buff(int x, int y, int radius, t_sdl_thing
 
 void 		draw_brezenham_line_in_buff(t_sdl_things *things, t_drawing_things drawing_things)
 {
-	int		dx, dy, x, y;
-	int steep = abs(drawing_things.y1 - drawing_things.y0) > abs(drawing_things.x1 - drawing_things.x0);
+	t_xy d_xy;
+	t_xy xy;
+	int steep;
+	int error;
+	int ystep;
 
+	steep = abs(drawing_things.y1 - drawing_things.y0) > abs(drawing_things.x1 - drawing_things.x0);
 	if (steep)
 	{
 		swap_values(&drawing_things.x0, &drawing_things.y0);
@@ -53,22 +57,22 @@ void 		draw_brezenham_line_in_buff(t_sdl_things *things, t_drawing_things drawin
 		swap_values(&drawing_things.x1, &drawing_things.x0);
 		swap_values(&drawing_things.y1, &drawing_things.y0);
 	}
-	dx = drawing_things.x1 - drawing_things.x0;
-	dy = abs(drawing_things.y1 - drawing_things.y0);
-	x = drawing_things.x0;
-	y = drawing_things.y0;
-	int error = dx / 2;
-	int ystep = (drawing_things.y0 < drawing_things.y1) ? 1 : -1;
-	while(x < drawing_things.x1)
+	d_xy.x = drawing_things.x1 - drawing_things.x0;
+	d_xy.y = abs(drawing_things.y1 - drawing_things.y0);
+	xy.x = drawing_things.x0;
+	xy.y = drawing_things.y0;
+	error = d_xy.x / 2;
+	ystep = (drawing_things.y0 < drawing_things.y1) ? 1 : -1;
+	while(xy.x < drawing_things.x1)
 	{
-		steep ? draw_fat_horizontal_line_in_buff(steep ? y : x, steep ? x : y, drawing_things.radius, things, drawing_things.color)
-		: draw_fat_vertical_line_in_buff(steep ? y : x, steep ? x : y, drawing_things.radius, things, drawing_things.color);
-		error -= dy;
+		steep ? draw_fat_horizontal_line_in_buff(steep ? xy.y : xy.x, steep ? xy.x : xy.y, drawing_things.radius, things, drawing_things.color)
+		: draw_fat_vertical_line_in_buff(steep ? xy.y : xy.x, steep ? xy.x : xy.y, drawing_things.radius, things, drawing_things.color);
+		error -= d_xy.y;
 		if (error < 0)
 		{
-			y += ystep;
-			error += dx;
+			xy.y += ystep;
+			error += d_xy.x;
 		}
-		x++;
+		xy.x++;
 	}
 }
