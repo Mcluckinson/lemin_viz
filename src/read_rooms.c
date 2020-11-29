@@ -82,10 +82,10 @@ int				read_rooms(t_all_data *data)
 	{
 		if (is_comment(line))
 		{
-			if (!start_end_check(line, &rooms, data))
-				return (0);
 			if (str_contains(line, "number of lines"))
 				data->is_generated_map = true;
+			if (!start_end_check(line, &rooms, data))
+				return (0);
 			continue ;
 		}
 		if (is_room(line))
