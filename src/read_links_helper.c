@@ -49,7 +49,7 @@ t_link			*make_link(char *line, t_link *link, t_all_data *data)
 	del_str_arr(split);
 	if (!result->first_room || !result->second_room
 		|| duplicate_links(result, data))
-		return (NULL);////check leaks
+		return (NULL);
 	return (result);
 }
 

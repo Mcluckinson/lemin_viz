@@ -62,7 +62,7 @@ void			loopz(t_sdl_things *things, t_all_data *data)
 		{
 			event_mousewheel(event, things, data);
 		}
- 		if (event.type == SDL_KEYDOWN)
+		if (event.type == SDL_KEYDOWN)
 		{
 			event_key_down(event, things, data);
 		}

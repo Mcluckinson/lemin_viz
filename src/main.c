@@ -31,6 +31,7 @@ int					main(int ac, char **av)
 {
 	t_sdl_things	*sdl_things;
 	t_all_data		*data;
+
 	data = NULL;
 	sdl_things = NULL;
 	if (!(data = (t_all_data*)ft_memalloc(sizeof(t_all_data))))
@@ -45,7 +46,7 @@ int					main(int ac, char **av)
 	if ((!init_sdl(sdl_things)))
 		return (ft_error_new(data, sdl_things, SDL_GetError()));
 	delete_unused(data);
-	data->curr_step = data->all_steps;////put this in a proper place
+	data->curr_step = data->all_steps;
 	init_music(sdl_things);
 	loopz(sdl_things, data);
 	ft_error_new(data, sdl_things, "Exit");

@@ -76,7 +76,7 @@ void			draw_roomz(t_sdl_things *things, t_all_data *data)
 	}
 }
 
-void 			finish_step(t_sdl_things *things, t_all_data *data)
+void			finish_step(t_sdl_things *things, t_all_data *data)
 {
 	t_step *counter;
 
