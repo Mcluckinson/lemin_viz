@@ -10,27 +10,27 @@ LIB_PATH = ./libft
 INC = -I .  -I $(INC_PATH) -I $(LIB_PATH) -I ./ \
     		-I src/ \
 			-I SDL2/SDL2.framework/Headers \
-			-I SLD2/SDL2_image.framework/Headers \
+			-I SDL2/SDL2_image.framework/Headers \
 			-F SDL2/
 
-FRAME = 	-F SDL2/ -framework SDL2 -rpath SDL2/
-FLAGS = 	-c -g -MMD -MP -Wall -Wextra -Werror -O3
+SDL2 =		-F SDL2/ -framework SDL2 -rpath SDL2/
+SDL2_img =	-F SDL2/ -framework SDL2_image -rpath SDL2_image/
+FLAGS =		-c -g -MMD -MP -Wall -Wextra -Werror -O3
 
-LIB = 		-L$(LIB_PATH) -lft
+LIB = -L$(LIB_PATH) -lft
 
 SRC = 	blur_v4.c \
-		brezenham.c \
 		clear.c \
 		clear_data.c \
 		delete_unused.c \
 		draw_ants.c \
 		draw_ants_helper.c \
+		draw_ants_steps.c \
 		draw_buff.c \
 		draw_buff_2.c \
-		draw_circle.c \
 		draw_filled_circle.c \
 		draw_map.c \
-		draw_map_texture.c \
+		draw_texture.c \
 		duplicate_values.c \
 		error_manager.c \
 		general_drawing.c \
@@ -62,8 +62,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ_A)
 	Make -C $(LIB_PATH)
-	clang $(OBJ_A) $(INC) $(LIB) $(FRAME) -o $(NAME)
-#	gcc $(OBJ_A) $(INC) $(LIB) $(FRAME) -o $(NAME)
+	clang $(OBJ_A) $(INC) $(LIB) $(SDL2) $(SDL2_img) -o $(NAME)
+#	gcc $(OBJ_A) $(INC) $(LIB) $(SDL2) $(SDL2_img) -o $(NAME)
 
 -include $(DEP_A)
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

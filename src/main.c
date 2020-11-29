@@ -32,7 +32,8 @@ int					main(int ac, char **av)
 	t_sdl_things	*sdl_things;
 	t_all_data		*data;
 
-	data = NULL;
+	if (ac != 0)
+		data = NULL;
 	sdl_things = NULL;
 	if (!(data = (t_all_data*)ft_memalloc(sizeof(t_all_data))))
 		return (0);
