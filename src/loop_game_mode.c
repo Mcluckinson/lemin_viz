@@ -21,12 +21,15 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 	draw_map(things, data);
 	SDL_RenderPresent(things->renderer);
 	things->redraw = false;
+	data->game_ants_left = data->ants;
+	data->default_ants = data->ants;
 
 	while (1)
 	{
 		SDL_PollEvent(&event);
 		if (SDLK_ESCAPE == event.key.keysym.sym)
 			break ;
+//		if ()
 		if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
 			things->ants_go_brrrr = true;
 		if (things->step_progress == 0.01)

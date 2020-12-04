@@ -72,6 +72,7 @@ typedef struct 			s_step_line
 typedef struct			s_all_data
 {
 	int					ants;
+	int 				default_ants;
 	t_room 				*all_rooms;
 	t_link 				*all_links;
 	t_step_line 		*all_steps;
@@ -82,6 +83,7 @@ typedef struct			s_all_data
 	int					is_generated_map;
 	t_step_line 		*curr_step;
 	bool				ants_reduced;
+	int 				game_ants_left;
 }						t_all_data;
 
 typedef struct 			s_sdl_things
@@ -172,6 +174,7 @@ void	draw_cheemz(t_sdl_things *things, int x, int y);
 void	draw_roomz(t_sdl_things *things, t_all_data *data);
 bool	load_cheemz(t_sdl_things *things);
 void	finish_step(t_sdl_things *things, t_all_data *data);
+void 	draw_progress_bar(t_sdl_things *things, t_all_data *data);
 
 
 /* BUFF DRAWING
