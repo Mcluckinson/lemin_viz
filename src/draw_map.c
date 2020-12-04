@@ -31,11 +31,14 @@ void		draw_map(t_sdl_things *things, t_all_data *data)
 	draw_roomz(things, data);
 	if (things->ants_go_brrrr && data->curr_step)
 		draw_step(things, data);
-	if (!things->ants_go_brrrr && data->curr_step)
+	if ((!things->ants_go_brrrr && data->curr_step) ||
+			(things->ants_go_brrrr && data->curr_step && things->step_progress == 1))
 	{
 		if (data->curr_step != data->all_steps)
 			finish_step(things, data);
 	}
 	if (data->ants > 0)
 		initial_ants(things, data);
+//	if (things->game_mode)
+//		draw_progress_bar(things, data);
 }

@@ -39,7 +39,7 @@ add_executable(lem_in_vizuals
         src/delete_unused.c
         src/loop.c
         src/general_drawing.c
-        src/draw_texture.c src/draw_ants_steps.c src/draw_ants_helper.c src/clear_data.c src/draw_buff_2.c src/loop_game_mode.c src/utils_check.c)
+        src/draw_texture.c src/draw_ants_steps.c src/draw_ants_helper.c src/clear_data.c src/draw_buff_2.c src/loop_game_mode.c src/utils_check.c src/gaem_time.c)
 
 
 target_link_libraries(lem_in_vizuals
