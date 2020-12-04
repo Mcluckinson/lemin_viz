@@ -14,5 +14,5 @@
 
 void			loop_game_mode(t_sdl_things *env, t_all_data *data)
 {
-
+	return ;
 }

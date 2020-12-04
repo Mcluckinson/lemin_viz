@@ -12,7 +12,8 @@
 
 #include "lem_viz.h"
 
-void	check_args(int argc, char **argv,t_all_data *data, t_sdl_things *things)
+void	check_args(int argc, char **argv,
+				t_all_data *data, t_sdl_things *things)
 {
 	int	fd;
 
