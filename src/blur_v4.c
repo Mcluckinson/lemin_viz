@@ -33,8 +33,8 @@ static void		init_params
 static bool		check_coords(t_sdl_things *things, int box_blur_x)
 {
 	if (things->xy.y >= 0 && things->xy.x + box_blur_x >= 0 &&
-		things->xy.y < things->height
-		&& things->xy.x + box_blur_x < things->width)
+		things->xy.y < DEFAULT_HEIGHT
+		&& things->xy.x + box_blur_x < DEFAULT_WIDTH)
 		return (true);
 	return (false);
 }
@@ -54,7 +54,7 @@ static void		update_color
 		if (check_coords(things, box_blur_x))
 		{
 			color = things->m_buffer2[things->xy.y
-					* things->width + things->xy.x + box_blur_x];
+					* DEFAULT_WIDTH+ things->xy.x + box_blur_x];
 			*red = color;
 			*green = color >> 8;
 			*blue = color >> 16;
@@ -79,14 +79,14 @@ void			blur_v4(t_sdl_things *things)
 		return ;
 	swap_buffs(things);
 	xy.y = -1;
-	while (xy.y++ < things->height)
+	while (xy.y++ < DEFAULT_HEIGHT)
 	{
 		xy.x = -1;
-		while (xy.x++ < things->width)
+		while (xy.x++ < DEFAULT_WIDTH)
 		{
 			things->xy = xy;
 			update_color(&red, &green, &blue, things);
-			things->m_buffer1[xy.y * things->width + xy.x] =
+			things->m_buffer1[xy.y * DEFAULT_WIDTH + xy.x] =
 					red | green << 8 | blue << 16;
 		}
 	}

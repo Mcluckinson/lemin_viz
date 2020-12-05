@@ -35,15 +35,8 @@ static bool		add_gaem_textures(t_sdl_things *things)
 
 static void 	handle_end_of_frame(t_sdl_things *things, t_all_data *data)
 {
-//	things->gaem_delay++;
 	if (things->step_progress < 1 && things->ants_go_brrrr)
-	{
-//		if (things->gaem_delay >= GAEM_DELAY)
-///		{
-//			things->gaem_delay = 0;
 			things->step_progress += 0.01;
-	//	}
-	}
 	if (things->step_progress >= 1 && things->ants_go_brrrr)
 	{
 		if (data->curr_step)

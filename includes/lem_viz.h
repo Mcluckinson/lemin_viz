@@ -92,10 +92,7 @@ typedef struct 			s_sdl_things
 	bool				game_mode;
 	int 				radius;
 	SDL_Window			*win;
-	SDL_Surface			*surf;
 	SDL_Event			event;
-	int 				width;
-	int 				height;
 	SDL_Renderer 		*renderer;
 	Uint8				*wav_buffer;
 	SDL_AudioDeviceID	device_id;
@@ -114,7 +111,6 @@ typedef struct 			s_sdl_things
 	bool				redraw;
 	t_xy 				xy;
 	bool				mouse_down;
-	unsigned int 		gaem_delay;
 }						t_sdl_things;
 
 typedef struct 			s_drawing_things

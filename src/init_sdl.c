@@ -14,15 +14,10 @@
 
 int			init_sdl(t_sdl_things *things)
 {
-	int		height;
-	int		width;
-
-	height = things->height;
-	width = things->width;
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
 		return (false);
 	if (!(things->win = SDL_CreateWindow("Lem-in", 100, 100,
-						width, height, SDL_WINDOW_SHOWN)))
+						DEFAULT_WIDTH, DEFAULT_HEIGHT, SDL_WINDOW_SHOWN)))
 		return (false);
 	if (!(things->renderer = SDL_CreateRenderer(things->win, -1,
 						SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE)))
@@ -30,10 +25,10 @@ int			init_sdl(t_sdl_things *things)
 	if (!(things->texture = SDL_CreateTexture(things->renderer,
 											SDL_PIXELFORMAT_RGB888,
 											SDL_TEXTUREACCESS_TARGET,
-											width, height)))
+											DEFAULT_WIDTH, DEFAULT_HEIGHT)))
 		return (false);
-	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
-	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
+	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
+	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
 	if (!(load_cheemz(things)))
 		return (false);
 	if (things->game_mode)
