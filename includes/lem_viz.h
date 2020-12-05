@@ -209,8 +209,9 @@ bool		is_all_steps_found(t_step_line *all_steps, int ants_count);
 /*
  * Ants steps Helpers
  */
-bool	try_step(t_sdl_things *things, t_step_line *old_step, t_step_line *new_step);
+bool	try_step(t_sdl_things *things, t_step_line *old_step, t_step_line *new_step, t_all_data *data);
 int		count_stepz(t_step_line *stepz_line);
+bool	delete_cheemz(int ant_num, t_all_data *data, t_xy cheemz_coords, t_sdl_things *things);
 
 /*
  * Helpers

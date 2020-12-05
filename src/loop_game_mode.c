@@ -33,6 +33,48 @@ static bool		add_gaem_textures(t_sdl_things *things)
 	return (true);
 }
 
+static void 	handle_end_of_frame(t_sdl_things *things, t_all_data *data)
+{
+//	things->gaem_delay++;
+	if (things->step_progress < 1 && things->ants_go_brrrr)
+	{
+//		if (things->gaem_delay >= GAEM_DELAY)
+///		{
+//			things->gaem_delay = 0;
+			things->step_progress += 0.01;
+	//	}
+	}
+	if (things->step_progress >= 1 && things->ants_go_brrrr)
+	{
+		if (data->curr_step)
+			data->curr_step = data->curr_step->next;
+		things->step_progress = 0.01;
+	}
+}
+
+static bool 	handle_events(t_sdl_things *things, SDL_Event event)
+{
+	while (SDL_PollEvent(&event))
+	{
+		if (SDLK_ESCAPE == event.key.keysym.sym)
+			return (false);
+		if (event.type == SDL_MOUSEBUTTONDOWN)
+		{
+			things->mouse_down = true;
+			break ;
+		}
+		if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
+		{
+			things->ants_go_brrrr = true;
+			break ;
+		}
+		if (event.type == SDL_MOUSEBUTTONUP)
+			things->mouse_down = false;
+		break ;
+	}
+	return (true);
+}
+
 void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 {
 	SDL_Event	event;
@@ -48,44 +90,14 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 		return ;
 	while (1)
 	{
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_MOUSEBUTTONDOWN)
-			{
-				things->mouse_down = true;
-				break ;
-			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE)
-			{
-				things->ants_go_brrrr = true;
-				break ;
-			}
-			if (event.type == SDL_MOUSEBUTTONUP)
-				things->mouse_down = false;
-			break ;
-		}
-		if (SDLK_ESCAPE == event.key.keysym.sym)
+		if (!handle_events(things, event))
 			break ;
 		if (things->step_progress == 0.01)
 			data->ants_reduced = false;
 		draw_map(things, data);
-		if (things->ants_go_brrrr)///this and below can be reduced to only one if
-			data->ants_reduced = true;
+		data->ants_reduced = true;
 		SDL_RenderPresent(things->renderer);
-		things->gaem_delay++;
-		if (things->step_progress < 1 && things->ants_go_brrrr)
-		{
-			if (things->gaem_delay >= GAEM_DELAY)
-			{
-				things->gaem_delay = 0;
-				things->step_progress += 0.01;
-			}
-		}
-		if (things->step_progress >= 1 && things->ants_go_brrrr)
-		{
-			if (data->curr_step)
-				data->curr_step = data->curr_step->next;
-			things->step_progress = 0.01;
-		}
+		handle_end_of_frame(things, data);
+		SDL_Delay(1000/150);
 	}
 }

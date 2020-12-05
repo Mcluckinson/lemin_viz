@@ -16,19 +16,31 @@ static void	initial_step(t_sdl_things *things, t_all_data *data)
 {
 	t_room	*start;
 	t_step	*step;
-	int		x;
-	int		y;
+	t_xy	cheemz_position;
+	t_step 	*backup;
+	bool	killd;
 
+	killd = false;
 	start = data->start;
 	step = data->curr_step->stepz;
+	backup = step;
 	while (step)
 	{
-		x = start->x + (step->room->x - start->x) * things->step_progress;
-		y = start->y + (step->room->y - start->y) * things->step_progress;
-		draw_cheemz(things, x, y);
+		cheemz_position.x = start->x + (step->room->x - start->x) * things->step_progress;
+		cheemz_position.y = start->y + (step->room->y - start->y) * things->step_progress;
+		if (things->game_mode && things->mouse_down)
+		{
+			backup = step->next;
+			killd = delete_cheemz(step->ant_num, data, cheemz_position, things);
+		}
+		if (!things->game_mode || !killd)
+			draw_cheemz(things, cheemz_position.x, cheemz_position.y);
 		if (!data->ants_reduced)
 			data->ants--;
-		step = step->next;
+		if (!things->game_mode || !killd)
+			step = step->next;
+		else
+			step = backup;
 	}
 }
 
@@ -37,22 +49,34 @@ static void	new_stepz(t_sdl_things *things, t_all_data *data,
 {
 	t_room	*start;
 	t_step	*step;
-	int		x;
-	int		y;
+	t_step 	*backup;
+	t_xy	cheemz_position;
+	bool	killd;
 
+	killd = false;
 	start = data->start;
 	step = new_step->stepz;
+	backup = new_step->stepz;
 	while (step)
 	{
 		if (!step->was_started)
 		{
-			x = start->x + (step->room->x - start->x) * things->step_progress;
-			y = start->y + (step->room->y - start->y) * things->step_progress;
-			draw_cheemz(things, x, y);
+			cheemz_position.x = start->x + (step->room->x - start->x) * things->step_progress;
+			cheemz_position.y = start->y + (step->room->y - start->y) * things->step_progress;
+			if (things->game_mode && things->mouse_down)
+			{
+				backup = step->next;
+				killd = delete_cheemz(step->ant_num, data, cheemz_position, things);
+			}
+			if (!things->game_mode || !killd)
+				draw_cheemz(things, cheemz_position.x, cheemz_position.y);
 			if (!data->ants_reduced)
 				data->ants--;
 		}
-		step = step->next;
+		if (!things->game_mode || !killd)
+			step = step->next;
+		else
+			step = backup;
 	}
 }
 
@@ -80,7 +104,7 @@ static void	next_step(t_sdl_things *things, t_all_data *data,
 	steps_done = true;
 	while (steps_done)
 	{
-		steps_done = try_step(things, old_step, new_step);
+		steps_done = try_step(things, old_step, new_step, data);
 		if (steps_done)
 			stepz_to_go--;
 		else

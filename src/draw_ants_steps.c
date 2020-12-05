@@ -72,16 +72,22 @@ static t_xy		find_x_y(t_sdl_things *things, t_step_line *old_step,
 
 bool			try_step(t_sdl_things *things,
 				t_step_line *old_step,
-				t_step_line *new_step)
+				t_step_line *new_step,
+				t_all_data *data)
 {
 	int			ant_num;
 	t_xy		x_y;
+	bool		deleted;
 
+	deleted = false;
 	ant_num = find_ant_to_move(old_step, new_step);
 	if (!ant_num)
 		return (false);
 	x_y = find_x_y(things, old_step, new_step, ant_num);
-	draw_cheemz(things, x_y.x, x_y.y);
+	if (things->game_mode && things->mouse_down)
+		deleted = delete_cheemz(ant_num, data, x_y, things);
+	if (!things->game_mode || !deleted)
+		draw_cheemz(things, x_y.x, x_y.y);
 	return (true);
 }
 
