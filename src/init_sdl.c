@@ -36,5 +36,7 @@ int			init_sdl(t_sdl_things *things)
 	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * width * height);
 	if (!(load_cheemz(things)))
 		return (false);
+	if (things->game_mode)
+		SDL_ShowCursor(SDL_DISABLE);
 	return (true);
 }

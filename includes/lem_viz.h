@@ -27,6 +27,7 @@
 #define MODIFIER_X 2
 #define MODIFIER_Y 20
 #define BLUR_EXTENT 3
+#define GAEM_DELAY 5
 
 typedef struct		s_xy
 {
@@ -103,6 +104,8 @@ typedef struct 			s_sdl_things
 	SDL_Texture 		*roomz;
 	SDL_Texture			*start;
 	SDL_Texture			*end;
+	SDL_Texture			*bat_right;
+	SDL_Texture			*bat_down;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
@@ -110,6 +113,8 @@ typedef struct 			s_sdl_things
 	double				step_progress;
 	bool				redraw;
 	t_xy 				xy;
+	bool				mouse_down;
+	unsigned int 		gaem_delay;
 }						t_sdl_things;
 
 typedef struct 			s_drawing_things
@@ -175,6 +180,7 @@ void	draw_roomz(t_sdl_things *things, t_all_data *data);
 bool	load_cheemz(t_sdl_things *things);
 void	finish_step(t_sdl_things *things, t_all_data *data);
 void 	draw_progress_bar(t_sdl_things *things, t_all_data *data);
+void 	draw_baseball_bat(t_sdl_things *things);
 
 
 /* BUFF DRAWING

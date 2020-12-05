@@ -28,3 +28,19 @@ void 	draw_progress_bar(t_sdl_things *things, t_all_data *data)
 		progress--;
 	}
 }
+
+void 	draw_baseball_bat(t_sdl_things *things)
+{
+	SDL_Rect	cheemz_frame;
+
+	cheemz_frame.h = DEFAULT_HEIGHT / 13;
+	cheemz_frame.w = cheemz_frame.h;
+	SDL_GetMouseState(&cheemz_frame.x, &cheemz_frame.y);
+	if (things->mouse_down)
+	{
+		cheemz_frame.w = sqrt(2) * cheemz_frame.h;
+		SDL_RenderCopy(things->renderer, things->bat_down, NULL, &cheemz_frame);
+	}
+	else
+		SDL_RenderCopy(things->renderer, things->bat_right, NULL, &cheemz_frame);
+}
