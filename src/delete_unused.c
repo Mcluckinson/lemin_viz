@@ -25,7 +25,8 @@ static t_room	*find_path_room(t_room *rooms)
 		free(room);
 		room = NULL;
 	}
-	if (!rooms->is_part_of_path) {
+	if (!rooms->is_part_of_path)
+	{
 		free(rooms->name);
 		free(rooms);
 		return (NULL);
