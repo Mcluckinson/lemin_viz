@@ -25,8 +25,11 @@ static t_room	*find_path_room(t_room *rooms)
 		free(room);
 		room = NULL;
 	}
-	if (!rooms->is_part_of_path)
+	if (!rooms->is_part_of_path) {
+		free(rooms->name);
+		free(rooms);
 		return (NULL);
+	}
 	return (rooms);
 }
 
@@ -48,6 +51,7 @@ static t_link	*find_path_link(t_link *links)
 	if (!links->first_room->is_part_of_path
 		|| !links->second_room->is_part_of_path)
 	{
+		free(links);
 		return (NULL);
 	}
 	return (links);
