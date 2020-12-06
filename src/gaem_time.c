@@ -41,7 +41,7 @@ static void		delete_ant(t_all_data *data, int ant_num)
 					counter->stepz = terminator->next;
 				else
 					connor->next = terminator->next;
-				ft_memdel(&terminator);
+				ft_memdel((void**)&terminator);
 				break ;
 			}
 			connor = (terminator != connor) ? connor->next : connor;

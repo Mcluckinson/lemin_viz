@@ -81,8 +81,10 @@ static void		handle_end_of_frame(t_sdl_things *things, t_all_data *data)
 	}
 }
 
-static bool		handle_events(t_sdl_things *things, SDL_Event event)
+static bool		handle_events(t_sdl_things *things)
 {
+	SDL_Event event;
+
 	while (1)
 	{
 		SDL_PollEvent(&event);
@@ -107,8 +109,6 @@ static bool		handle_events(t_sdl_things *things, SDL_Event event)
 
 void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 {
-	SDL_Event	event;
-
 	things->step_progress = 0.01;
 	things->redraw = true;
 	draw_map(things, data);
@@ -120,7 +120,7 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 		return ;
 	while (1)
 	{
-		if (!handle_events(things, event))
+		if (!handle_events(things))
 			break ;
 		if (things->step_progress == 0.01)
 			data->ants_reduced = false;
@@ -128,6 +128,6 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 		data->ants_reduced = true;
 		SDL_RenderPresent(things->renderer);
 		handle_end_of_frame(things, data);
-		SDL_Delay(1000 / 130);
+		SDL_Delay(1000 / 600);
 	}
 }

@@ -26,7 +26,7 @@ static void		event_key_down(SDL_Event event,
 			data->ants_reduced = true;
 			SDL_RenderPresent(things->renderer);
 			things->step_progress += 0.01;
-			SDL_Delay(1000 / 60);
+			SDL_Delay(1000 / 100);
 		}
 		things->ants_go_brrrr = false;
 		if (data->curr_step)

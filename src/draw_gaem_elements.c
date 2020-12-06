@@ -69,8 +69,6 @@ void			draw_baseball_bat(t_sdl_things *things)
 	cheemz_frame.h = DEFAULT_HEIGHT / 16 / 5 * things->radius;
 	cheemz_frame.w = cheemz_frame.h;
 	SDL_GetMouseState(&cheemz_frame.x, &cheemz_frame.y);
-	cheemz_frame.x -= cheemz_frame.w / 2;
-	cheemz_frame.y -= cheemz_frame.h / 2;
 	if (things->mouse_down)
 	{
 		cheemz_frame.w = sqrt(2) * cheemz_frame.h;
