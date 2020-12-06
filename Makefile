@@ -29,10 +29,12 @@ SRC = 	blur_v4.c \
 		draw_buff.c \
 		draw_buff_2.c \
 		draw_filled_circle.c \
+		draw_gaem_elements.c \
 		draw_map.c \
 		draw_texture.c \
 		duplicate_values.c \
 		error_manager.c \
+		gaem_time.c \
 		general_drawing.c \
 		init_sdl.c \
 		loop.c \
