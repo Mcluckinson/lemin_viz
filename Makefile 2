@@ -1,0 +1,109 @@
+.PHONY: all, $(NAME), clean, fclean, re
+
+NAME_LEM_IN = lem-in
+NAME_VISUAL = visual
+
+SRC_PATH_lemin	= ./sources_lemin/
+SRC_PATH_visual	= ./sources_visual/
+OBJ_PATH_lemin	= ./objects_lemin/
+OBJ_PATH_visual	= ./objects_visual/
+INC_PATH= ./includes/
+LIB_PATH = ./libft
+
+INC_visual	= -I .  -I $(INC_PATH) -I $(LIB_PATH) -I ./ \
+    		-I sources_visual/ \
+			-I SDL2/SDL2.framework/Headers \
+			-I SDL2/SDL2_image.framework/Headers \
+			-F SDL2/
+
+INC_lemin	= -I .  -I $(INC_PATH) -I $(LIB_PATH) -I ./ \
+    		-I sources_lemin/ \
+
+SDL2		= -F SDL2/ -framework SDL2 -rpath SDL2/
+SDL2_img	= -F SDL2/ -framework SDL2_image -rpath SDL2_image/
+FLAGS		= -c -g -MMD -MP -Wall -Wextra -Werror -O3
+
+LIB = -L$(LIB_PATH) -lft
+
+SRC_VIS = 	blur_v4.c \
+		clear.c \
+		clear_data.c \
+		delete_unused.c \
+		draw_ants.c \
+		draw_ants_helper.c \
+		draw_ants_steps.c \
+		draw_buff.c \
+		draw_buff_2.c \
+		draw_filled_circle.c \
+		draw_gaem_elements.c \
+		draw_map.c \
+		draw_texture.c \
+		duplicate_values.c \
+		error_manager.c \
+		gaem_time.c \
+		general_drawing.c \
+		init_sdl.c \
+		loop.c \
+		loop_game_mode.c \
+		main.c \
+		modify_levels.c \
+		music.c \
+		prepare_data.c \
+		read_ants.c \
+		read_links.c \
+		read_links_helper.c \
+		read_rooms.c \
+		read_steps.c \
+		read_steps_helper.c \
+		set_levels_for_view.c \
+		utils.c \
+		utils_check.c \
+		valid.c \
+		zoom.c
+
+SRC_LEM_IN = after_finding_paths.c ant_steps.c ants_run_like_shit.c build_path.c count_connetions.c create_paths.c\
+delete_bad_kids.c delete_worse_kidz.c error_manager.c find_directions.c freeshing.c go.c input_forks.c\
+lemin.c move_one_way.c output_forks.c parser_and_filling.c power_levels_v2.c power_lvl_2.c read_ants.c\
+read_links.c read_rooms.c run_algo.c start_end_link.c utils.c valid.c build_all_paths.c more_utils.c\
+power_lvls_common.c copy_data.c copy_data_norm_kek.c
+
+OBJ = $(SRC:.c=.o)
+
+OBJ_A = $(addprefix $(OBJ_PATH_visual),$(OBJ))
+OBJ_B = $(addprefix $(OBJ_PATH_lemin),$(OBJ))
+
+SRC_A = $(addprefix $(SRC_PATH_visual),$(SRC_VIS))
+SRC_B = $(addprefix $(SRC_PATH_lemin),$(SRC_LEM_IN))
+DEP_A = $(OBJ_A:.o=.d)
+DEP_B = $(OBJ_B:.o=.d)
+
+all: $(NAME_VISUAL)
+
+$(NAME_VISUAL): $(OBJ_A)
+	Make -C $(LIB_PATH)
+	clang $(OBJ_A) $(INC_visual) $(LIB) $(SDL2) $(SDL2_img) -o $(NAME_VISUAL)
+
+$(NAME_LEM_IN): $(OBJ_B)
+	Make -C $(LIB_PATH)
+	gcc $(OBJ_B) $(INC_lemin) $(LIB) -o $(NAME_LEM_IN)
+
+-include $(DEP_A)
+$(OBJ_PATH_visual)%.o: $(SRC_PATH_visual)%.c
+	mkdir -p $(OBJ_PATH_visual)
+	gcc $(FLAGS) $(INC_visual) $< -o $@
+
+-include $(DEP_B)
+$(OBJ_PATH_lemin)%.o: $(SRC_PATH_lemin)%.c
+	mkdir -p $(OBJ_PATH_lemin)
+	gcc $(FLAGS) $(INC_lemin) $< -o $@
+
+clean:
+	@clear
+	@Make -C $(LIB_PATH) clean
+	@rm -rf $(OBJ_PATH)
+
+fclean: clean
+	@Make -C $(LIB_PATH) fclean
+	@rm -f $(NAME)
+
+re: fclean all
