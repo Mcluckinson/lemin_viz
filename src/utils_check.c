@@ -68,7 +68,8 @@ t_xy		get_cheemz_pos(t_room *start, t_step *step, t_sdl_things *things)
 	return (cheemz_position);
 }
 
-void 		init_params_norminette_kek(bool *killd, t_step **step, t_step **bckup, t_step_line *new_step)
+void		init_params_norminette_kek
+	(bool *killd, t_step **step, t_step **bckup, t_step_line *new_step)
 {
 	killd = false;
 	*step = new_step->stepz;

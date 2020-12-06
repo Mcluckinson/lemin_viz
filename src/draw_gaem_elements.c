@@ -12,7 +12,7 @@
 
 #include "lem_viz.h"
 
-static void draw_bar_texture(t_sdl_things *things, int x, int y)
+static void		draw_bar_texture(t_sdl_things *things, int x, int y)
 {
 	SDL_Rect	cheemz_frame;
 
@@ -23,16 +23,18 @@ static void draw_bar_texture(t_sdl_things *things, int x, int y)
 	SDL_RenderCopy(things->renderer, things->start, NULL, &cheemz_frame);
 }
 
-void 	draw_progress_bar(t_sdl_things *things, t_all_data *data)
+void			draw_progress_bar(t_sdl_things *things, t_all_data *data)
 {
-	int 	progress;
-	int		x;
-	int 	y;
-	int 	elem_width = things->radius * 100;
+	int	progress;
+	int	x;
+	int	y;
+	int	elem_width;
 
+	elem_width = things->radius * 100;
 	y = DEFAULT_HEIGHT - 15;
 	x = DEFAULT_WIDTH / 2 - elem_width / 2;
-	progress = ((double)data->game_ants_left / (double)data->default_ants) * 100;
+	progress =
+			((double)data->game_ants_left / (double)data->default_ants) * 100;
 	while (progress > 0)
 	{
 		draw_bar_texture(things, x, y);
@@ -41,7 +43,7 @@ void 	draw_progress_bar(t_sdl_things *things, t_all_data *data)
 	}
 }
 
-void 	draw_baseball_bat(t_sdl_things *things)
+void			draw_baseball_bat(t_sdl_things *things)
 {
 	SDL_Rect	cheemz_frame;
 
@@ -61,11 +63,12 @@ void 	draw_baseball_bat(t_sdl_things *things)
 	{
 		cheemz_frame.x -= cheemz_frame.w / 2;
 		cheemz_frame.y -= cheemz_frame.h / 2;
-		SDL_RenderCopy(things->renderer, things->bat_right, NULL, &cheemz_frame);
+		SDL_RenderCopy(things->renderer,
+			things->bat_right, NULL, &cheemz_frame);
 	}
 }
 
-void 	draw_horni_sign(t_sdl_things *things, t_all_data *data)
+void			draw_horni_sign(t_sdl_things *things, t_all_data *data)
 {
 	SDL_Rect	cheemz_frame;
 

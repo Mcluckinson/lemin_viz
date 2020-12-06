@@ -42,7 +42,7 @@ static void	new_stepz(t_sdl_things *things, t_all_data *data,
 					t_step_line *new_step)
 {
 	t_step	*step;
-	t_step 	*backup;
+	t_step	*backup;
 	t_xy	cheemz_pos;
 	bool	killd;
 
