@@ -80,7 +80,8 @@ int					read_steps(t_all_data *data)
 {
 	t_step_line		*step_lines;
 
-	if (!(step_lines = (t_step_line*)ft_memalloc(sizeof(t_step_line))))
+	if (!(step_lines = (t_step_line*)ft_memalloc(sizeof(t_step_line)))
+	|| !data->courier)
 		return (0);
 	if (!(step_lines->line = ft_strdup(data->courier)))
 	{
