@@ -69,13 +69,16 @@ static void	new_stepz(t_sdl_things *things, t_all_data *data,
 				killd = delete_cheemz(step->ant_num, data, cheemz_position, things);
 			}
 			if (!things->game_mode || !killd)
+			{
 				draw_cheemz(things, cheemz_position.x, cheemz_position.y);
+				step->was_started = 1;
+			}
 			if (!data->ants_reduced)
 				data->ants--;
 		}
 		if (!things->game_mode || !killd)
 			step = step->next;
-		else
+		else if (things->game_mode && killd)
 			step = backup;
 	}
 }

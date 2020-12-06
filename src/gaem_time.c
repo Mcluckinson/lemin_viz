@@ -69,9 +69,20 @@ static void 	delete_ant(t_all_data *data, int ant_num)
 
 bool	delete_cheemz(int ant_num, t_all_data *data, t_xy cheemz_coords, t_sdl_things *things)
 {
-	t_xy mouse_coords = catch_mouse_coords();
-	bool should_kill = find_ant(mouse_coords, cheemz_coords, things->radius * 20);
+	t_xy mouse_coords;
+	bool should_kill;
+	int radius;
 
+	radius = things->radius * 15;
+	mouse_coords = catch_mouse_coords();
+	if ((mouse_coords.x < data->start->x + radius &&
+			mouse_coords.x > data->start->x - radius && mouse_coords.y >
+			data->start->y - radius && mouse_coords.y < data->start->y + radius)
+			|| (mouse_coords.x < data->end->x + radius &&
+				mouse_coords.x > data->end->x - radius && mouse_coords.y >
+															data->end->y - radius && mouse_coords.y < data->end->y + radius))
+		return (false);
+	should_kill = find_ant(mouse_coords, cheemz_coords, radius / 15 * 11);
 	if (should_kill)
 	{
 		data->game_ants_left--;

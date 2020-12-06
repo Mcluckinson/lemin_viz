@@ -91,6 +91,6 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 		data->ants_reduced = true;
 		SDL_RenderPresent(things->renderer);
 		handle_end_of_frame(things, data);
-		SDL_Delay(1000/150);
+		SDL_Delay(1000/130);
 	}
 }
