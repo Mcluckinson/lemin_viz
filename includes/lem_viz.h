@@ -104,6 +104,9 @@ typedef struct 			s_sdl_things
 	SDL_Texture			*bat_right;
 	SDL_Texture			*bat_down;
 	SDL_Texture 		*horni_land;
+	SDL_Texture 		*u_win;
+	SDL_Texture 		*u_looz;
+	SDL_Texture	*cryin;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
@@ -215,6 +218,8 @@ bool	delete_cheemz(int ant_num, t_all_data *data, t_xy cheemz_coords, t_sdl_thin
  * Helpers
  */
 void		delete_unused(t_all_data *data);
+t_xy		get_cheemz_pos(t_room *start, t_step *step, t_sdl_things *things);
+void 		init_params_norminette_kek(bool *killd, t_step **step, t_step **bckup, t_step_line *new_step);
 
 /*
  * zoomin and movin

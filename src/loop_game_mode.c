@@ -12,6 +12,34 @@
 
 #include "lem_viz.h"
 
+static bool		add_more_textures(t_sdl_things *things)
+{
+	SDL_Surface	*surface;
+
+	surface = IMG_Load("../rsrcs/rage_crying.png");
+	if (!surface)
+		return (false);
+	things->cryin = SDL_CreateTextureFromSurface(things->renderer, surface);
+	SDL_FreeSurface(surface);
+	if (!things->cryin)
+		return (false);
+	surface = IMG_Load("../rsrcs/u_faild.png");
+	if (!surface)
+		return (false);
+	things->u_looz = SDL_CreateTextureFromSurface(things->renderer, surface);
+	SDL_FreeSurface(surface);
+	if (!things->u_looz)
+		return (false);
+	surface = IMG_Load("../rsrcs/won.png");
+	if (!surface)
+		return (false);
+	things->u_win = SDL_CreateTextureFromSurface(things->renderer, surface);
+	SDL_FreeSurface(surface);
+	if (!things->u_win)
+		return (false);
+	return (true);
+}
+
 static bool		add_gaem_textures(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
@@ -33,17 +61,18 @@ static bool		add_gaem_textures(t_sdl_things *things)
 	surface = IMG_Load("../rsrcs/horni_land.png");
 	if (!surface)
 		return (false);
-	things->horni_land = SDL_CreateTextureFromSurface(things->renderer, surface);
+	things->horni_land =
+			SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->horni_land)
 		return (false);
 	return (true);
 }
 
-static void 	handle_end_of_frame(t_sdl_things *things, t_all_data *data)
+static void		handle_end_of_frame(t_sdl_things *things, t_all_data *data)
 {
 	if (things->step_progress < 1 && things->ants_go_brrrr)
-			things->step_progress += 0.01;
+		things->step_progress += 0.01;
 	if (things->step_progress >= 1 && things->ants_go_brrrr)
 	{
 		if (data->curr_step)
@@ -52,7 +81,7 @@ static void 	handle_end_of_frame(t_sdl_things *things, t_all_data *data)
 	}
 }
 
-static bool 	handle_events(t_sdl_things *things, SDL_Event event)
+static bool		handle_events(t_sdl_things *things, SDL_Event event)
 {
 	while (SDL_PollEvent(&event))
 	{
@@ -86,7 +115,7 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 	things->redraw = false;
 	data->game_ants_left = data->ants;
 	data->default_ants = data->ants;
-	if (!add_gaem_textures(things))
+	if (!add_gaem_textures(things) || !add_more_textures(things))
 		return ;
 	while (1)
 	{
@@ -98,6 +127,6 @@ void			loop_game_mode(t_sdl_things *things, t_all_data *data)
 		data->ants_reduced = true;
 		SDL_RenderPresent(things->renderer);
 		handle_end_of_frame(things, data);
-		SDL_Delay(1000/130);
+		SDL_Delay(1000 / 130);
 	}
 }

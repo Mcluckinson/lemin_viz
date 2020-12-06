@@ -20,6 +20,8 @@ static t_room	*find_path_room(t_room *rooms)
 	{
 		room = rooms;
 		rooms = rooms->next;
+		free(room->name);
+		room->name = NULL;
 		free(room);
 		room = NULL;
 	}

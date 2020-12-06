@@ -27,8 +27,10 @@ int			init_sdl(t_sdl_things *things)
 											SDL_TEXTUREACCESS_TARGET,
 											DEFAULT_WIDTH, DEFAULT_HEIGHT)))
 		return (false);
-	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
-	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32) * DEFAULT_WIDTH * DEFAULT_HEIGHT);
+	things->m_buffer1 = (Uint32*)ft_memalloc(sizeof(Uint32)
+			* DEFAULT_WIDTH * DEFAULT_HEIGHT);
+	things->m_buffer2 = (Uint32*)ft_memalloc(sizeof(Uint32)
+			* DEFAULT_WIDTH * DEFAULT_HEIGHT);
 	if (!(load_cheemz(things)))
 		return (false);
 	if (things->game_mode)

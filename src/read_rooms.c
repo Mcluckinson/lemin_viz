@@ -18,13 +18,13 @@ static t_room	*make_room(t_room *room, char *line, t_all_data *data)
 	char	**room_data;
 
 	if (!(result = (t_room*)ft_memalloc(sizeof(t_room))))
-		ft_error("malloc failed");
+		ft_error_new(data, NULL, "malloc faild");
 	if (room)
 		room->next = result;
 	if (!(room_data = ft_strsplit(line, ' ')))
 	{
 		free(result);
-		ft_error("malloc failed");
+		ft_error_new(data, NULL, "malloc faild");
 	}
 	result->name = ft_strdup(room_data[0]);
 	result->x = ft_atoi(room_data[1]);

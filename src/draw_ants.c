@@ -14,20 +14,17 @@
 
 static void	initial_step(t_sdl_things *things, t_all_data *data)
 {
-	t_room	*start;
 	t_step	*step;
 	t_xy	cheemz_position;
-	t_step 	*backup;
+	t_step	*backup;
 	bool	killd;
 
 	killd = false;
-	start = data->start;
 	step = data->curr_step->stepz;
 	backup = step;
 	while (step)
 	{
-		cheemz_position.x = start->x + (step->room->x - start->x) * things->step_progress;
-		cheemz_position.y = start->y + (step->room->y - start->y) * things->step_progress;
+		cheemz_position = get_cheemz_pos(data->start, step, things);
 		if (things->game_mode && things->mouse_down)
 		{
 			backup = step->next;
@@ -37,49 +34,37 @@ static void	initial_step(t_sdl_things *things, t_all_data *data)
 			draw_cheemz(things, cheemz_position.x, cheemz_position.y);
 		if (!data->ants_reduced)
 			data->ants--;
-		if (!things->game_mode || !killd)
-			step = step->next;
-		else
-			step = backup;
+		step = (killd) ? backup : step->next;
 	}
 }
 
 static void	new_stepz(t_sdl_things *things, t_all_data *data,
 					t_step_line *new_step)
 {
-	t_room	*start;
 	t_step	*step;
 	t_step 	*backup;
-	t_xy	cheemz_position;
+	t_xy	cheemz_pos;
 	bool	killd;
 
-	killd = false;
-	start = data->start;
-	step = new_step->stepz;
-	backup = new_step->stepz;
+	init_params_norminette_kek(&killd, &step, &backup, new_step);
 	while (step)
 	{
 		if (!step->was_started)
 		{
-			cheemz_position.x = start->x + (step->room->x - start->x) * things->step_progress;
-			cheemz_position.y = start->y + (step->room->y - start->y) * things->step_progress;
+			cheemz_pos = get_cheemz_pos(data->start, step, things);
 			if (things->game_mode && things->mouse_down)
 			{
 				backup = step->next;
-				killd = delete_cheemz(step->ant_num, data, cheemz_position, things);
+				killd = delete_cheemz(step->ant_num, data, cheemz_pos, things);
 			}
 			if (!things->game_mode || !killd)
 			{
-				draw_cheemz(things, cheemz_position.x, cheemz_position.y);
+				draw_cheemz(things, cheemz_pos.x, cheemz_pos.y);
 				step->was_started = 1;
 			}
-			if (!data->ants_reduced)
-				data->ants--;
+			data->ants += data->ants_reduced - 1;
 		}
-		if (!things->game_mode || !killd)
-			step = step->next;
-		else if (things->game_mode && killd)
-			step = backup;
+		step = killd ? backup : step->next;
 	}
 }
 

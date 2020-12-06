@@ -54,7 +54,7 @@ static void		update_color
 		if (check_coords(things, box_blur_x))
 		{
 			color = things->m_buffer2[things->xy.y
-					* DEFAULT_WIDTH+ things->xy.x + box_blur_x];
+					* DEFAULT_WIDTH + things->xy.x + box_blur_x];
 			*red = color;
 			*green = color >> 8;
 			*blue = color >> 16;
