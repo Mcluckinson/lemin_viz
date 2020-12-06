@@ -45,7 +45,7 @@ void 	draw_baseball_bat(t_sdl_things *things)
 {
 	SDL_Rect	cheemz_frame;
 
-	cheemz_frame.h = DEFAULT_HEIGHT / things->radius / 5;
+	cheemz_frame.h = DEFAULT_HEIGHT / 16 / 5 * things->radius;
 	cheemz_frame.w = cheemz_frame.h;
 	SDL_GetMouseState(&cheemz_frame.x, &cheemz_frame.y);
 	cheemz_frame.x -= cheemz_frame.w / 2;
@@ -63,5 +63,15 @@ void 	draw_baseball_bat(t_sdl_things *things)
 		cheemz_frame.y -= cheemz_frame.h / 2;
 		SDL_RenderCopy(things->renderer, things->bat_right, NULL, &cheemz_frame);
 	}
+}
 
+void 	draw_horni_sign(t_sdl_things *things, t_all_data *data)
+{
+	SDL_Rect	cheemz_frame;
+
+	cheemz_frame.h = things->radius * 40;
+	cheemz_frame.w = things->radius * 40;
+	cheemz_frame.x = data->end->x;
+	cheemz_frame.y = data->end->y - cheemz_frame.h;
+	SDL_RenderCopy(things->renderer, things->horni_land, NULL, &cheemz_frame);
 }

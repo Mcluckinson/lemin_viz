@@ -43,6 +43,7 @@ void		draw_map(t_sdl_things *things, t_all_data *data)
 	{
 		draw_baseball_bat(things);
 		draw_progress_bar(things, data);
+		draw_horni_sign(things, data);
 	}
 
 }

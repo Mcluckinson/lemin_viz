@@ -103,6 +103,7 @@ typedef struct 			s_sdl_things
 	SDL_Texture			*end;
 	SDL_Texture			*bat_right;
 	SDL_Texture			*bat_down;
+	SDL_Texture 		*horni_land;
 	Uint32				*m_buffer1;
 	Uint32				*m_buffer2;
 	float 				zoom;
@@ -177,6 +178,7 @@ bool	load_cheemz(t_sdl_things *things);
 void	finish_step(t_sdl_things *things, t_all_data *data);
 void 	draw_progress_bar(t_sdl_things *things, t_all_data *data);
 void 	draw_baseball_bat(t_sdl_things *things);
+void 	draw_horni_sign(t_sdl_things *things, t_all_data *data);
 
 
 /* BUFF DRAWING

@@ -30,6 +30,13 @@ static bool		add_gaem_textures(t_sdl_things *things)
 	SDL_FreeSurface(surface);
 	if (!things->bat_down)
 		return (false);
+	surface = IMG_Load("../rsrcs/horni_land.png");
+	if (!surface)
+		return (false);
+	things->horni_land = SDL_CreateTextureFromSurface(things->renderer, surface);
+	SDL_FreeSurface(surface);
+	if (!things->horni_land)
+		return (false);
 	return (true);
 }
 
