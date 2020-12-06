@@ -47,7 +47,8 @@ int					main(int ac, char **av)
 		return (ft_error_new(data, sdl_things, SDL_GetError()));
 	delete_unused(data);
 	data->curr_step = data->all_steps;
-	init_music(sdl_things);
+	if (init_music(sdl_things))
+		ft_error_new(data, sdl_things, SDL_GetError());
 	if (sdl_things->game_mode)
 		loop_game_mode(sdl_things, data);
 	else
