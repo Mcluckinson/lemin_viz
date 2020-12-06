@@ -30,6 +30,18 @@ static void	clear_sdl(t_sdl_things *things)
 		SDL_DestroyTexture(things->start);
 	if (things->end)
 		SDL_DestroyTexture(things->end);
+	if (things->cryin)
+		SDL_DestroyTexture(things->cryin);
+	if (things->u_win)
+		SDL_DestroyTexture(things->u_win);
+	if (things->u_looz)
+		SDL_DestroyTexture(things->u_looz);
+	if (things->horni_land)
+		SDL_DestroyTexture(things->horni_land);
+	if (things->bat_right)
+		SDL_DestroyTexture(things->bat_right);
+	if (things->bat_down)
+		SDL_DestroyTexture(things->bat_down);
 	if (things->m_buffer1)
 		free(things->m_buffer1);
 	if (things->m_buffer2)
