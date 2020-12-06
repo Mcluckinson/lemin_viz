@@ -75,3 +75,10 @@ void		init_params_norminette_kek
 	*step = new_step->stepz;
 	*bckup = new_step->stepz;
 }
+
+void		update_step_sorry_norminette
+	(t_sdl_things *things, t_step *step, t_xy cheemz_pos)
+{
+	draw_cheemz(things, cheemz_pos.x, cheemz_pos.y);
+	step->was_started = 1;
+}

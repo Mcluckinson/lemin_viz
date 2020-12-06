@@ -229,6 +229,8 @@ t_xy					get_cheemz_pos(t_room *start, t_step *step,
 							t_sdl_things *things);
 void					init_params_norminette_kek(bool *killd, t_step **step,
 							t_step **bckup, t_step_line *new_step);
+void					update_step_sorry_norminette
+					(t_sdl_things *things, t_step *step, t_xy cheemz_pos);
 
 /*
 ** zoomin and movin

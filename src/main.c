@@ -52,6 +52,6 @@ int					main(int ac, char **av)
 		loop_game_mode(sdl_things, data);
 	else
 		loop(sdl_things, data);
-	ft_error_new(data, sdl_things, "Exit");
+	ft_error_new(data, sdl_things, "Exited properly");
 	return (0);
 }
