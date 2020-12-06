@@ -43,6 +43,25 @@ void			draw_progress_bar(t_sdl_things *things, t_all_data *data)
 	}
 }
 
+static void		fix_bat_coords(SDL_Rect *cheemz_frame)
+{
+	int max_y;
+	int max_x;
+
+	max_y = DEFAULT_HEIGHT - cheemz_frame->h;
+	max_x = DEFAULT_WIDTH - cheemz_frame->w;
+	cheemz_frame->x -= cheemz_frame->w / 2;
+	cheemz_frame->y -= cheemz_frame->h / 2;
+	if (cheemz_frame->x < 1)
+		cheemz_frame->x = 1;
+	if (cheemz_frame->y < 1)
+		cheemz_frame->y = 1;
+	if (cheemz_frame->x > max_x - 1)
+		cheemz_frame->x = max_x - 1;
+	if (cheemz_frame->y > max_y - 1)
+		cheemz_frame->y = max_y - 1;
+}
+
 void			draw_baseball_bat(t_sdl_things *things)
 {
 	SDL_Rect	cheemz_frame;
@@ -55,14 +74,12 @@ void			draw_baseball_bat(t_sdl_things *things)
 	if (things->mouse_down)
 	{
 		cheemz_frame.w = sqrt(2) * cheemz_frame.h;
-		cheemz_frame.x -= cheemz_frame.w / 2;
-		cheemz_frame.y -= cheemz_frame.h / 2;
+		fix_bat_coords(&cheemz_frame);
 		SDL_RenderCopy(things->renderer, things->bat_down, NULL, &cheemz_frame);
 	}
 	else
 	{
-		cheemz_frame.x -= cheemz_frame.w / 2;
-		cheemz_frame.y -= cheemz_frame.h / 2;
+		fix_bat_coords(&cheemz_frame);
 		SDL_RenderCopy(things->renderer,
 			things->bat_right, NULL, &cheemz_frame);
 	}

@@ -83,8 +83,9 @@ static void		handle_end_of_frame(t_sdl_things *things, t_all_data *data)
 
 static bool		handle_events(t_sdl_things *things, SDL_Event event)
 {
-	while (SDL_PollEvent(&event))
+	while (1)
 	{
+		SDL_PollEvent(&event);
 		if (SDLK_ESCAPE == event.key.keysym.sym)
 			return (false);
 		if (event.type == SDL_MOUSEBUTTONDOWN)
