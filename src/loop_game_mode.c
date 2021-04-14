@@ -16,21 +16,21 @@ static bool		add_more_textures(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
 
-	surface = IMG_Load("../rsrcs/rage_crying.png");
+	surface = IMG_Load("./rsrcs/rage_crying.png");
 	if (!surface)
 		return (false);
 	things->cryin = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->cryin)
 		return (false);
-	surface = IMG_Load("../rsrcs/u_faild.png");
+	surface = IMG_Load("./rsrcs/u_faild.png");
 	if (!surface)
 		return (false);
 	things->u_looz = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->u_looz)
 		return (false);
-	surface = IMG_Load("../rsrcs/won.png");
+	surface = IMG_Load("./rsrcs/won.png");
 	if (!surface)
 		return (false);
 	things->u_win = SDL_CreateTextureFromSurface(things->renderer, surface);
@@ -44,21 +44,21 @@ static bool		add_gaem_textures(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
 
-	surface = IMG_Load("../rsrcs/bat_right.png");
+	surface = IMG_Load("./rsrcs/bat_right.png");
 	if (!surface)
 		return (false);
 	things->bat_right = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->bat_right)
 		return (false);
-	surface = IMG_Load("../rsrcs/bat_down.png");
+	surface = IMG_Load("./rsrcs/bat_down.png");
 	if (!surface)
 		return (false);
 	things->bat_down = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
 	if (!things->bat_down)
 		return (false);
-	surface = IMG_Load("../rsrcs/horni_land.png");
+	surface = IMG_Load("./rsrcs/horni_land.png");
 	if (!surface)
 		return (false);
 	things->horni_land =
