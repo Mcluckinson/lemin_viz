@@ -16,22 +16,22 @@ bool			load_cheemz(t_sdl_things *things)
 {
 	SDL_Surface	*surface;
 
-	surface = IMG_Load("../rsrcs/cheems.png");
+	surface = IMG_Load("./rsrcs/cheems.png");
 	if (!surface)
 		return (false);
 	things->cheems = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
-	surface = IMG_Load("../rsrcs/room.png");
+	surface = IMG_Load("./rsrcs/room.png");
 	if (!surface)
 		return (false);
 	things->roomz = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
-	surface = IMG_Load("../rsrcs/end.png");
+	surface = IMG_Load("./rsrcs/end.png");
 	if (!surface)
 		return (false);
 	things->end = SDL_CreateTextureFromSurface(things->renderer, surface);
 	SDL_FreeSurface(surface);
-	surface = IMG_Load("../rsrcs/start.png");
+	surface = IMG_Load("./rsrcs/start.png");
 	if (!surface)
 		return (false);
 	things->start = SDL_CreateTextureFromSurface(things->renderer, surface);
