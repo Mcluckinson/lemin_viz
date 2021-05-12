@@ -17,7 +17,7 @@ The file it wants is the whole thing your lem-in produces. Including map printin
 - fixed invalid resource paths that used to be configured 4 debug mode, now it works properly instead of producing resource-loading error
 
 
-A playable visualizer for 21/42 lem-in project. It draws a map, recieved as argument and show "ants" movement (hit space for that, if i remember correctly, lol). -g flag will launch it in game mode. Runs on macos, uses SDL2 4 that. U could quite easily make it run on Win/Linux, u'd need appropriate versions of SDL2/SDL2 image to it tho.
+A playable visualizer for 21/42 lem-in project. It draws a map, recieved as argument and show "ants" movement (hit space for that, if i remember correctly, lol). -g flag will launch it in game mode. Runs on macos, uses SDL2 4 that. U could quite easily make it run on Win/Linux, u'd need appropriate versions of SDL2/SDL2 image to do it tho.
 
 Licence is of course WTFPL.
 
